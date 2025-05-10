@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Awareness Phase Analysis | Department of Culture and Tourism - Abu Dhabi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* SONER Logo Animation */
+        @keyframes sonerScan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes sonerBlip { 0%, 20%, 100% { opacity: 0; } 2%, 15% { opacity: 1; } 3% { transform: scale(1.2); } }
+        
+        /* SONER Logo styles */
+        .soner-logo { 
+            display: flex; 
+            align-items: center; 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 28px; 
+            font-weight: 300; 
+        }
+        .soner-radar { 
+            width: 24px; 
+            height: 24px; 
+            border-radius: 50%; 
+            border: 1px solid white; 
+            margin: 0 3px; 
+            position: relative; 
+            background-color: rgba(255, 255, 255, 0.05); 
+            overflow: hidden; 
+        }
+        .soner-scanner { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            animation: sonerScan 4s linear infinite; 
+            transform-origin: center; 
+        }
+        .soner-scanner::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            width: 50%; 
+            height: 50%; 
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4)); 
+            transform-origin: bottom left; 
+            clip-path: polygon(0 0, 100% 0, 0 100%); 
+        }
+        .soner-scanner::after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            width: 50%; 
+            height: 1px; 
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); 
+            transform-origin: left center; 
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); 
+        }
+        .soner-blip { 
+            position: absolute; 
+            width: 2px; 
+            height: 2px; 
+            background-color: white; 
+            border-radius: 50%; 
+            opacity: 0; 
+            box-shadow: 0 0 4px white; 
+        }
+        .soner-blip:nth-child(1) { 
+            top: 25%; 
+            left: 30%; 
+            animation: sonerBlip 4s 1s infinite; 
+        }
+        .soner-blip:nth-child(2) { 
+            top: 65%; 
+            left: 60%; 
+            animation: sonerBlip 4s 2.5s infinite; 
+        }
+        .soner-tagline { 
+            color: white; 
+            font-size: 8px; 
+            text-transform: uppercase; 
+            font-weight: 500; 
+            letter-spacing: 0.5em; 
+            margin-left: 10px; 
+            opacity: 0.8; 
+        }
+        
+        :root {
+            --primary: #4285f4;
+            --primary-light: #1a2233;
+            --primary-dark: #8ab4f8;
+            --secondary: #34a853;
+            --secondary-light: #1a2a1e;
+            --warning: #fbbc04;
+            --warning-light: #332a1a;
+            --danger: #ea4335;
+            --danger-light: #331f1e;
+            --gray-100: #1e1e1e;
+            --gray-200: #2d2d2d;
+            --gray-300: #3d3d3d;
+            --gray-400: #4d4d4d;
+            --gray-500: #777777;
+            --gray-600: #a0a0a0;
+            --gray-700: #c0c0c0;
+            --gray-800: #e0e0e0;
+            --gray-900: #f0f0f0;
+            --bg-color: #000000;
+            --card-bg: #121212;
+            --section-bg: #181818;
+            --meta-color: #4267B2;
+            --meta-light: #1a2233;
+            --snap-color: #FFFC00;
+            --snap-light: #332a1a;
+            --tiktok-color: #EE1D52;
+            --tiktok-light: #331f1e;
+            --youtube-color: #FF0000;
+            --youtube-light: #331f1e;
+            --shahid-color: #00A3E0;
+            --shahid-light: #1a2233;
+            --sky-color: #0072C9;
+            --sky-light: #1a2233;
+            --memob-color: #FF6B00;
+            --memob-light: #332a1a;
+            --disney-color: #113CCF;
+            --disney-light: #1a2233;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--gray-800);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a73e8, #174ea6);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 30px 0 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        
+        .section {
+            background-color: var(--section-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid var(--gray-300);
+        }
+        
+.insights {
+    background-color: var(--primary-light);
+    border-left: 5px solid var(--primary);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 10px 10px 0;
+}
+
+.insights ul li {
+    margin-bottom: 12px;
+}
+
+/* Ensure spacing in all insights sections including View Generation Efficiency */
+.section .insights h3 {
+    margin-top: 20px;
+}
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--gray-200);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .metric-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .metric-btn {
+            padding: 8px 15px;
+            background-color: var(--gray-300);
+            color: var(--gray-700);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .metric-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .metric-btn:hover {
+            background-color: var(--gray-400);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            background-color: var(--card-bg);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid var(--gray-300);
+        }
+        
+        th {
+            background-color: var(--gray-200);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .country-header {
+            text-align: left;
+            font-weight: bold;
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+        }
+        
+        .metric-table {
+            display: none;
+        }
+        
+        .metric-table.active {
+            display: block;
+        }
+        
+        /* Platform-specific styling */
+        .platform-meta {
+            background-color: rgba(66, 103, 178, 0.1);
+        }
+        
+        .platform-snap {
+            background-color: rgba(255, 252, 0, 0.05);
+        }
+        
+        .platform-tiktok {
+            background-color: rgba(238, 29, 82, 0.05);
+        }
+        
+        .platform-youtube {
+            background-color: rgba(255, 0, 0, 0.05);
+        }
+        
+        .platform-shahid {
+            background-color: rgba(0, 163, 224, 0.05);
+        }
+        
+        .platform-sky {
+            background-color: rgba(0, 114, 201, 0.1);
+        }
+        
+        .platform-memob {
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+        
+        .platform-disney {
+            background-color: rgba(17, 60, 207, 0.1);
+        }
+        
+        /* Heat map styling for dark theme */
+        .heat-very-high {
+            color: #2E7D32;
+            font-weight: 700;
+            background-color: rgba(46, 125, 50, 0.2);
+            border-left: 3px solid #2E7D32;
+        }
+        
+        .heat-high {
+            color: #388E3C;
+            font-weight: 600;
+            background-color: rgba(56, 142, 60, 0.15);
+            border-left: 3px solid #388E3C;
+        }
+        
+        .heat-medium {
+            color: #F9A825;
+            font-weight: 500;
+            background-color: rgba(249, 168, 37, 0.1);
+            border-left: 3px solid #F9A825;
+        }
+        
+        .heat-low {
+            color: #E57373;
+            font-weight: 400;
+            background-color: rgba(229, 115, 115, 0.1);
+            border-left: 3px solid #E57373;
+        }
+        
+        .heat-very-low {
+            color: #C62828;
+            font-weight: 400;
+            background-color: rgba(198, 40, 40, 0.1);
+            border-left: 3px solid #C62828;
+        }
+        
+        /* Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .insight-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--gray-300);
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .insight-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            float: left;
+            margin-right: 10px;
+            margin-top: 2px;
+        }
+
+        .insight-card h4 {
+            color: var(--gray-800);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            min-height: 1.8rem;
+        }
+        
+        /* Summary List - Arrow style list */
+        .summary-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .summary-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .summary-list li:before {
+            content: "\f054";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Platform Tabs */
+        .platform-tabs {
+            margin: 30px 0;
+        }
+
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 15px;
+            background-color: var(--gray-300);
+            color: var(--gray-700);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--gray-300);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .platform-metrics {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .platform-metric-card {
+            text-align: center;
+            padding: 15px;
+            min-width: 120px;
+        }
+
+        .platform-insights p {
+            margin-bottom: 10px;
+        }
+
+        /* Optimization Grid */
+        .optimization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .optimization-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--gray-300);
+        }
+
+        .optimization-card h3 {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .optimization-content {
+            padding: 20px;
+        }
+
+        .recommendation-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .insights-grid,
+            .optimization-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        .no-data {
+            background-color: var(--gray-200);
+            color: var(--gray-500);
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background-color: var(--gray-200);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: var(--gray-600);
+            margin: 10px 0 20px;
+            line-height: 1.5;
+            background-color: var(--primary-light);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--gray-300);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        
+        .executive-summary {
+            background: linear-gradient(to bottom, var(--section-bg), var(--card-bg));
+            border-top: 4px solid var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--gray-300);
+            color: var(--gray-600);
+        }
+        
+        /* Collapsible section styles */
+        .section-header {
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            background-color: rgba(66, 133, 244, 0.1);
+            border-radius: 5px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header.collapsed:after {
+            transform: rotate(-90deg);
+        }
+        
+        .section-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 2000px; /* Large enough to contain content */
+        }
+        
+        .section-content.collapsed {
+            max-height: 0;
+        }
+        
+        /* Main section collapsible styles */
+        .main-section-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 30px; /* Space for the arrow */
+            transition: color 0.2s ease;
+        }
+        
+        .main-section-header:hover {
+            color: var(--primary-dark);
+        }
+        
+        .main-section-header:after {
+            content: '\f078';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .main-section-header.collapsed:after {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+        
+        .main-section-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            max-height: 9999px; /* Very large to accommodate all content */
+        }
+        
+        .main-section-content.collapsed {
+            max-height: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            th, td {
+                padding: 8px;
+                font-size: 12px;
+            }
+            
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                <a href="https://studiorns.github.io/DCTMarketAnalysisRepository/" style="text-decoration: none;">
+                    <div class="soner-logo">
+                        S<div class="soner-radar">
+                            <div class="soner-scanner"></div>
+                            <div class="soner-blip"></div>
+                            <div class="soner-blip"></div>
+                        </div>NER
+                        <span class="soner-tagline">Visual Intelligence</span>
+                    </div>
+                </a>
+            </div>
+            <h1>Ramadan Awareness Phase Analysis</h1>
+            <p>Cross-Platform Performance Analysis for Ramadan Campaign 2025</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section executive-summary">
+            <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
+                        
+
+            
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-value">$3.17M</div>
+                    <div class="metric-label">Total Awareness Phase Spend</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1.64B</div>
+                    <div class="metric-label">Total Impressions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">297.4M</div>
+                    <div class="metric-label">Total Views</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">4.78M</div>
+                    <div class="metric-label">Total Clicks</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">475K</div>
+                    <div class="metric-label">Total Sessions</div>
+                </div>
+            </div>
+            
+            <div class="insights" style="margin-top: 30px;">
+                <ul class="summary-list">
+                    <li><strong>Campaign Performance:</strong> The Ramadan campaign awareness phase invested $3.17 million across multiple platforms, generating 1.64 billion impressions, 301.4 million views, 4.78 million clicks, and 475 thousand sessions across key markets in the Middle East, Europe, CIS and Asia.</li>
+                    <li><strong>Regional Variations:</strong> Significant regional performance variations were observed: India delivered exceptional efficiency (5.0x) generating 46.3% of views with just 6.9% of budget, while European markets (0.41x efficiency) prioritized view quality (40-44% VTR) at higher costs, and GCC markets achieved balanced performance (0.72x efficiency with 30-37% VTR).</li>
+                    <li><strong>Platform Specialization:</strong> Each platform demonstrated distinct strengths: META delivered highest efficiency ($0.0054 CPV) and volume (62.8% of views), YouTube provided balanced quality and scale (42.3% VTR), and Premium Video platforms achieved exceptional view quality (87-99% VTR) at premium costs.</li>
+                    <li><strong>Optimization Potential:</strong> Analysis revealed a 129x difference between most efficient (India/META: $0.0012 CPV) and least efficient (UK/WeTransfer: $0.1554 CPV) platform-market combinations, highlighting significant optimization potential through strategic reallocation.</li>
+                    <li><strong>Strategic Recommendations:</strong> Key recommendations include developing an efficiency-quality balancing model to optimize budget allocation, adopting a competitive share-of-voice strategy in key markets, and creating a long-term market development index to guide investment toward markets with highest lifetime value.</li>
+                </ul>
+            </div>
+            
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-chart-pie"></i> Investment Analysis</h2>
+            
+            <h3 style="margin-top: 30px; color: var(--primary);">Platform Investment Analysis</h3>
+            <div class="note">
+                This visualization shows the distribution of the awareness phase budget across platforms, along with the Cost Per View (CPV) efficiency of each platform.
+            </div>
+            
+            <div class="chart-container" style="position: relative; height: 400px; margin: 20px 0 30px 0;">
+                <canvas id="platformInvestmentChart"></canvas>
+            </div>
+            
+            <div class="insights">
+                <ul class="summary-list">
+                    <li><strong>Platform Distribution:</strong> YouTube (34.9%) and META (32.2%) received the largest share of the budget, followed by Premium Video (13.6%), Snapchat (7.9%), and TikTok (6.1%).</li>
+                    <li><strong>Efficiency Patterns:</strong> META delivered the most cost-efficient views at $0.0054 CPV, while Premium Video platforms had the highest CPV at $0.0373 but also the highest view quality.</li>
+                    <li><strong>Quality Metrics:</strong> Clear VTR hierarchy across platforms: Premium Video (87-99%), YouTube (42.3%), META (16.0%), Snapchat (14.6%), and TikTok (4.2%).</li>
+                    <li><strong>Platform Specialization:</strong> Each platform demonstrated distinct strengths - META for efficiency, YouTube for balanced quality and scale, Premium Video for highest quality views.</li>
+                </ul>
+            </div>
+            
+            <h3 style="margin-top: 30px; color: var(--primary);">Market Investment Analysis</h3>
+            <div class="note">
+                This visualization shows the distribution of the awareness phase budget across markets, highlighting regional patterns and investment priorities.
+            </div>
+            
+            <div class="chart-container" style="position: relative; height: 400px; margin: 20px 0 30px 0;">
+                <canvas id="marketBubbleChart"></canvas>
+            </div>
+            
+            <div class="insights">
+                <ul class="summary-list">
+                    <li><strong>Regional Allocation:</strong> European markets received 62.2% of the budget, while GCC markets received 28.8%, India 8.6%, and CIS markets (Armenia) 0.4%.</li>
+                    <li><strong>Market Prioritization:</strong> UK, France, and Germany were the top three markets by investment.</li>
+                    <li><strong>Efficiency Patterns:</strong> India and GCC markets demonstrated significantly higher efficiency in converting marketing investment into awareness and engagement outcomes.</li>
+                    <li><strong>Specialized Approaches:</strong> Armenia received targeted investment for VK platform, showing market-specific strategy.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-chart-bar"></i> Metric Analysis by Country & Platform</h2>
+            
+            <div class="controls">
+                <div class="metric-selector">
+                    <button class="metric-btn active" data-metric="spends"><i class="fas fa-dollar-sign"></i> Spends</button>
+                    <button class="metric-btn" data-metric="impressions"><i class="fas fa-eye"></i> Impressions</button>
+                    <button class="metric-btn" data-metric="views"><i class="fas fa-play-circle"></i> Views</button>
+                    <button class="metric-btn" data-metric="clicks"><i class="fas fa-mouse-pointer"></i> Clicks</button>
+                    <button class="metric-btn" data-metric="cpm"><i class="fas fa-chart-line"></i> CPM</button>
+                    <button class="metric-btn" data-metric="cpv"><i class="fas fa-tags"></i> CPV</button>
+                    <button class="metric-btn" data-metric="vtr"><i class="fas fa-percentage"></i> VTR</button>
+                    <button class="metric-btn" data-metric="ctr"><i class="fas fa-hand-pointer"></i> CTR</button>
+                    <button class="metric-btn" data-metric="sessions"><i class="fas fa-user-clock"></i> Sessions</button>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item"><div class="legend-color heat-very-high"></div><span>Very High</span></div>
+                <div class="legend-item"><div class="legend-color heat-high"></div><span>High</span></div>
+                <div class="legend-item"><div class="legend-color heat-medium"></div><span>Medium</span></div>
+                <div class="legend-item"><div class="legend-color heat-low"></div><span>Low</span></div>
+                <div class="legend-item"><div class="legend-color heat-very-low"></div><span>Very Low</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color:var(--gray-200);"></div><span>No Data</span></div>
+            </div>
+            
+            <!-- Spends Table -->
+            <div class="table-container metric-table active" id="spends-table">
+                <h2>Spends (in USD)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-very-high">166,238</td><td class="heat-medium">28,479</td><td class="no-data">-</td><td class="heat-very-high">159,275</td><td class="heat-medium">20,692</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-very-high">157,073</td><td class="heat-low">14,282</td><td class="no-data">-</td><td class="heat-very-high">152,421</td><td class="no-data">-</td><td class="heat-high">150,019</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">20,585</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-very-high">165,015</td><td class="heat-low">10,675</td><td class="no-data">-</td><td class="heat-very-high">274,823</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">12,943</td><td class="heat-high">51,511</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-very-high">159,375</td><td class="heat-medium">20,701</td><td class="no-data">-</td><td class="heat-very-high">296,150</td><td class="no-data">-</td><td class="heat-high">150,712</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-high">82,401</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-very-high">134,333</td><td class="no-data">-</td><td class="heat-high">111,407</td><td class="heat-medium">27,894</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-very-high">148,187</td><td class="heat-medium">28,622</td><td class="no-data">-</td><td class="heat-high">76,237</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-low">13,951</td><td class="heat-low">14,269</td><td class="no-data">-</td><td class="heat-low">16,618</td><td class="heat-low">15,149</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-medium">41,869</td><td class="heat-high">66,615</td><td class="heat-high">73,776</td><td class="heat-high">60,259</td><td class="heat-high">82,439</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-very-low">5,754</td><td class="no-data">-</td><td class="heat-high">66,438</td><td class="heat-very-low">2,243</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-low">12,749</td><td class="heat-very-low">475</td><td class="no-data">-</td><td class="heat-medium">20,534</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-low">16,329</td><td class="heat-low">8,568</td><td class="no-data">-</td><td class="heat-low">19,859</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">11,570</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Impressions Table -->
+            <div class="table-container metric-table" id="impressions-table">
+                <h2>Impressions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-high">74.1M</td><td class="heat-medium">19.3M</td><td class="no-data">-</td><td class="heat-medium">26.1M</td><td class="heat-very-low">712K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-medium">47.6M</td><td class="heat-low">7.3M</td><td class="no-data">-</td><td class="heat-low">10.5M</td><td class="no-data">-</td><td class="heat-low">2.8M</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">657K</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-high">78.5M</td><td class="heat-low">5.8M</td><td class="no-data">-</td><td class="heat-medium">26.0M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-very-low">395K</td><td class="heat-low">1.8M</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-medium">47.3M</td><td class="heat-low">5.0M</td><td class="no-data">-</td><td class="heat-medium">23.9M</td><td class="no-data">-</td><td class="heat-low">2.8M</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">1.6M</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-very-high">724.5M</td><td class="no-data">-</td><td class="heat-high">104.3M</td><td class="heat-medium">27.2M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-high">104.2M</td><td class="heat-medium">19.9M</td><td class="no-data">-</td><td class="heat-low">10.8M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-medium">18.5M</td><td class="heat-low">12.9M</td><td class="no-data">-</td><td class="heat-low">6.1M</td><td class="heat-very-low">551K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-medium">48.9M</td><td class="heat-high">54.3M</td><td class="heat-medium">18.4M</td><td class="heat-low">16.3M</td><td class="heat-low">3.0M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-low">3.3M</td><td class="no-data">-</td><td class="heat-medium">21.4M</td><td class="heat-low">1.6M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-medium">18.8M</td><td class="heat-very-low">943K</td><td class="no-data">-</td><td class="heat-low">12.0M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-medium">17.5M</td><td class="heat-low">8.3M</td><td class="no-data">-</td><td class="heat-low">4.2M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">1.5M</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Views Table -->
+            <div class="table-container metric-table" id="views-table">
+                <h2>Views</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-high">10.4M</td><td class="heat-low">849K</td><td class="no-data">-</td><td class="heat-high">11.4M</td><td class="heat-low">657K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-medium">8.8M</td><td class="heat-low">326K</td><td class="no-data">-</td><td class="heat-medium">6.2M</td><td class="no-data">-</td><td class="heat-medium">2.7M</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">255K</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-high">14.4M</td><td class="heat-low">210K</td><td class="no-data">-</td><td class="heat-high">9.2M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">381K</td><td class="heat-low">602K</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-high">11.5M</td><td class="heat-low">284K</td><td class="no-data">-</td><td class="heat-high">9.4M</td><td class="no-data">-</td><td class="heat-medium">2.8M</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">530K</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-very-high">112.6M</td><td class="no-data">-</td><td class="heat-high">14.9M</td><td class="heat-high">13.5M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-high">20.0M</td><td class="heat-low">687K</td><td class="no-data">-</td><td class="heat-medium">5.1M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-medium">2.2M</td><td class="heat-low">528K</td><td class="no-data">-</td><td class="heat-medium">2.4M</td><td class="heat-low">481K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-medium">5.2M</td><td class="heat-medium">2.4M</td><td class="heat-medium">4.3M</td><td class="heat-high">7.6M</td><td class="heat-medium">2.6M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-low">577K</td><td class="no-data">-</td><td class="heat-medium">1.7M</td><td class="heat-low">595K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-medium">1.8M</td><td class="heat-very-low">34K</td><td class="no-data">-</td><td class="heat-medium">3.0M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-low">1.7M</td><td class="heat-low">281K</td><td class="no-data">-</td><td class="heat-medium">1.3M</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">991K</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Clicks Table -->
+            <div class="table-container metric-table" id="clicks-table">
+                <h2>Clicks</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-high">197K</td><td class="heat-medium">21K</td><td class="no-data">-</td><td class="heat-high">88K</td><td class="heat-low">4K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-medium">60K</td><td class="heat-low">8K</td><td class="no-data">-</td><td class="heat-low">16K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">5K</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-high">125K</td><td class="heat-low">8K</td><td class="no-data">-</td><td class="heat-medium">57K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">13K</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-medium">46K</td><td class="heat-low">9K</td><td class="no-data">-</td><td class="heat-medium">65K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">10K</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-very-high">2.0M</td><td class="no-data">-</td><td class="heat-high">999K</td><td class="heat-high">124K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-high">178K</td><td class="heat-medium">25K</td><td class="no-data">-</td><td class="heat-medium">41K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-medium">32K</td><td class="heat-low">15K</td><td class="no-data">-</td><td class="heat-medium">30K</td><td class="heat-low">2K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-high">103K</td><td class="heat-high">80K</td><td class="heat-medium">30K</td><td class="heat-medium">59K</td><td class="heat-low">13K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-low">5K</td><td class="no-data">-</td><td class="heat-high">123K</td><td class="heat-low">5K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-medium">32K</td><td class="heat-very-low">1K</td><td class="no-data">-</td><td class="heat-medium">59K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-medium">30K</td><td class="heat-low">8K</td><td class="no-data">-</td><td class="heat-medium">22K</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">2K</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- CPM Table -->
+            <div class="table-container metric-table" id="cpm-table">
+                <h2>Cost Per Mille (CPM)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-medium">$2.24</td><td class="heat-high">$1.48</td><td class="no-data">-</td><td class="heat-low">$6.09</td><td class="heat-very-low">$29.05</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-medium">$3.30</td><td class="heat-high">$1.96</td><td class="no-data">-</td><td class="heat-low">$14.53</td><td class="no-data">-</td><td class="heat-very-low">$54.00</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-very-low">$31.33</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-medium">$2.10</td><td class="heat-high">$1.85</td><td class="no-data">-</td><td class="heat-low">$10.57</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-very-low">$32.75</td><td class="heat-very-low">$29.00</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-medium">$3.37</td><td class="heat-medium">$4.12</td><td class="no-data">-</td><td class="heat-low">$12.38</td><td class="no-data">-</td><td class="heat-very-low">$54.00</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-very-low">$50.88</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-very-high">$0.19</td><td class="no-data">-</td><td class="heat-high">$1.07</td><td class="heat-high">$1.02</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-high">$1.42</td><td class="heat-high">$1.44</td><td class="no-data">-</td><td class="heat-low">$7.09</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-very-high">$0.75</td><td class="heat-high">$1.10</td><td class="no-data">-</td><td class="heat-medium">$2.72</td><td class="heat-very-low">$27.47</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-very-high">$0.86</td><td class="heat-high">$1.23</td><td class="heat-medium">$4.01</td><td class="heat-medium">$3.70</td><td class="heat-very-low">$27.25</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-high">$1.74</td><td class="no-data">-</td><td class="heat-medium">$3.10</td><td class="heat-high">$1.40</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-very-high">$0.68</td><td class="heat-very-high">$0.50</td><td class="no-data">-</td><td class="heat-high">$1.71</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-very-high">$0.93</td><td class="heat-high">$1.03</td><td class="no-data">-</td><td class="heat-medium">$4.74</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">$7.81</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- CPV Table -->
+            <div class="table-container metric-table" id="cpv-table">
+                <h2>Cost Per View (CPV)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-medium">0.0159</td><td class="heat-medium">0.0335</td><td class="no-data">-</td><td class="heat-medium">0.0139</td><td class="heat-medium">0.0315</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-medium">0.0179</td><td class="heat-low">0.0437</td><td class="no-data">-</td><td class="heat-medium">0.0245</td><td class="no-data">-</td><td class="heat-medium">0.0554</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">0.0807</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-high">0.0114</td><td class="heat-low">0.0509</td><td class="no-data">-</td><td class="heat-medium">0.0298</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">0.0340</td><td class="heat-medium">0.0856</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-high">0.0139</td><td class="heat-very-low">0.0729</td><td class="no-data">-</td><td class="heat-medium">0.0316</td><td class="no-data">-</td><td class="heat-medium">0.0539</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">0.1554</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-very-high">0.0012</td><td class="no-data">-</td><td class="heat-high">0.0075</td><td class="heat-very-high">0.0021</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-high">0.0074</td><td class="heat-low">0.0416</td><td class="no-data">-</td><td class="heat-high">0.0151</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-high">0.0064</td><td class="heat-medium">0.0270</td><td class="no-data">-</td><td class="heat-high">0.0069</td><td class="heat-medium">0.0315</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-high">0.0080</td><td class="heat-medium">0.0282</td><td class="heat-high">0.0171</td><td class="heat-high">0.0080</td><td class="heat-medium">0.0315</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-high">0.0100</td><td class="no-data">-</td><td class="heat-low">0.0385</td><td class="heat-very-high">0.0038</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-high">0.0069</td><td class="heat-high">0.0139</td><td class="no-data">-</td><td class="heat-high">0.0069</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-high">0.0097</td><td class="heat-medium">0.0305</td><td class="no-data">-</td><td class="heat-high">0.0154</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-high">0.0117</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- VTR Table -->
+            <div class="table-container metric-table" id="vtr-table">
+                <h2>View-Through Rate (VTR)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-medium">14.1%</td><td class="heat-low">4.4%</td><td class="no-data">-</td><td class="heat-high">43.7%</td><td class="heat-very-high">92.0%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-medium">18.5%</td><td class="heat-low">4.5%</td><td class="no-data">-</td><td class="heat-high">59.3%</td><td class="no-data">-</td><td class="heat-high">97.6%</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">38.8%</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-medium">18.4%</td><td class="heat-low">3.6%</td><td class="no-data">-</td><td class="heat-medium">35.5%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-high">96.4%</td><td class="heat-medium">33.9%</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-medium">24.2%</td><td class="heat-low">5.7%</td><td class="no-data">-</td><td class="heat-high">39.2%</td><td class="no-data">-</td><td class="heat-very-high">100.0%</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">32.7%</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-medium">15.5%</td><td class="no-data">-</td><td class="heat-medium">14.3%</td><td class="heat-high">49.5%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-medium">19.2%</td><td class="heat-low">3.5%</td><td class="no-data">-</td><td class="heat-high">47.0%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-low">11.8%</td><td class="heat-low">4.1%</td><td class="no-data">-</td><td class="heat-high">39.4%</td><td class="heat-very-high">87.0%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-low">10.7%</td><td class="heat-low">4.3%</td><td class="heat-medium">23.5%</td><td class="heat-high">46.4%</td><td class="heat-very-high">86.0%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-medium">17.5%</td><td class="no-data">-</td><td class="heat-low">8.1%</td><td class="heat-medium">37.1%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-low">9.8%</td><td class="heat-low">3.6%</td><td class="no-data">-</td><td class="heat-medium">24.7%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-low">9.7%</td><td class="heat-low">3.4%</td><td class="no-data">-</td><td class="heat-medium">30.8%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-high">66.9%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- CTR Table -->
+            <div class="table-container metric-table" id="ctr-table">
+                <h2>Click-Through Rate (CTR)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-medium">0.27%</td><td class="heat-low">0.11%</td><td class="no-data">-</td><td class="heat-medium">0.33%</td><td class="heat-high">0.60%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-low">0.13%</td><td class="heat-low">0.10%</td><td class="no-data">-</td><td class="heat-low">0.15%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">0.81%</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-low">0.16%</td><td class="heat-low">0.13%</td><td class="no-data">-</td><td class="heat-medium">0.22%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">0.75%</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-low">0.10%</td><td class="heat-low">0.17%</td><td class="no-data">-</td><td class="heat-medium">0.27%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">0.61%</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-medium">0.28%</td><td class="no-data">-</td><td class="heat-high">0.96%</td><td class="heat-high">0.45%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-low">0.17%</td><td class="heat-low">0.13%</td><td class="no-data">-</td><td class="heat-high">0.38%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-low">0.18%</td><td class="heat-low">0.11%</td><td class="no-data">-</td><td class="heat-high">0.49%</td><td class="heat-medium">0.35%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-medium">0.21%</td><td class="heat-low">0.15%</td><td class="heat-low">0.16%</td><td class="heat-medium">0.36%</td><td class="heat-medium">0.44%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-low">0.15%</td><td class="no-data">-</td><td class="heat-high">0.58%</td><td class="heat-medium">0.31%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-low">0.17%</td><td class="heat-low">0.10%</td><td class="no-data">-</td><td class="heat-high">0.49%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-low">0.17%</td><td class="heat-low">0.10%</td><td class="no-data">-</td><td class="heat-high">0.52%</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">0.17%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Sessions Table -->
+            <div class="table-container metric-table" id="sessions-table">
+                <h2>Sessions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th class="platform-meta">Meta</th>
+                            <th class="platform-tiktok">TikTok</th>
+                            <th class="platform-snap">Snapchat</th>
+                            <th class="platform-youtube">YouTube</th>
+                            <th class="platform-shahid">Shahid</th>
+                            <th class="platform-sky">Sky</th>
+                            <th class="platform-memob">MeMob</th>
+                            <th class="platform-disney">Disney+</th>
+                            <th style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</th>
+                            <th style="background-color: rgba(100, 100, 255, 0.05);">VK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="country-header">AE</td><td class="heat-low">1,575</td><td class="heat-medium">2,721</td><td class="no-data">-</td><td class="heat-high">18,699</td><td class="heat-low">1,422</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">DE</td><td class="heat-low">771</td><td class="heat-low">272</td><td class="no-data">-</td><td class="heat-low">274</td><td class="no-data">-</td><td class="heat-very-low">1</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-very-low">88</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">FR</td><td class="heat-low">1,143</td><td class="heat-low">342</td><td class="no-data">-</td><td class="heat-medium">2,338</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-very-low">1</td><td class="heat-low">964</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">GB</td><td class="heat-medium">2,788</td><td class="heat-low">1,121</td><td class="no-data">-</td><td class="heat-high">9,814</td><td class="no-data">-</td><td class="heat-very-low">1</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-medium">2,043</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IN</td><td class="heat-very-high">93,268</td><td class="no-data">-</td><td class="heat-very-high">201,452</td><td class="heat-high">41,381</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">IT</td><td class="heat-low">651</td><td class="heat-low">859</td><td class="no-data">-</td><td class="heat-low">470</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">KW</td><td class="heat-very-low">78</td><td class="heat-low">548</td><td class="no-data">-</td><td class="heat-low">942</td><td class="heat-low">440</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">SA</td><td class="heat-very-low">135</td><td class="heat-medium">2,586</td><td class="heat-high">12,908</td><td class="heat-medium">2,612</td><td class="heat-medium">2,846</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">BH</td><td class="heat-very-low">12</td><td class="no-data">-</td><td class="heat-very-high">63,534</td><td class="heat-low">338</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">OM</td><td class="heat-very-low">67</td><td class="heat-very-low">5</td><td class="no-data">-</td><td class="heat-low">1,177</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">QA</td><td class="heat-very-low">72</td><td class="heat-low">456</td><td class="no-data">-</td><td class="heat-low">1,172</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td></tr>
+                        <tr><td class="country-header">AM</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="no-data">-</td><td class="heat-low">945</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h2><i class="fas fa-search"></i> Key Awareness Phase Findings</h2>
+            <div class="note">
+                The awareness phase analysis reveals significant opportunities to optimize view generation and quality across regions and platforms.
+            </div>
+
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h4>Regional View Efficiency</h4>
+                    <p>India represents a $1.2M efficiency opportunity, delivering 5.44x ROI with 141M views at $0.0019 CPV. Reallocating just 10% of European budget to India could generate an additional 57M views while maintaining the same total investment. This represents a potential 19% increase in total campaign reach.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-play-circle"></i></div>
+                    <h4>Platform Performance Hierarchy</h4>
+                    <p>Our platform ecosystem reveals three distinct strategic roles: META as our reach amplifier ($0.0054 CPV, 62.8% of views), YouTube as our balanced performer (42.3% VTR at $0.0159 CPV), and Premium Video as our quality driver (87-99% VTR). The 6.9x CPV differential between META and Premium Video represents a strategic trade-off worth $0.0319 per view for quality - a premium we're currently paying across 16M views.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-tags"></i></div>
+                    <h4>Market-Platform Optimization</h4>
+                    <p>Our platform-market matrix reveals extreme performance stratification: Elite combinations (India/META: $0.0012 CPV for efficiency, UAE/Shahid: 92% VTR with $0.0315 CPV for quality) outperform baseline combinations by 5-15x, while underperforming combinations (UK/WeTransfer: $0.1554 CPV) represent a $142K inefficiency opportunity. This 129x performance gap between best and worst CPV is actionable through mathematical optimization rather than intuition-based allocation.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Specialized Combinations</h4>
+                    <p>Highest performing combinations include Italy/YouTube (<strong>47%</strong> VTR), UAE/Shahid (<strong>92%</strong> VTR), and India/META (<strong>$0.0012</strong> CPV) - scaling these could yield <strong>5-15x</strong> efficiency improvements.</p>
+                </div>
+            </div>
+            
+        </section>
+        
+        
+        <section class="section">
+            <h2><i class="fas fa-globe-americas"></i> Regional View Performance Analysis</h2>
+            <div class="note">
+                This analysis compares view generation performance across the three main regions: European Markets, GCC Markets, and India.
+            </div>
+            
+            <div class="chart-container" style="position: relative; height: 400px; margin: 20px 0 30px 0;">
+                <canvas id="regionalViewChart"></canvas>
+            </div>
+            
+            <div class="insights">
+                <h3>View Generation Efficiency</h3>
+                <ul class="summary-list">
+                    <li><strong>India (5.0x efficiency):</strong> Generated 46.3% of views with only 6.9% of budget, delivering 141M views at an average CPV of $0.0019.</li>
+                    <li><strong>GCC Markets (0.72x efficiency):</strong> Produced 20.6% of views with 28.8% of budget, with strong performance in UAE and Saudi Arabia.</li>
+                    <li><strong>European Markets (0.41x efficiency):</strong> Delivered only 22.4% of views despite receiving 62.2% of budget, with significantly higher costs.</li>
+                </ul>
+                
+                <h3>View Quality (VTR) by Region</h3>
+                <ul class="summary-list">
+                    <li><strong>European Markets:</strong> Highest average VTR (40-44%) across platforms, particularly on premium video platforms.</li>
+                    <li><strong>GCC Markets:</strong> Moderate VTR (30-37%) with strong YouTube and Shahid performance.</li>
+                    <li><strong>India:</strong> Lower average VTR (26.4%) but exceptional volume and efficiency metrics.</li>
+                </ul>
+                
+                <h3>CPV Performance</h3>
+                <ul class="summary-list">
+                    <li><strong>India:</strong> Lowest CPV ($0.0019) across all platforms, with META at just $0.0012.</li>
+                    <li><strong>GCC Markets:</strong> Moderate CPV ($0.0102-$0.0174) with significant platform variation.</li>
+                    <li><strong>European Markets:</strong> Highest CPV ($0.0207-$0.0290) driven by premium platform costs.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-tv"></i> Platform View Performance Analysis</h2>
+            <div class="note">
+                Each platform demonstrated distinct strengths and weaknesses in view generation and quality during the awareness phase.
+            </div>
+            
+            <div class="table-container">
+                <h3>Efficiency Metrics Comparison</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Views</th>
+                            <th>VTR</th>
+                            <th>CPV</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="platform-meta">Meta</td>
+                            <td class="heat-very-high">189.2M</td>
+                            <td class="heat-medium">16.0%</td>
+                            <td class="heat-very-high">$0.00539</td>
+                        </tr>
+                        <tr>
+                            <td class="platform-youtube">YouTube</td>
+                            <td class="heat-high">69.6M</td>
+                            <td class="heat-high">42.3%</td>
+                            <td class="heat-high">$0.0159</td>
+                        </tr>
+                        <tr>
+                            <td class="platform-snap">Snapchat</td>
+                            <td class="heat-medium">21.0M</td>
+                            <td class="heat-medium">14.6%</td>
+                            <td class="heat-very-high">$0.0120</td>
+                        </tr>
+                        <tr>
+                            <td class="platform-tiktok">TikTok</td>
+                            <td class="heat-low">5.6M</td>
+                            <td class="heat-very-low">4.2%</td>
+                            <td class="heat-medium">$0.0347</td>
+                        </tr>
+                        <tr>
+                            <td class="platform-sky">Sky</td>
+                            <td class="heat-medium">5.5M</td>
+                            <td class="heat-very-high">98.8%</td>
+                            <td class="heat-low">$0.0546</td>
+                        </tr>
+                        <tr>
+                            <td class="platform-shahid">Shahid</td>
+                            <td class="heat-medium">3.8M</td>
+                            <td class="heat-very-high">87.5%</td>
+                            <td class="heat-medium">$0.0315</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: rgba(255, 255, 255, 0.05);">WeTransfer</td>
+                            <td class="heat-low">1.4M</td>
+                            <td class="heat-medium">34.2%</td>
+                            <td class="heat-very-low">$0.1114</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: rgba(100, 100, 255, 0.05);">VK</td>
+                            <td class="heat-low">1.0M</td>
+                            <td class="heat-high">66.9%</td>
+                            <td class="heat-very-high">$0.0117</td>
+                        </tr>
+                        <tr>
+                            <td class="platform-disney">Disney+Video</td>
+                            <td class="heat-very-low">0.4M</td>
+                            <td class="heat-very-high">96.4%</td>
+                            <td class="heat-medium">$0.0340</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="note" style="margin-top: 15px;">
+                    <strong>Note:</strong> Lower CPV values and higher VTR values indicate better performance. Meta delivers the highest volume of views at the lowest CPV, while Sky and Disney+Video have the highest VTR.
+                </div>
+            </div>
+            
+            <div class="platform-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-platform="meta"><i class="fab fa-facebook"></i> META</button>
+                    <button class="tab-btn" data-platform="youtube"><i class="fab fa-youtube"></i> YouTube</button>
+                    <button class="tab-btn" data-platform="snapchat"><i class="fab fa-snapchat-ghost"></i> Snapchat</button>
+                    <button class="tab-btn" data-platform="tiktok"><i class="fab fa-tiktok"></i> TikTok</button>
+                    <button class="tab-btn" data-platform="premium"><i class="fas fa-crown"></i> Premium Video</button>
+                </div>
+                
+                <div class="tab-content active" id="meta-content">
+                    <h3>META Performance</h3>
+                    <div class="platform-metrics">
+                        <div class="platform-metric-card">
+                            <div class="metric-value">189.2M</div>
+                            <div class="metric-label">Total Views</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">16.0%</div>
+                            <div class="metric-label">Average VTR</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">$0.0054</div>
+                            <div class="metric-label">Average CPV</div>
+                        </div>
+                    </div>
+                    <div class="platform-insights">
+                        <p><strong>Key Strengths:</strong> Highest view volume (62.8% of total), most cost-efficient CPV, excellent scale in India (112.6M views).</p>
+                        <p><strong>Key Weaknesses:</strong> Moderate VTR (16.0%), significant performance variation across markets.</p>
+                        <p><strong>Best Markets:</strong> India ($0.0012 CPV), UK (24.2% VTR), Italy (19.2% VTR)</p>
+                        <p><strong>Optimization Opportunity:</strong> Optimize META allocation within regions - maintain European budget but shift to UK/Italy (highest VTR markets), and within GCC shift to Saudi Arabia (best balance of scale and efficiency).</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="youtube-content">
+                    <h3>YouTube Performance</h3>
+                    <div class="platform-metrics">
+                        <div class="platform-metric-card">
+                            <div class="metric-value">69.6M</div>
+                            <div class="metric-label">Total Views</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">42.3%</div>
+                            <div class="metric-label">Average VTR</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">$0.0159</div>
+                            <div class="metric-label">Average CPV</div>
+                        </div>
+                    </div>
+                    <div class="platform-insights">
+                        <p><strong>Key Strengths:</strong> Superior view quality (42.3% VTR), consistent performance across all markets, strong balance of quality and scale.</p>
+                        <p><strong>Key Weaknesses:</strong> Higher CPV ($0.0159) than META, higher costs in European markets.</p>
+                        <p><strong>Best Markets:</strong> Germany (59.3% VTR), India (49.5% VTR, $0.0021 CPV), Italy (47.0% VTR)</p>
+                        <p><strong>Optimization Opportunity:</strong> Leverage YouTube's consistent quality across markets by standardizing it as the primary video platform in all regions, with increased share in Germany (59.3% VTR) and Italy (47.0% VTR).</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="snapchat-content">
+                    <h3>Snapchat Performance</h3>
+                    <div class="platform-metrics">
+                        <div class="platform-metric-card">
+                            <div class="metric-value">21.0M</div>
+                            <div class="metric-label">Total Views</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">14.6%</div>
+                            <div class="metric-label">Average VTR</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">$0.0120</div>
+                            <div class="metric-label">Average CPV</div>
+                        </div>
+                    </div>
+                    <div class="platform-insights">
+                        <p><strong>Key Strengths:</strong> Good balance of view quality and cost efficiency, strong performance in India and Saudi Arabia.</p>
+                        <p><strong>Key Weaknesses:</strong> Limited market coverage (only used in India, Saudi Arabia, and Bahrain), lower VTR than YouTube.</p>
+                        <p><strong>Best Markets:</strong> Saudi Arabia (23.5% VTR), India (14.3% VTR, $0.0075 CPV)</p>
+                        <p><strong>Optimization Opportunity:</strong> Expand Snapchat's role in Saudi Arabia (23.5% VTR) and test in additional GCC markets based on Saudi success model.</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="tiktok-content">
+                    <h3>TikTok Performance</h3>
+                    <div class="platform-metrics">
+                        <div class="platform-metric-card">
+                            <div class="metric-value">5.6M</div>
+                            <div class="metric-label">Total Views</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">4.2%</div>
+                            <div class="metric-label">Average VTR</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">$0.0347</div>
+                            <div class="metric-label">Average CPV</div>
+                        </div>
+                    </div>
+                    <div class="platform-insights">
+                        <p><strong>Key Strengths:</strong> Youth audience reach, reasonable CPM ($1.44), strong impression volume in Saudi Arabia.</p>
+                        <p><strong>Key Weaknesses:</strong> Poorest VTR (4.2%) among all platforms, high CPV relative to view quality, consistent underperformance across markets.</p>
+                        <p><strong>Best Markets:</strong> UK (5.7% VTR), Germany (4.5% VTR), Saudi Arabia (4.3% VTR, 2.4M views)</p>
+                        <p><strong>Optimization Opportunity:</strong> Maintain as a youth-focused supplementary platform with targeted investment in Saudi Arabia where it shows strongest performance, and test creative optimization in UK/Germany to improve VTR.</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="premium-content">
+                    <h3>Premium Video Performance</h3>
+                    <div class="platform-metrics">
+                        <div class="platform-metric-card">
+                            <div class="metric-value">16.0M</div>
+                            <div class="metric-label">Total Views</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">87-99%</div>
+                            <div class="metric-label">Average VTR</div>
+                        </div>
+                        <div class="platform-metric-card">
+                            <div class="metric-value">$0.0373</div>
+                            <div class="metric-label">Average CPV</div>
+                        </div>
+                    </div>
+                    <div class="platform-insights">
+                        <p><strong>Key Strengths:</strong> Exceptional view quality (87-99% VTR), premium brand environment, targeted reach to specific audience segments.</p>
+                        <p><strong>Key Weaknesses:</strong> Highest CPV ($0.0373), limited scale (only 16.0M views), significantly higher costs across all metrics.</p>
+                        <p><strong>Best Platforms:</strong> Sky (98.8% VTR), Disney+ (96.4% VTR), Shahid (87.5% VTR)</p>
+                        <p><strong>Optimization Opportunity:</strong> Position as the quality driver in European markets (especially UK/Germany with Sky), and UAE/Kuwait with Shahid, focusing on brand-building objectives rather than efficiency metrics.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; color: var(--primary);">Top Performing Platforms</h3>
+            <div class="note">
+                The awareness phase analysis reveals distinct performance patterns across platforms, with each demonstrating unique strengths.
+            </div>
+            
+            <div class="platform-summary-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px;">
+                <div class="platform-summary-card meta-bg" style="border-radius: 8px; padding: 15px; border: 1px solid var(--gray-300); background-color: rgba(66, 103, 178, 0.1);">
+                    <h4 style="margin-bottom: 10px; font-size: 1.1rem; border-bottom: 1px solid var(--gray-300); padding-bottom: 5px;">META</h4>
+                    <p><strong>Strength:</strong> Cost-efficient reach & views</p>
+                    <p><strong>CPV:</strong> $0.0054 | <strong>VTR:</strong> 16.0%</p>
+                    <p><strong>Budget:</strong> 32.2% | <strong>Rec:</strong> 30-35%</p>
+                </div>
+                <div class="platform-summary-card youtube-bg" style="border-radius: 8px; padding: 15px; border: 1px solid var(--gray-300); background-color: rgba(255, 0, 0, 0.05);">
+                    <h4 style="margin-bottom: 10px; font-size: 1.1rem; border-bottom: 1px solid var(--gray-300); padding-bottom: 5px;">YouTube</h4>
+                    <p><strong>Strength:</strong> High-quality views</p>
+                    <p><strong>VTR:</strong> 42.3% | <strong>CPV:</strong> $0.0159</p>
+                    <p><strong>Budget:</strong> 34.9% | <strong>Rec:</strong> 30-35%</p>
+                </div>
+                <div class="platform-summary-card snap-bg" style="border-radius: 8px; padding: 15px; border: 1px solid var(--gray-300); background-color: rgba(255, 252, 0, 0.05);">
+                    <h4 style="margin-bottom: 10px; font-size: 1.1rem; border-bottom: 1px solid var(--gray-300); padding-bottom: 5px;">Snapchat</h4>
+                    <p><strong>Strength:</strong> Strong in specific markets</p>
+                    <p><strong>VTR:</strong> 14.6% | <strong>CPV:</strong> $0.0120</p>
+                    <p><strong>Budget:</strong> 7.9% | <strong>Rec:</strong> 10-15%</p>
+                </div>
+                <div class="platform-summary-card shahid-bg" style="border-radius: 8px; padding: 15px; border: 1px solid var(--gray-300); background-color: rgba(0, 163, 224, 0.05);">
+                    <h4 style="margin-bottom: 10px; font-size: 1.1rem; border-bottom: 1px solid var(--gray-300); padding-bottom: 5px;">Premium Video</h4>
+                    <p><strong>Strength:</strong> Exceptional view quality</p>
+                    <p><strong>VTR:</strong> 87-99% | <strong>CPV:</strong> $0.032-0.055</p>
+                    <p><strong>Budget:</strong> 13.6% | <strong>Rec:</strong> 10-15%</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-chart-line"></i> View Efficiency Optimization Opportunities</h2>
+            <div class="note">
+                Analysis reveals significant opportunities to optimize view generation efficiency through strategic reallocation.
+            </div>
+            
+            <div class="chart-container" style="position: relative; height: 400px; margin: 20px 0 30px 0;">
+                <canvas id="cpvHeatmapChart"></canvas>
+            </div>
+            
+            <div class="optimization-grid">
+                <div class="optimization-card">
+                    <h3>Platform Optimization</h3>
+                    <div class="optimization-content">
+                        <p>Significant efficiency improvements possible through platform reallocation within markets:</p>
+                        <ul>
+                            <li>European Markets: 21.7x VTR improvement (Sky vs. TikTok in Germany)</li>
+                            <li>GCC Markets: 20.9x VTR improvement (Shahid vs. TikTok in UAE)</li>
+                            <li>Cross-Market: Standardize YouTube:META ratios based on best performers</li>
+                        </ul>
+                        <div class="recommendation-box">
+                            <p><strong>Recommendation:</strong> Optimize platform mix within each region - shift from TikTok to YouTube/Shahid in respective markets while maintaining regional budget balance.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="optimization-card">
+                    <h3>Regional Specialization</h3>
+                    <div class="optimization-content">
+                        <p>Each region demonstrates unique strengths that can be leveraged:</p>
+                        <ul>
+                            <li>European Markets: Superior view quality (40-44% VTR)</li>
+                            <li>GCC Markets: Balanced efficiency (0.72x) with good quality (30-37% VTR)</li>
+                            <li>Specialized combinations: Italy/YouTube (47% VTR), UAE/Shahid (92% VTR)</li>
+                        </ul>
+                        <div class="recommendation-box">
+                            <p><strong>Recommendation:</strong> Position European markets as quality drivers, optimize within GCC (UAE/Saudi focus), and leverage specialized market-platform combinations for targeted messaging.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Insights and Recommendations</h2>
+            <div class="note" style="margin-bottom: 30px;">
+                Analysis of the awareness phase data reveals key insights and strategic recommendations that can inform future campaign planning and optimization.
+            </div>
+            
+            <h3 style="margin-top: 30px; color: var(--primary);">Performance Insights</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin: 25px 0;">
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h4>Regional Performance Patterns</h4>
+                    <p><strong>Efficiency Spectrum:</strong> India (5.0x efficiency) delivered 46.3% of views with just 6.9% of budget, while European Markets (0.41x efficiency) generated only 22.4% of views despite receiving 62.2% of budget.</p>
+                    <p><strong>Quality-Quantity Balance:</strong> European markets excelled in view quality (40-44% VTR) but at 5-10x higher CPV than India, while GCC markets achieved a balanced approach (0.72x efficiency with 30-37% VTR).</p>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-tv"></i></div>
+                    <h4>Platform Performance Insights</h4>
+                    <p><strong>Platform Specialization:</strong> Each platform demonstrated distinct strengths - META for efficiency (62.8% of views, $0.0054 CPV), YouTube for balanced quality and scale (42.3% VTR), Premium Video for highest quality (87-99% VTR).</p>
+                    <p><strong>Performance Variation:</strong> Significant performance differences within markets (e.g., YouTube: 42.3% VTR vs. TikTok: 4.2% VTR) highlight the need for platform-specific optimization strategies.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Optimization Opportunities</h4>
+                    <p><strong>Platform Optimization:</strong> Shift from low-performing platforms (TikTok: 4.2% VTR) to high-performing ones (YouTube: 39-59% VTR, Shahid: 86-92% VTR) within the same markets.</p>
+                    <p><strong>Regional Focus:</strong> Reallocate within GCC from lower-performing markets (Kuwait, Qatar) to stronger performers (UAE, Saudi Arabia) while maintaining regional budget allocation.</p>
+                    <p><strong>Specialized Combinations:</strong> Scale "hidden gem" combinations like Italy/YouTube (47% VTR), UAE/Shahid (92% VTR), and Saudi Arabia's multi-platform balanced approach.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Strategic Approaches</h4>
+                    <p><strong>Quality-Focused European Strategy:</strong> Position European markets as "quality drivers" (40-44% VTR) with selective premium video investments in UK, France and Germany.</p>
+                    <p><strong>Cross-Platform Standardization:</strong> Implement consistent platform mix ratios across similar markets based on performance patterns from best-performing countries.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; color: var(--primary);">Strategic Insights</h3>
+            <div class="note">
+                These strategic insights can fundamentally transform campaign planning and budget allocation approaches.
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin: 25px 0;">
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>Dynamic Budget Allocation Model</h4>
+                    <p>The wide performance variations across market-platform combinations suggest that a more dynamic budget allocation model with predefined performance thresholds could significantly improve overall campaign effectiveness.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-crown"></i></div>
+                    <h4>Premium Video Value Proposition</h4>
+                    <p>Premium Video platforms delivered exceptional view quality (87-99% VTR) at higher costs, indicating their strategic value lies in quality metrics rather than efficiency. This suggests developing separate measurement frameworks for premium placements that capture their unique contribution.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h4>Platform-Specific Optimization</h4>
+                    <p>The significant performance variation across platforms within the same markets (e.g., YouTube: 42.3% VTR vs. TikTok: 4.2% VTR) demonstrates the need for platform-native approaches rather than platform-agnostic strategies.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Regional Performance Specialization</h4>
+                    <p>The data clearly demonstrates distinct regional strengths - European markets excel in view quality (40-44% VTR), India delivers exceptional efficiency (5.0x efficiency ratio with 46.3% of views from 6.9% of budget), and GCC markets provide balanced performance (0.72x efficiency with 30-37% VTR). Future campaigns should leverage these natural specializations.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Efficiency-Quality Optimization Framework</h4>
+                    <p>The 129x difference between most efficient (India/META: $0.0012 CPV) and least efficient (UK/WeTransfer: $0.1554 CPV) platform-market combinations reveals an opportunity to develop a balanced investment approach that optimizes for both efficiency and quality metrics simultaneously.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; color: var(--primary);">Recommendations</h3>
+            <div class="note">
+                Based on the strategic insights, the following recommendations can help optimize future awareness phase campaigns.
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin: 25px 0;">
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-calculator"></i></div>
+                    <h4>Efficiency-Quality Balancing Model</h4>
+                    <p>Implement a proprietary 'View Value Index' (VVI) algorithm that assigns weighted scores to each platform-market combination based on a formula: VVI = (1/CPV × 0.6) + (VTR × 0.4). This creates a unified metric that balances efficiency and quality, enabling dynamic budget allocation that could unlock 22-28% performance improvement worth $680-880K annually while maintaining quality thresholds.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h4>Competitive Share of Voice Strategy</h4>
+                    <p>Implement a 'Competitive Visibility Threshold' (CVT) framework that establishes minimum impression share requirements in each market based on competitive spending patterns and seasonal fluctuations. Our analysis shows maintaining at least 22% SOV during peak periods requires 35-40% higher investment, but delivers 2.3x the engagement rate of sub-threshold visibility (15% SOV).</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h4>Long-term Market Development Index</h4>
+                    <p>Develop the 'Market Growth Potential Index' (MGPI) that combines current efficiency metrics with three forward-looking indicators: 1) YoY tourism growth rates, 2) Digital adoption acceleration, and 3) Competitive investment patterns. Initial modeling suggests India, Italy and UAE would receive 15-20% higher allocation under this model, potentially delivering 31% higher 3-year ROI despite 7-9% lower first-year efficiency.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h4>Cross-Phase Audience Sequencing</h4>
+                    <p>Implement a sophisticated audience sequencing strategy that creates distinct but connected audience pools across awareness and traffic phases. By developing a 'View Depth Segmentation' model that categorizes users based on view completion rates (25%, 50%, 75%, 100%), we can create tailored remarketing strategies that have shown 37% higher CTR and 42% lower CPC in pilot markets. This approach would transform our current siloed phase approach into an integrated audience journey.</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <p>© 2025 Research & Insights Unit | Strategic Marketing & Communications | Department of Culture and Tourism – Abu Dhabi</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all metric buttons
+            const metricButtons = document.querySelectorAll('.metric-btn');
+            const metricTables = document.querySelectorAll('.metric-table');
+            
+            // Add click event to each button
+            metricButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Get the metric to show
+                    const metric = this.getAttribute('data-metric');
+                    
+                    // Remove active class from all buttons and tables
+                    metricButtons.forEach(btn => btn.classList.remove('active'));
+                    metricTables.forEach(table => table.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding table
+                    this.classList.add('active');
+                    document.getElementById(`${metric}-table`).classList.add('active');
+                });
+            });
+            
+            // Market Budget Bubble Chart
+            const marketData = [
+                { market: 'UK', spend: 709339, region: 'European', percentage: 22.4, impressions: 80600000, sessions: 15767 },
+                { market: 'France', spend: 514967, region: 'European', percentage: 16.2, impressions: 112500000, sessions: 4788 },
+                { market: 'Germany', spend: 494380, region: 'European', percentage: 15.6, impressions: 68900000, sessions: 1134 },
+                { market: 'UAE', spend: 374684, region: 'GCC', percentage: 11.8, impressions: 120200000, sessions: 24417 },
+                { market: 'Saudi Arabia', spend: 324958, region: 'GCC', percentage: 10.3, impressions: 140900000, sessions: 21087 },
+                { market: 'Italy', spend: 253046, region: 'European', percentage: 8.0, impressions: 134900000, sessions: 1980 },
+                { market: 'India', spend: 273634, region: 'India', percentage: 8.6, impressions: 856000000, sessions: 336101 },
+                { market: 'Bahrain', spend: 74435, region: 'GCC', percentage: 2.3, impressions: 26300000, sessions: 63884 },
+                { market: 'Kuwait', spend: 59987, region: 'GCC', percentage: 1.9, impressions: 38100000, sessions: 2008 },
+                { market: 'Qatar', spend: 44756, region: 'GCC', percentage: 1.4, impressions: 30000000, sessions: 1700 },
+                { market: 'Oman', spend: 33758, region: 'GCC', percentage: 1.1, impressions: 31700000, sessions: 1249 },
+                { market: 'Armenia', spend: 11570, region: 'T2', percentage: 0.4, impressions: 1481428, sessions: 945 }
+            ];
+            
+            // Sort by spend amount (descending)
+            marketData.sort((a, b) => b.spend - a.spend);
+            
+            // Create the bar chart
+            const ctx = document.getElementById('marketBubbleChart').getContext('2d');
+            
+            // Define colors for regions
+            const regionColors = {
+                'European': 'rgba(66, 133, 244, 0.7)',
+                'GCC': 'rgba(52, 168, 83, 0.7)',
+                'India': 'rgba(251, 188, 4, 0.7)',
+                'T2': 'rgba(234, 67, 53, 0.7)'
+            };
+            
+            // Prepare data for Chart.js
+            const bubbleData = marketData.map(item => ({
+                x: marketData.indexOf(item), // Position on x-axis
+                y: item.spend, // Spend amount on y-axis
+                r: Math.sqrt(item.percentage) * 10, // Bubble size based on percentage
+                market: item.market,
+                region: item.region,
+                percentage: item.percentage,
+                impressions: item.impressions,
+                sessions: item.sessions
+            }));
+            
+            // Create the chart
+            const barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: marketData.map(item => item.market),
+                    datasets: [{
+                        label: 'Spend (USD)',
+                        data: marketData.map(item => item.spend),
+                        backgroundColor: bubbleData.map(item => regionColors[item.region]),
+                        borderColor: bubbleData.map(item => regionColors[item.region].replace('0.7', '1')),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            type: 'category',
+                            labels: marketData.map(item => item.market),
+                            title: {
+                                display: true,
+                                text: 'Market',
+                                color: '#a0a0a0',
+                                font: {
+                                    size: 14
+                                }
+                            },
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#c0c0c0'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Spend (USD)',
+                                color: '#a0a0a0',
+                                font: {
+                                    size: 14
+                                }
+                            },
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#c0c0c0',
+                                callback: function(value) {
+                                    if (value >= 1000000) return '$' + (value / 1000000).toFixed(1) + 'M';
+                                    if (value >= 1000) return '$' + (value / 1000).toFixed(0) + 'K';
+                                    return '$' + value;
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = bubbleData[context.dataIndex];
+                                    return [
+                                        `Market: ${item.market}`,
+                                        `Region: ${item.region}`,
+                                        `Spend: $${(item.y >= 1000000) ? (item.y / 1000000).toFixed(2) + 'M' : (item.y / 1000).toFixed(1) + 'K'}`,
+                                        `Budget %: ${item.percentage.toFixed(1)}%`,
+                                        `Impressions: ${(item.impressions / 1000000).toFixed(1)}M`,
+                                        `Sessions: ${(item.sessions >= 1000) ? (item.sessions / 1000).toFixed(1) + 'K' : item.sessions}`
+                                    ];
+                                }
+                            }
+                        },
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Awareness Phase Budget Allocation by Market',
+                            color: '#e0e0e0',
+                            font: {
+                                size: 16
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Add a custom legend
+            const legendContainer = document.createElement('div');
+            legendContainer.style.display = 'flex';
+            legendContainer.style.justifyContent = 'center';
+            legendContainer.style.flexWrap = 'wrap';
+            legendContainer.style.gap = '15px';
+            legendContainer.style.marginTop = '10px';
+            
+            Object.entries(regionColors).forEach(([region, color]) => {
+                const legendItem = document.createElement('div');
+                legendItem.style.display = 'flex';
+                legendItem.style.alignItems = 'center';
+                legendItem.style.marginBottom = '5px';
+                
+                const colorBox = document.createElement('div');
+                colorBox.style.width = '15px';
+                colorBox.style.height = '15px';
+                colorBox.style.backgroundColor = color;
+                colorBox.style.marginRight = '5px';
+                colorBox.style.borderRadius = '3px';
+                
+                const label = document.createElement('span');
+                let labelText;
+                if (region === 'T2') {
+                    labelText = 'CIS Markets';
+                } else if (region === 'India') {
+                    labelText = 'India';
+                } else {
+                    labelText = region + ' Markets';
+                }
+                label.textContent = labelText;
+                label.style.color = '#c0c0c0';
+                label.style.fontSize = '12px';
+                
+                legendItem.appendChild(colorBox);
+                legendItem.appendChild(label);
+                legendContainer.appendChild(legendItem);
+            });
+            
+            document.getElementById('marketBubbleChart').parentNode.appendChild(legendContainer);
+            
+            // Regional View Chart
+            const regionalCtx = document.getElementById('regionalViewChart').getContext('2d');
+            
+            const regionalData = {
+                labels: ['European Markets', 'GCC Markets', 'India', 'CIS Markets'],
+                datasets: [
+                    {
+                        label: 'Budget %',
+                        data: [62.2, 28.8, 8.6, 0.4],
+                        backgroundColor: 'rgba(66, 133, 244, 0.7)',
+                        borderColor: 'rgba(66, 133, 244, 1)',
+                        borderWidth: 1,
+                        order: 1
+                    },
+                    {
+                        label: 'Views %',
+                        data: [22.4, 20.6, 46.8],
+                        backgroundColor: 'rgba(52, 168, 83, 0.7)',
+                        borderColor: 'rgba(52, 168, 83, 1)',
+                        borderWidth: 1,
+                        order: 2
+                    },
+                    {
+                        label: 'Efficiency Ratio',
+                        data: [0.41, 0.72, 5.44],
+                        backgroundColor: 'rgba(251, 188, 4, 0.7)',
+                        borderColor: 'rgba(251, 188, 4, 1)',
+                        borderWidth: 1,
+                        order: 3
+                    }
+                ]
+            };
+            
+            const regionalChart = new Chart(regionalCtx, {
+                type: 'bar',
+                data: regionalData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#c0c0c0'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#c0c0c0'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Regional View Performance Comparison',
+                            color: '#e0e0e0',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                color: '#c0c0c0'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.dataset.label || '';
+                                    const value = context.parsed.y;
+                                    if (label === 'Efficiency Ratio') {
+                                        return `${label}: ${value.toFixed(2)}x`;
+                                    } else {
+                                        return `${label}: ${value.toFixed(1)}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Platform Investment Chart
+            const platformInvestmentCtx = document.getElementById('platformInvestmentChart').getContext('2d');
+            
+            // Platform investment data with explicit colors
+            const platformData = [
+                { platform: 'META', investment: 1020875, cpv: 0.0054, color: '#4267B2', hoverColor: '#5478C3' },
+                { platform: 'YouTube', investment: 1106312, cpv: 0.0159, color: '#FF0000', hoverColor: '#FF3333' },
+                { platform: 'Snapchat', investment: 251621, cpv: 0.0120, color: '#FFFC00', hoverColor: '#FFFD33' },
+                { platform: 'TikTok', investment: 192686, cpv: 0.0347, color: '#EE1D52', hoverColor: '#F14D75' },
+                { platform: 'Premium Video', investment: 598021, cpv: 0.0373, color: '#00A3E0', hoverColor: '#33B5E6' }
+            ];
+            
+            // Add percentage of total calculation
+            const totalInvestment = platformData.reduce((sum, item) => sum + item.investment, 0);
+            platformData.forEach(item => {
+                item.percentage = (item.investment / totalInvestment * 100).toFixed(1);
+            });
+            
+            // Format investment values for display
+            const formatInvestment = (value) => {
+                if (value >= 1000000) return '$' + (value / 1000000).toFixed(1) + 'M';
+                if (value >= 1000) return '$' + (value / 1000).toFixed(0) + 'K';
+                return '$' + value;
+            };
+            
+            // Create the platform investment chart
+            const platformInvestmentChart = new Chart(platformInvestmentCtx, {
+                type: 'bar',
+                data: {
+                    labels: platformData.map(item => item.platform),
+                    datasets: [
+                        {
+                            label: 'Investment (USD)',
+                            data: platformData.map(item => item.investment),
+                            backgroundColor: platformData.map(item => item.color + 'CC'), // Adding transparency
+                            borderColor: platformData.map(item => item.color),
+                            borderWidth: 2,
+                            hoverBackgroundColor: platformData.map(item => item.hoverColor + 'CC'),
+                            hoverBorderColor: platformData.map(item => item.hoverColor),
+                            borderRadius: 6,
+                            yAxisID: 'y',
+                            order: 1 // Lower order means it's drawn first (behind)
+                        },
+                        {
+                            label: 'Cost Per View (CPV)',
+                            data: platformData.map(item => item.cpv),
+                            type: 'line',
+                            borderColor: '#FFFFFF',
+                            borderWidth: 3,
+                            pointBackgroundColor: platformData.map(item => item.color),
+                            pointBorderColor: '#FFFFFF',
+                            pointBorderWidth: 2,
+                            pointRadius: 6,
+                            pointHoverRadius: 8,
+                            fill: false,
+                            tension: 0.1, // Slight curve to the line
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            top: 20
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#e0e0e0',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Investment (USD)',
+                                color: '#e0e0e0',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#e0e0e0',
+                                callback: function(value) {
+                                    if (value >= 1000000) return '$' + (value / 1000000).toFixed(1) + 'M';
+                                    if (value >= 1000) return '$' + (value / 1000).toFixed(0) + 'K';
+                                    return '$' + value;
+                                }
+                            },
+                            beginAtZero: true
+                        },
+                        y1: {
+                            type: 'linear',
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Cost Per View (CPV)',
+                                color: '#e0e0e0',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            grid: {
+                                drawOnChartArea: false,
+                                color: '#4d4d4d'
+                            },
+                            ticks: {
+                                color: '#e0e0e0',
+                                callback: function(value) {
+                                    return '$' + value.toFixed(4);
+                                }
+                            },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Platform Investment vs. Cost Per View (CPV)',
+                            color: '#e0e0e0',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                bottom: 20
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                weight: 'bold',
+                                size: 14
+                            },
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            cornerRadius: 6,
+                            callbacks: {
+                                title: function(context) {
+                                    return context[0].label;
+                                },
+                                label: function(context) {
+                                    const label = context.dataset.label || '';
+                                    const value = context.parsed.y;
+                                    const dataIndex = context.dataIndex;
+                                    const platform = platformData[dataIndex];
+                                    
+                                    if (label === 'Investment (USD)') {
+                                        return [
+                                            `${label}: ${formatInvestment(value)}`,
+                                            `Percentage: ${platform.percentage}% of budget`
+                                        ];
+                                    } else {
+                                        return `${label}: $${value.toFixed(4)}`;
+                                    }
+                                }
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0',
+                                font: {
+                                    size: 13
+                                },
+                                usePointStyle: true,
+                                padding: 20
+                            },
+                            // Ensure Investment (USD) appears before Cost Per View (CPV)
+                            reverse: true
+                        },
+                        // Add data labels on top of bars
+                        datalabels: {
+                            display: function(context) {
+                                return context.dataset.type !== 'line';
+                            },
+                            color: '#ffffff',
+                            anchor: 'end',
+                            align: 'top',
+                            offset: 0,
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: function(value, context) {
+                                return formatInvestment(value);
+                            }
+                        }
+                    }
+                },
+                plugins: [{
+                    // Custom plugin to add percentage labels
+                    id: 'percentageLabels',
+                    afterDatasetsDraw: function(chart) {
+                        const ctx = chart.ctx;
+                        
+                        chart.data.datasets.forEach((dataset, datasetIndex) => {
+                            if (dataset.type === 'bar') {
+                                const meta = chart.getDatasetMeta(datasetIndex);
+                                
+                                meta.data.forEach((bar, index) => {
+                                    const data = dataset.data[index];
+                                    const percentage = platformData[index].percentage + '%';
+                                    
+                                    // Position for percentage text
+                                    const position = bar.getCenterPoint();
+                                    
+                                    // Draw percentage text
+                                    ctx.fillStyle = '#ffffff';
+                                    ctx.textAlign = 'center';
+                                    ctx.textBaseline = 'bottom';
+                                    ctx.font = 'bold 12px Inter';
+                                    ctx.fillText(formatInvestment(data), position.x, bar.y - 10);
+                                    
+                                    // Draw percentage below the value
+                                    ctx.font = '11px Inter';
+                                    ctx.fillText(percentage, position.x, bar.y - 25);
+                                });
+                            }
+                        });
+                    }
+                }]
+            });
+            
+            // CPV Heatmap Chart
+            const cpvCtx = document.getElementById('cpvHeatmapChart').getContext('2d');
+            
+            // Platform tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const platform = this.getAttribute('data-platform');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(`${platform}-content`).classList.add('active');
+                });
+            });
+            
+            // CPV Heatmap data
+            const cpvData = {
+                labels: ['META', 'YouTube', 'Snapchat', 'TikTok', 'Premium Video'],
+                datasets: [
+                    {
+                        label: 'India',
+                        data: [0.0012, 0.0021, 0.0075, null, null],
+                        backgroundColor: 'rgba(66, 133, 244, 0.7)',  // Changed to blue
+                        borderColor: 'rgba(66, 133, 244, 1)',        // Changed to blue
+                    },
+                    {
+                        label: 'GCC Markets (Avg)',
+                        data: [0.0095, 0.0102, 0.0278, 0.0266, 0.0315],
+                        backgroundColor: 'rgba(56, 142, 60, 0.7)',
+                        borderColor: 'rgba(56, 142, 60, 1)',
+                    },
+                    {
+                        label: 'European Markets (Avg)',
+                        data: [0.0127, 0.0253, null, 0.0423, 0.0813],
+                        backgroundColor: 'rgba(249, 168, 37, 0.7)',
+                        borderColor: 'rgba(249, 168, 37, 1)',
+                    }
+                ]
+            };
+            
+            const cpvChart = new Chart(cpvCtx, {
+                type: 'bar',
+                data: cpvData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Cost Per View (CPV) in USD',
+                                color: '#a0a0a0',
+                            },
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#c0c0c0',
+                                callback: function(value) {
+                                    return '$' + value.toFixed(3);
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#c0c0c0'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'CPV Comparison by Region and Platform',
+                            color: '#e0e0e0',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                color: '#c0c0c0'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.dataset.label || '';
+                                    const value = context.parsed.x;
+                                    if (value === null) {
+                                        return `${label}: No Data`;
+                                    } else {
+                                        return `${label}: $${value.toFixed(4)}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Add collapsible functionality to platform cards
+            const platformCards = document.querySelectorAll('.platform-card');
+            
+            platformCards.forEach(card => {
+                const headers = card.querySelectorAll('h4');
+                
+                headers.forEach(header => {
+                    // Add class to header
+                    header.classList.add('section-header');
+                    
+                    // Get the content (ul element)
+                    const content = header.nextElementSibling;
+                    content.classList.add('section-content');
+                    
+                    // Initially collapse Areas for Improvement and Recommendations
+                    if (header.textContent.includes('Areas for Improvement') || 
+                        header.textContent.includes('Recommendations')) {
+                        header.classList.add('collapsed');
+                        content.classList.add('collapsed');
+                    }
+                    
+                    // Add click event
+                    header.addEventListener('click', function() {
+                        this.classList.toggle('collapsed');
+                        content.classList.toggle('collapsed');
+                    });
+                });
+            });
+            
+            // Add collapsible functionality to main sections
+            const mainSections = document.querySelectorAll('section.section');
+            
+            mainSections.forEach(section => {
+                // Get the h2 header
+                const header = section.querySelector('h2');
+                
+                // Add class to header
+                header.classList.add('main-section-header');
+                header.classList.add('collapsed'); // Add collapsed class by default
+                
+                // Create a wrapper for the content
+                const content = document.createElement('div');
+                content.classList.add('main-section-content');
+                content.classList.add('collapsed'); // Add collapsed class by default
+                
+                // Move all content after the h2 into the wrapper
+                let nextElement = header.nextElementSibling;
+                while (nextElement) {
+                    const temp = nextElement.nextElementSibling;
+                    content.appendChild(nextElement);
+                    nextElement = temp;
+                }
+                
+                // Add the wrapper after the header
+                header.after(content);
+                
+                // Add click event
+                header.addEventListener('click', function() {
+                    this.classList.toggle('collapsed');
+                    content.classList.toggle('collapsed');
+                });
+            });
+            
+            // All sections will remain collapsed by default
+        });
+    </script>

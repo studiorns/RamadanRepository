@@ -1,0 +1,3497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Campaign - Paid Media Platform Performance Comparison | Department of Culture and Tourism - Abu Dhabi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* SONER Logo Animation */
+        @keyframes sonerScan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes sonerBlip { 0%, 20%, 100% { opacity: 0; } 2%, 15% { opacity: 1; } 3% { transform: scale(1.2); } }
+        
+        /* SONER Logo styles */
+        .soner-logo { 
+            display: flex; 
+            align-items: center; 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 28px; 
+            font-weight: 300; 
+        }
+        .soner-radar { 
+            width: 24px; 
+            height: 24px; 
+            border-radius: 50%; 
+            border: 1px solid white; 
+            margin: 0 3px; 
+            position: relative; 
+            background-color: rgba(255, 255, 255, 0.05); 
+            overflow: hidden; 
+        }
+        .soner-scanner { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            animation: sonerScan 4s linear infinite; 
+            transform-origin: center; 
+        }
+        .soner-scanner::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            width: 50%; 
+            height: 50%; 
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4)); 
+            transform-origin: bottom left; 
+            clip-path: polygon(0 0, 100% 0, 0 100%); 
+        }
+        .soner-scanner::after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            width: 50%; 
+            height: 1px; 
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); 
+            transform-origin: left center; 
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); 
+        }
+        .soner-blip { 
+            position: absolute; 
+            width: 2px; 
+            height: 2px; 
+            background-color: white; 
+            border-radius: 50%; 
+            opacity: 0; 
+            box-shadow: 0 0 4px white; 
+        }
+        .soner-blip:nth-child(1) { 
+            top: 25%; 
+            left: 30%; 
+            animation: sonerBlip 4s 1s infinite; 
+        }
+        .soner-blip:nth-child(2) { 
+            top: 65%; 
+            left: 60%; 
+            animation: sonerBlip 4s 2.5s infinite; 
+        }
+        .soner-tagline { 
+            color: white; 
+            font-size: 8px; 
+            text-transform: uppercase; 
+            font-weight: 500; 
+            letter-spacing: 0.5em; 
+            margin-left: 10px; 
+            opacity: 0.8; 
+        }
+        
+        :root {
+            --primary: #4285f4;
+            --primary-light: #1a2233;
+            --primary-dark: #8ab4f8;
+            --secondary: #34a853;
+            --secondary-light: #1a2a1e;
+            --warning: #fbbc04;
+            --warning-light: #332a1a;
+            --danger: #ea4335;
+            --danger-light: #331f1e;
+            --gray-100: #1e1e1e;
+            --gray-200: #2d2d2d;
+            --gray-300: #3d3d3d;
+            --gray-400: #4d4d4d;
+            --gray-500: #777777;
+            --gray-600: #a0a0a0;
+            --gray-700: #c0c0c0;
+            --gray-800: #e0e0e0;
+            --gray-900: #f0f0f0;
+            --bg-color: #000000;
+            --card-bg: #121212;
+            --section-bg: #181818;
+            --meta-color: #4267B2;
+            --meta-light: #1a2233;
+            --snap-color: #FFFC00;
+            --snap-light: #332a1a;
+            --tiktok-color: #EE1D52;
+            --tiktok-light: #331f1e;
+            --youtube-color: #FF0000;
+            --youtube-light: #331f1e;
+            --shahid-color: #00A3E0;
+            --shahid-light: #1a2233;
+            --wetransfer-color: #17181A;
+            --wetransfer-light: #1e1e1e;
+            --vk-color: #4C75A3;
+            --vk-light: #1a2233;
+            --memob-color: #FF6B00;
+            --memob-light: #332a1a;
+            --sky-color: #0072C9;
+            --sky-light: #1a2233;
+            --disney-color: #113CCF;
+            --disney-light: #1a2233;
+            --pmax-color: #34A853;
+            --pmax-light: #1a2a1e;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--gray-800);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a73e8, #174ea6);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 30px 0 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .section {
+            background-color: var(--section-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid var(--gray-300);
+        }
+        
+        .insights {
+            background-color: var(--primary-light);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: visible;
+        }
+        
+        th, td {
+            border: 1px solid var(--gray-300);
+            padding: 12px;
+            text-align: right;
+            position: relative;
+            overflow: visible;
+        }
+        
+        th {
+            background-color: var(--gray-200);
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--gray-100);
+        }
+        
+        .platform-meta {
+            background-color: rgba(66, 103, 178, 0.1);
+        }
+        
+        .platform-snap {
+            background-color: rgba(255, 252, 0, 0.05);
+        }
+        
+        .platform-tiktok {
+            background-color: rgba(238, 29, 82, 0.05);
+        }
+        
+        .platform-youtube {
+            background-color: rgba(255, 0, 0, 0.05);
+        }
+        
+        .platform-shahid {
+            background-color: rgba(0, 163, 224, 0.05);
+        }
+        
+        .platform-wetransfer {
+            background-color: rgba(23, 24, 26, 0.05);
+        }
+        
+        .platform-vk {
+            background-color: rgba(76, 117, 163, 0.05);
+        }
+        
+        .platform-memob {
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+        
+        .platform-sky {
+            background-color: rgba(0, 114, 201, 0.05);
+        }
+        
+        .platform-disney {
+            background-color: rgba(17, 60, 207, 0.05);
+        }
+        
+        .platform-pmax {
+            background-color: rgba(52, 168, 83, 0.05);
+        }
+        
+        /* Performance highlighting styles - font-based approach */
+        .performance-good {
+            color: #2E7D32;
+            font-weight: 700;
+            font-size: 1.05em;
+            border-left: 3px solid #2E7D32;
+            background-color: rgba(46, 125, 50, 0.05);
+            padding-left: 8px;
+        }
+        
+        .performance-medium {
+            color: #F9A825;
+            font-weight: 500;
+            border-left: 3px solid #F9A825;
+            background-color: rgba(249, 168, 37, 0.05);
+            padding-left: 8px;
+        }
+        
+        .performance-poor {
+            color: #C62828;
+            font-weight: 400;
+            border-left: 3px solid #C62828;
+            background-color: rgba(198, 40, 40, 0.05);
+            padding-left: 8px;
+        }
+        
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        
+        /* Tooltip container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        
+        /* Tooltip text - hidden by default */
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            
+            /* Position the tooltip text */
+            position: absolute;
+            z-index: 9999;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -150px;
+            
+            /* Fade in tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+            
+            /* Style the tooltip text */
+            font-size: 0.85em;
+            font-weight: normal;
+            line-height: 1.4;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+        
+        /* Show the tooltip text when you hover over the tooltip container */
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .info-icon {
+            font-size: 0.8em;
+            color: var(--primary);
+            margin-left: 5px;
+            opacity: 0.7;
+        }
+        
+        .metric-name {
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+        
+        .header-row {
+            background-color: var(--gray-300);
+            color: white;
+        }
+        
+        .total-row {
+            font-weight: 700;
+            background-color: var(--gray-200);
+            color: var(--primary-dark);
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--gray-300);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 30px 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .market-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 30px 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            /* Remove any potential height constraints */
+            max-height: none;
+            overflow: visible;
+        }
+        
+        .platform-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid var(--gray-300);
+            margin-bottom: 15px;
+        }
+        
+        .platform-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .platform-title i {
+            margin-right: 10px;
+        }
+        
+        .meta-title {
+            color: #4267B2;
+        }
+        
+        .snap-title {
+            color: #FFFC00;
+        }
+        
+        .tiktok-title {
+            color: #EE1D52;
+        }
+        
+        .youtube-title {
+            color: #FF0000;
+        }
+        
+        .shahid-title {
+            color: #00A3E0;
+        }
+        
+        .wetransfer-title {
+            color: #00CED1;
+        }
+        
+        .vk-title {
+            color: #4C75A3;
+        }
+        
+        .memob-title {
+            color: #FF6B00;
+        }
+        
+        .sky-title {
+            color: #0072C9;
+        }
+        
+        .disney-title {
+            color: #113CCF;
+        }
+        
+        .pmax-title {
+            color: #34A853;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .strength li:before {
+            color: var(--secondary);
+        }
+        
+        .improvement li:before {
+            content: "\f044";
+            color: var(--warning);
+        }
+        
+        .recommendation li:before {
+            content: "\f0eb";
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--gray-300);
+            color: var(--gray-600);
+        }
+        
+        /* Executive Summary Styles */
+        .executive-summary {
+            background: linear-gradient(to bottom, var(--section-bg), var(--card-bg));
+            border-top: 4px solid var(--primary);
+        }
+        
+        .summary-container {
+            margin-bottom: 20px;
+        }
+        
+        .summary-header {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .summary-sections {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .summary-section {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--gray-300);
+        }
+        
+        .platform-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .platform-summary-card {
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid var(--gray-300);
+        }
+        
+        .platform-summary-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--gray-300);
+            padding-bottom: 5px;
+        }
+        
+        .platform-summary-card p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .meta-bg {
+            background-color: rgba(66, 103, 178, 0.1);
+        }
+        
+        .snap-bg {
+            background-color: rgba(255, 252, 0, 0.05);
+        }
+        
+        .youtube-bg {
+            background-color: rgba(255, 0, 0, 0.05);
+        }
+        
+        .pmax-bg {
+            background-color: rgba(52, 168, 83, 0.05);
+        }
+        
+        .summary-list li {
+            margin-bottom: 15px;
+        }
+        
+        .summary-list li:before {
+            content: "\f054";
+            color: var(--primary);
+        }
+        
+        @media (min-width: 768px) {
+            .summary-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .metric-grid, .platform-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        /* Custom tooltip positioning to ensure visibility */
+        #tooltip-container {
+            position: fixed;
+            z-index: 10000;
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 0.85em;
+            font-weight: normal;
+            line-height: 1.4;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            visibility: hidden;
+        }
+        
+        /* Collapsible section styles */
+        .section-header {
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            background-color: rgba(66, 133, 244, 0.1);
+            border-radius: 5px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header.collapsed:after {
+            transform: rotate(-90deg);
+        }
+        
+        .section-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 2000px; /* Large enough to contain content */
+        }
+        
+        .section-content.collapsed {
+            max-height: 0;
+        }
+        
+        /* Main section collapsible styles */
+        .main-section-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 30px; /* Space for the arrow */
+            transition: color 0.2s ease;
+        }
+        
+        .main-section-header:hover {
+            color: var(--primary-dark);
+        }
+        
+        .main-section-header:after {
+            content: '\f078';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .main-section-header.collapsed:after {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+        
+        .main-section-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            max-height: 9999px; /* Very large to accommodate all content */
+        }
+        
+        .main-section-content.collapsed {
+            max-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                <a href="https://studiorns.github.io/DCTMarketAnalysisRepository/" style="text-decoration: none;">
+                    <div class="soner-logo">
+                        S<div class="soner-radar">
+                            <div class="soner-scanner"></div>
+                            <div class="soner-blip"></div>
+                            <div class="soner-blip"></div>
+                        </div>NER
+                        <span class="soner-tagline">Visual Intelligence</span>
+                    </div>
+                </a>
+            </div>
+            <h1>Ramadan Campaing - Overall Paid Media Performance</h1>
+            <p>Cross-Platform Analysis & Recommendations for Ramadan 2026</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section executive-summary">
+            <h2><i class="fas fa-file-alt"></i> Executive Summary</h2>
+            <div class="summary-container">
+                <div class="summary-header">
+                    <p>The Ramadan campaign utilized multiple platforms with a total investment of $4.04 million, generating 1.93 billion impressions, 305.4 million views, 8.96 million clicks, and 1.28 million sessions across key markets in the Middle East, Europe, and Asia.</p>
+                </div>
+                
+                <div class="summary-metrics">
+                    <div class="metric-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">$4.04M</div>
+                            <div class="metric-label">Total Investment</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">1.93B</div>
+                            <div class="metric-label">Impressions</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">305.4M</div>
+                            <div class="metric-label">Video Views</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">8.96M</div>
+                            <div class="metric-label">Clicks</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">1.28M</div>
+                            <div class="metric-label">Sessions</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-sections">
+                    <!-- Investment Analysis Section -->
+                    <div class="summary-section">
+                        <h3><i class="fas fa-chart-bar"></i> Investment Analysis</h3>
+                        <p>This analysis shows the distribution of campaign investment across markets and phases, highlighting regional investment priorities and phase allocation strategies.</p>
+                        
+                        <div class="chart-container" style="position: relative; height: 500px; margin: 20px 0 30px 0;">
+                            <canvas id="marketInvestmentChart"></canvas>
+                        </div>
+                        
+                        <div style="margin-top: 15px;">
+                            <p><strong>Key Investment Insights:</strong> The campaign investment was strategically allocated across 12 markets, with European markets receiving the largest share (62.2%), followed by GCC markets (28.8%), India (6.9%), and Armenia (0.3%). The Awareness phase received 78.4% of the total budget, while the Traffic phase received 21.6%, reflecting the campaign's focus on building brand awareness before driving website traffic.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Platform Investment Analysis Section -->
+                    <div class="summary-section">
+                        <h3><i class="fas fa-bullseye"></i> Platform Investment Analysis</h3>
+                        <p>This analysis shows the distribution of campaign investment across platforms and phases, highlighting platform specialization and strategic allocation patterns.</p>
+                        
+                        <div class="chart-container" style="position: relative; height: 500px; margin: 20px 0 30px 0;">
+                            <canvas id="platformInvestmentChart"></canvas>
+                        </div>
+                        
+                        <div style="margin-top: 15px;">
+                            <p><strong>Key Platform Insights:</strong> META (34.2%) and YouTube (27.3%) received the largest share of the campaign budget, followed by PMAX (10.4%) and Sky (7.4%). Platform specialization is evident with PMAX used exclusively for the Traffic phase, while premium video platforms (Sky, Disney+) were used solely for the Awareness phase. META demonstrated versatility with significant investment in both phases (73.7% Awareness, 26.3% Traffic).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Awareness Phase Section -->
+                    <div class="summary-section">
+                        <h3><i class="fas fa-eye"></i> Awareness Phase Performance</h3>
+                        <div class="metric-grid" style="margin-top: 15px; margin-bottom: 15px;">
+                            <div class="metric-card">
+                                <div class="metric-value">$3.17M</div>
+                                <div class="metric-label">Phase Investment</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">1.64B</div>
+                                <div class="metric-label">Impressions</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">297.4M</div>
+                                <div class="metric-label">Video Views</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">18.1%</div>
+                                <div class="metric-label">Average VTR</div>
+                            </div>
+                        </div>
+                        <div class="platform-summary-grid">
+                            <div class="platform-summary-card meta-bg">
+                                <h4>META</h4>
+                                <p><strong>Strength:</strong> Cost-efficient reach & views</p>
+                                <p><strong>CPV:</strong> $0.0054 | <strong>VTR:</strong> 16.0%</p>
+                                <p><strong>Budget:</strong> 32.2% | <strong>Rec:</strong> 30-35%</p>
+                            </div>
+                            <div class="platform-summary-card youtube-bg">
+                                <h4>YouTube</h4>
+                                <p><strong>Strength:</strong> High-quality views</p>
+                                <p><strong>VTR:</strong> 42.3% | <strong>CPV:</strong> $0.0159</p>
+                                <p><strong>Budget:</strong> 34.9% | <strong>Rec:</strong> 30-35%</p>
+                            </div>
+                            <div class="platform-summary-card snap-bg">
+                                <h4>Snapchat</h4>
+                                <p><strong>Strength:</strong> Strong in specific markets</p>
+                                <p><strong>VTR:</strong> 14.6% | <strong>CPV:</strong> $0.0120</p>
+                                <p><strong>Budget:</strong> 7.9% | <strong>Rec:</strong> 10-15%</p>
+                            </div>
+                            <div class="platform-summary-card shahid-bg">
+                                <h4>Premium Video</h4>
+                                <p><strong>Strength:</strong> Exceptional view quality</p>
+                                <p><strong>VTR:</strong> 87-99% | <strong>CPV:</strong> $0.037</p>
+                                <p><strong>Budget:</strong> 13.6% | <strong>Rec:</strong> 10-15%</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <p><strong>Key Phase Insights:</strong> META delivered the highest volume of views (62.8%) at the lowest CPV ($0.0054), while YouTube provided superior view quality (42.3% VTR) at moderate costs. Premium Video platforms achieved exceptional view quality (87-99% VTR) but at premium costs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Traffic Phase Section -->
+                    <div class="summary-section">
+                        <h3><i class="fas fa-mouse-pointer"></i> Traffic Phase Performance</h3>
+                        <div class="metric-grid" style="margin-top: 15px; margin-bottom: 15px;">
+                            <div class="metric-card">
+                                <div class="metric-value">$876K</div>
+                                <div class="metric-label">Phase Investment</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">285.9M</div>
+                                <div class="metric-label">Impressions</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">4.19M</div>
+                                <div class="metric-label">Clicks</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">1.46%</div>
+                                <div class="metric-label">Average CTR</div>
+                            </div>
+                        </div>
+                        <div class="platform-summary-grid">
+                            <div class="platform-summary-card pmax-bg">
+                                <h4>PMAX</h4>
+                                <p><strong>Strength:</strong> Cost-efficient clicks & scale</p>
+                                <p><strong>CPC:</strong> $0.15 | <strong>CTR:</strong> 2.21%</p>
+                                <p><strong>Budget:</strong> 48.0% | <strong>Rec:</strong> 45-50%</p>
+                            </div>
+                            <div class="platform-summary-card meta-bg">
+                                <h4>Meta</h4>
+                                <p><strong>Strength:</strong> High-quality sessions</p>
+                                <p><strong>CTS%:</strong> 29.0% | <strong>CPC:</strong> $0.30</p>
+                                <p><strong>Budget:</strong> 41.7% | <strong>Rec:</strong> 40-45%</p>
+                            </div>
+                            <div class="platform-summary-card memob-bg">
+                                <h4>Memob</h4>
+                                <p><strong>Strength:</strong> Strategic GCC market focus</p>
+                                <p><strong>CTR:</strong> 0.89% | <strong>CPC:</strong> $1.86</p>
+                                <p><strong>Budget:</strong> 10.3% | <strong>Rec:</strong> 5-10%</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <p><strong>Key Phase Insights:</strong> PMAX delivered the highest click volume (68.9% of total) with the most cost-efficient CPC ($0.15), while Meta provided superior session quality (29.0% CTS%) at moderate costs. Significant regional variations were observed with India delivering exceptional efficiency (3.1x).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Overall Top Performing Platforms -->
+                    <div class="summary-section">
+                        <h3><i class="fas fa-trophy"></i> Overall Top Performing Platforms</h3>
+                        <div class="platform-summary-grid">
+                            <div class="platform-summary-card meta-bg">
+                                <h4>META</h4>
+                                <p><strong>Strength:</strong> Cost-efficient reach & views</p>
+                                <p><strong>CPM:</strong> $0.97 | <strong>CPV:</strong> $0.0070</p>
+                                <p><strong>Budget:</strong> 34.2% | <strong>Rec:</strong> 35-40%</p>
+                            </div>
+                            <div class="platform-summary-card snap-bg">
+                                <h4>Snap</h4>
+                                <p><strong>Strength:</strong> Cost-efficient sessions</p>
+                                <p><strong>CPS:</strong> $0.94 | <strong>CTR:</strong> 0.76%</p>
+                                <p><strong>Budget:</strong> 6.4% | <strong>Rec:</strong> 15-20%</p>
+                            </div>
+                            <div class="platform-summary-card youtube-bg">
+                                <h4>YouTube</h4>
+                                <p><strong>Strength:</strong> High-quality views</p>
+                                <p><strong>VTR:</strong> 42.3% | <strong>CPV:</strong> $0.0159</p>
+                                <p><strong>Budget:</strong> 27.3% | <strong>Rec:</strong> 25-30%</p>
+                            </div>
+                            <div class="platform-summary-card pmax-bg">
+                                <h4>PMAX</h4>
+                                <p><strong>Strength:</strong> Traffic generation</p>
+                                <p><strong>CTR:</strong> 2.09% | <strong>CPS:</strong> $1.04</p>
+                                <p><strong>Budget:</strong> 10.4% | <strong>Rec:</strong> 12-15%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-section">
+                        <h3><i class="fas fa-lightbulb"></i> Key Strategic Insights</h3>
+                        <ul class="summary-list">
+                            <li><strong>Platform Specialization:</strong> Each platform demonstrated distinct strengths - META for cost-efficient reach, Snap for sessions, YouTube for quality views, and PMAX for traffic.</li>
+                            <li><strong>Market-Platform Alignment:</strong> Performance varied significantly by market, with Snap excelling in Saudi Arabia, YouTube in Germany, and META in the UK.</li>
+                            <li><strong>Phased Approach Effectiveness:</strong> The two-phase strategy (Awareness → Traffic) was effective but could be optimized with better platform allocation.</li>
+                            <li><strong>Premium vs. Efficiency Trade-off:</strong> Premium platforms (Sky, Disney+, Shahid) delivered exceptional view quality but at significantly higher costs.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="summary-section">
+                        <h3><i class="fas fa-check-circle"></i> Core Recommendations</h3>
+                        <ul class="summary-list">
+                            <li><strong>Optimize Platform Mix:</strong> Increase Snap's budget share (15-20%), maintain META (35-40%) and YouTube (25-30%), and reduce TikTok (0-5%).</li>
+                            <li><strong>Implement Market-Specific Strategies:</strong> Develop tailored platform approaches for key markets based on performance data.</li>
+                            <li><strong>Enhance Creative Approach:</strong> Tailor creative assets to each platform's strengths and audience behaviors.</li>
+                            <li><strong>Expand Phase Testing:</strong> Test Snap in the Traffic phase given its strong performance in generating cost-efficient sessions.</li>
+                            <li><strong>Establish Real-time Optimization:</strong> Implement continuous performance monitoring to quickly adjust strategies based on platform performance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-chart-pie"></i> High-Level Performance Overview</h2>
+            <p>This section provides a comparison of top-line metrics across all platforms used in the Ramadan campaign.</p>
+            
+            <h3>Total Campaign Investment & Delivery</h3>
+            <table>
+                <tr class="header-row">
+                    <th>Platform</th>
+                    <th>Total Spend</th>
+                    <th>Total Impressions</th>
+                    <th>Total Views</th>
+                    <th>Total Clicks</th>
+                    <th>Total Sessions</th>
+                </tr>
+                <tr class="platform-meta">
+                    <td class="metric-name">META</td>
+                    <td>$1,385,961</td>
+                    <td>1,332,803,287</td>
+                    <td>197,328,044</td>
+                    <td>4,235,678</td>
+                    <td>449,624</td>
+                </tr>
+                <tr class="platform-snap">
+                    <td class="metric-name">Snap</td>
+                    <td>$251,621</td>
+                    <td>144,062,274</td>
+                    <td>20,976,062</td>
+                    <td>1,152,173</td>
+                    <td>277,894</td>
+                </tr>
+                <tr class="platform-tiktok">
+                    <td class="metric-name">TikTok</td>
+                    <td>$192,686</td>
+                    <td>133,913,161</td>
+                    <td>5,559,349</td>
+                    <td>174,835</td>
+                    <td>8,910</td>
+                </tr>
+                <tr class="platform-youtube">
+                    <td class="metric-name">YouTube</td>
+                    <td>$1,106,312</td>
+                    <td>164,735,587</td>
+                    <td>69,624,318</td>
+                    <td>565,088</td>
+                    <td>79,217</td>
+                </tr>
+                <tr class="platform-shahid">
+                    <td class="metric-name">Shahid</td>
+                    <td>$118,280</td>
+                    <td>4,289,294</td>
+                    <td>3,754,926</td>
+                    <td>19,448</td>
+                    <td>4,708</td>
+                </tr>
+                <tr class="platform-wetransfer">
+                    <td class="metric-name">WeTransfer</td>
+                    <td>$154,497</td>
+                    <td>4,052,815</td>
+                    <td>1,386,766</td>
+                    <td>28,504</td>
+                    <td>3,095</td>
+                </tr>
+                <tr class="platform-vk">
+                    <td class="metric-name">VK</td>
+                    <td>$11,570</td>
+                    <td>1,481,428</td>
+                    <td>991,319</td>
+                    <td>2,478</td>
+                    <td>945</td>
+                </tr>
+                <tr class="platform-memob">
+                    <td class="metric-name">Memob</td>
+                    <td>$90,483</td>
+                    <td>5,483,812</td>
+                    <td>4,387,050</td>
+                    <td>48,649</td>
+                    <td>4,883</td>
+                </tr>
+                <tr class="platform-sky">
+                    <td class="metric-name">Sky</td>
+                    <td>$300,731</td>
+                    <td>5,569,094</td>
+                    <td>5,502,397</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr class="platform-disney">
+                    <td class="metric-name">Disney+</td>
+                    <td>$12,943</td>
+                    <td>395,230</td>
+                    <td>381,080</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr class="platform-pmax">
+                    <td class="metric-name">PMAX</td>
+                    <td>$420,439</td>
+                    <td>130,998,818</td>
+                    <td>N/A</td>
+                    <td>2,737,125</td>
+                    <td>454,184</td>
+                </tr>
+                <tr>
+                    <td class="metric-name total-row">Total</td>
+                    <td class="total-row">$4,035,978</td>
+                    <td class="total-row">1,926,944,867</td>
+                    <td class="total-row">305,418,079</td>
+                    <td class="total-row">8,963,978</td>
+                    <td class="total-row">1,283,462</td>
+                </tr>
+            </table>
+            
+            <div class="insights">
+                <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+                <ul>
+                    <li><strong>Investment Distribution:</strong> META (34.2%) and YouTube (27.3%) received the largest share of the campaign budget, followed by PMAX (10.4%) and Sky (7.4%).</li>
+                    <li><strong>Impression Delivery:</strong> META delivered the highest volume of impressions (70.6% of total), followed by YouTube (8.1%) and PMAX (6.0%).</li>
+                    <li><strong>View Generation:</strong> META led in view generation (64.5% of total views), followed by YouTube (22.8%) and Snap (7.0%).</li>
+                    <li><strong>Click Performance:</strong> META generated the most clicks (47.3% of total), followed by PMAX (30.5%) and Snap (12.9%).</li>
+                    <li><strong>Session Delivery:</strong> PMAX drove the most sessions (32.8% of total), followed by META (36.4%) and Snap (22.6%).</li>
+                    <li><strong>Premium Video Platforms:</strong> Shahid, Sky, and Disney+ delivered exceptionally high view-through rates (87.5%, 98.8%, and 96.4% respectively) but at significantly higher costs.</li>
+                    <li><strong>Specialized Platforms:</strong> VK showed strong performance in Armenia with a 66.9% VTR and 38.1% CTS rate, while Memob delivered efficient traffic in Middle Eastern markets.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-calendar-alt"></i> Campaign Phase Effectiveness</h2>
+            <p>This section analyzes how each platform performed across different campaign phases.</p>
+            
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-value">$3.17M</div>
+                    <div class="metric-label">Awareness Phase Spend</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$876K</div>
+                    <div class="metric-label">Traffic Phase Spend</div>
+                </div>
+            </div>
+            
+            <h3>Awareness Phase 1 Performance</h3>
+            <table>
+                <tr class="header-row">
+                    <th>Platform</th>
+                    <th>Spend</th>
+                    <th>Impressions</th>
+                    <th>Views</th>
+                    <th>Clicks</th>
+                    <th>VTR</th>
+                    <th>CTR</th>
+                    <th>CPV</th>
+                    <th>Sessions</th>
+                </tr>
+                <tr class="platform-meta">
+                    <td>META</td>
+                    <td>$1,020,875</td>
+                    <td>1,183,375,304</td>
+                    <td>189,243,326</td>
+                    <td>2,835,886</td>
+                    <td>16.0%</td>
+                    <td>0.24%</td>
+                    <td>$0.0054</td>
+                    <td>100,560</td>
+                </tr>
+                <tr class="platform-snap">
+                    <td>Snap</td>
+                    <td>$251,621</td>
+                    <td>144,062,274</td>
+                    <td>20,976,062</td>
+                    <td>1,152,173</td>
+                    <td>14.6%</td>
+                    <td>0.80%</td>
+                    <td>$0.0120</td>
+                    <td>277,894</td>
+                </tr>
+                <tr class="platform-tiktok">
+                    <td>TikTok</td>
+                    <td>$192,686</td>
+                    <td>133,913,161</td>
+                    <td>5,559,349</td>
+                    <td>174,835</td>
+                    <td>4.2%</td>
+                    <td>0.13%</td>
+                    <td>$0.0347</td>
+                    <td>8,910</td>
+                </tr>
+                <tr class="platform-youtube">
+                    <td>YouTube</td>
+                    <td>$1,106,312</td>
+                    <td>164,735,587</td>
+                    <td>69,624,318</td>
+                    <td>565,088</td>
+                    <td>42.3%</td>
+                    <td>0.34%</td>
+                    <td>$0.0159</td>
+                    <td>79,217</td>
+                </tr>
+                <tr class="platform-shahid">
+                    <td>Shahid</td>
+                    <td>$118,280</td>
+                    <td>4,289,294</td>
+                    <td>3,754,926</td>
+                    <td>19,448</td>
+                    <td>87.5%</td>
+                    <td>0.45%</td>
+                    <td>$0.0315</td>
+                    <td>4,708</td>
+                </tr>
+                <tr class="platform-wetransfer">
+                    <td>WeTransfer</td>
+                    <td>$154,497</td>
+                    <td>4,052,815</td>
+                    <td>1,386,766</td>
+                    <td>28,504</td>
+                    <td>34.2%</td>
+                    <td>0.70%</td>
+                    <td>$0.1114</td>
+                    <td>3,095</td>
+                </tr>
+                <tr class="platform-vk">
+                    <td>VK</td>
+                    <td>$11,570</td>
+                    <td>1,481,428</td>
+                    <td>991,319</td>
+                    <td>2,478</td>
+                    <td>66.9%</td>
+                    <td>0.17%</td>
+                    <td>$0.0117</td>
+                    <td>945</td>
+                </tr>
+                <tr class="platform-sky">
+                    <td>Sky</td>
+                    <td>$300,731</td>
+                    <td>5,569,094</td>
+                    <td>5,502,397</td>
+                    <td>N/A</td>
+                    <td>98.8%</td>
+                    <td>N/A</td>
+                    <td>$0.0546</td>
+                    <td>1</td>
+                </tr>
+                <tr class="platform-disney">
+                    <td>Disney+</td>
+                    <td>$12,943</td>
+                    <td>395,230</td>
+                    <td>381,080</td>
+                    <td>N/A</td>
+                    <td>96.4%</td>
+                    <td>N/A</td>
+                    <td>$0.0340</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="metric-name total-row">Total/Avg</td>
+                    <td class="total-row">$3,169,968</td>
+                    <td class="total-row">1,643,874,187</td>
+                    <td class="total-row">297,419,243</td>
+                    <td class="total-row">4,778,412</td>
+                    <td class="total-row">18.1%</td>
+                    <td class="total-row">0.29%</td>
+                    <td class="total-row">$0.0107</td>
+                    <td class="total-row">475,331</td>
+                </tr>
+            </table>
+            
+            <h3>Traffic Phase 2 Performance</h3>
+            <table>
+                <tr class="header-row">
+                    <th>Platform</th>
+                    <th>Spend</th>
+                    <th>Impressions</th>
+                    <th>Views</th>
+                    <th>Clicks</th>
+                    <th>VTR</th>
+                    <th>CTR</th>
+                    <th>CPC</th>
+                    <th>Sessions</th>
+                </tr>
+                <tr class="platform-meta">
+                    <td>META</td>
+                    <td>$365,088</td>
+                    <td>149,427,983</td>
+                    <td>8,084,718</td>
+                    <td>1,399,792</td>
+                    <td>5.4%</td>
+                    <td>0.94%</td>
+                    <td>$0.261</td>
+                    <td>349,064</td>
+                </tr>
+                <tr class="platform-memob">
+                    <td>Memob</td>
+                    <td>$90,483</td>
+                    <td>5,483,812</td>
+                    <td>4,387,050</td>
+                    <td>48,649</td>
+                    <td>80.0%</td>
+                    <td>0.89%</td>
+                    <td>$1.86</td>
+                    <td>4,883</td>
+                </tr>
+                <tr class="platform-pmax">
+                    <td>PMAX</td>
+                    <td>$420,439</td>
+                    <td>130,998,818</td>
+                    <td>N/A</td>
+                    <td>2,737,125</td>
+                    <td>N/A</td>
+                    <td>2.09%</td>
+                    <td>$0.15</td>
+                    <td>454,184</td>
+                </tr>
+                <tr>
+                    <td class="metric-name total-row">Total/Avg</td>
+                    <td class="total-row">$876,010</td>
+                    <td class="total-row">285,910,613</td>
+                    <td class="total-row">12,471,768</td>
+                    <td class="total-row">4,185,566</td>
+                    <td class="total-row">8.0%</td>
+                    <td class="total-row">1.47%</td>
+                    <td class="total-row">$0.21</td>
+                    <td class="total-row">808,131</td>
+                </tr>
+            </table>
+            
+            <div class="insights">
+                <h3><i class="fas fa-lightbulb"></i> Campaign Phase Insights</h3>
+                <ul>
+                    <li><strong>Awareness Phase Performance:</strong>
+                        <ul>
+                            <li>YouTube delivered the highest VTR (42.3%) during the awareness phase, making it the most effective platform for video views</li>
+                            <li>Snap showed the highest CTR (0.80%) and delivered the most sessions despite lower spend</li>
+                            <li>META delivered the most cost-efficient views with the lowest CPV ($0.0054)</li>
+                            <li>TikTok had the lowest VTR (4.2%) and CTR (0.13%) among all platforms</li>
+                        </ul>
+                    </li>
+                    <li><strong>Traffic Phase Performance:</strong>
+                        <ul>
+                            <li>PMAX was the primary platform used during the Traffic phase ($420,439), followed by META ($365,086) and Memob ($90,483)</li>
+                            <li>PMAX delivered the highest number of sessions (404,184) with the most cost-efficient CPC ($0.19)</li>
+                            <li>META's CTR increased significantly from 0.24% in the Awareness phase to 0.94% in the Traffic phase</li>
+                            <li>Memob showed strong performance with an 80.0% VTR and 0.89% CTR</li>
+                        </ul>
+                    </li>
+                    <li><strong>Phase Strategy Insights:</strong>
+                        <ul>
+                            <li>The campaign effectively used a multi-platform approach for the Awareness phase</li>
+                            <li>For the Traffic phase, the strategy utilized PMAX, META, and Memob with distinct roles</li>
+                            <li>PMAX and META together accounted for 90% of Traffic phase spend and delivered 86% of all sessions</li>
+                            <li>This phased approach allowed for broad awareness building followed by targeted traffic driving</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-globe"></i> Market-Specific Performance Analysis</h2>
+            <p>This section analyzes Market Efficiency Scores (MES) and performance across different markets, providing insights into market-specific efficiency and platform synergies.</p>
+            
+            <div class="insights" style="margin-bottom: 25px;">
+                <h3><i class="fas fa-calculator"></i> Market Efficiency Score (MES) Methodology</h3>
+                <p>The Market Efficiency Score (MES) methodology provides a standardized approach for evaluating market performance across both Awareness and Traffic phases. This calculation accounts for the distinct objectives of each campaign phase, allowing for consistent comparison across markets with different investment levels and performance patterns.</p>
+                
+                <p style="margin-top: 15px;"><strong>Phase-Specific MES Formulas:</strong></p>
+                <ul>
+                    <li><strong>Awareness Phase MES</strong> = (0.4 × Impression Efficiency) + (0.4 × View Efficiency) + (0.1 × Click Efficiency) + (0.1 × Quality Factor)</li>
+                    <li><strong>Traffic Phase MES</strong> = (0.1 × Impression Efficiency) + (0.5 × Click Efficiency) + (0.3 × Session Efficiency) + (0.1 × Quality Factor)</li>
+                    <li><strong>Overall Standardized MES</strong> = (0.7 × Awareness Phase MES) + (0.3 × Traffic Phase MES)</li>
+                </ul>
+                
+                <p style="margin-top: 15px;">This approach ensures that markets are evaluated based on metrics that align with campaign objectives, with impression and view efficiency weighted more heavily in the Awareness phase, while the Traffic phase prioritizes click and session efficiency.</p>
+            </div>
+            
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-value">5.0x</div>
+                    <div class="metric-label">India MES (Highest)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1.4x</div>
+                    <div class="metric-label">Kuwait MES</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1.2x</div>
+                    <div class="metric-label">Saudi Arabia MES</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0.4x</div>
+                    <div class="metric-label">Germany MES (Lowest)</div>
+                </div>
+            </div>
+            
+            <div class="market-grid">
+                <!-- T1 Markets -->
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #FF9933;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/India.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> India</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $278,444 (6.9% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>867.6M impressions (45.0% of total)</li>
+                                <li>141.5M views (46.3% of total)</li>
+                                <li>2.2M clicks (24.8% of total)</li>
+                                <li>128.6K sessions (10.0% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 6.5x (45.0% ÷ 6.9%)</li>
+                        <li><strong>View Efficiency:</strong> 6.7x (46.3% ÷ 6.9%)</li>
+                        <li><strong>Click Efficiency:</strong> 3.6x (24.8% ÷ 6.9%)</li>
+                        <li><strong>Session Efficiency:</strong> 1.4x (10.0% ÷ 6.9%)</li>
+                        <li><strong>Cost Efficiency:</strong> Lowest CPV ($0.0012 for META)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 5.8x</li>
+                                <li>Traffic Phase MES: 3.1x</li>
+                                <li>Overall Standardized MES: 5.0x (highest across all markets)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Exceptional efficiency with META (112.6M views) and Snap (14.9M views)</li>
+                        <li><strong>Traffic Phase:</strong> Outstanding session quality with META (66.8% CTS rate)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>META:</strong> $0.0012 CPV (lowest across all markets), 15.5% VTR, 66.8% CTS rate</li>
+                        <li><strong>Snap:</strong> $0.0075 CPV, 14.3% VTR, 23.97% CTS rate</li>
+                        <li><strong>YouTube:</strong> $0.0021 CPV, 49.5% VTR, exceptional view quality</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #006C35;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/saudi-arabia.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Saudi Arabia</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $451,703 (11.2% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>199.5M impressions (10.3% of total)</li>
+                                <li>21.0M views (6.9% of total)</li>
+                                <li>1.0M clicks (11.6% of total)</li>
+                                <li>1.16M sessions (50.5% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 0.9x (10.3% ÷ 11.2%)</li>
+                        <li><strong>View Efficiency:</strong> 0.6x (6.9% ÷ 11.2%)</li>
+                        <li><strong>Click Efficiency:</strong> 1.0x (11.6% ÷ 11.2%)</li>
+                        <li><strong>Session Efficiency:</strong> 4.5x (50.5% ÷ 11.2%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 0.9x</li>
+                                <li>Traffic Phase MES: 2.0x</li>
+                                <li>Overall Standardized MES: 1.2x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Strong performance with YouTube (46.4% VTR) and Snap (23.5% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Exceptional PMAX performance ($0.06 CPC, 109,469 sessions)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>PMAX:</strong> $0.06 CPC, 2.14% CTR, 15.61% CTS rate</li>
+                        <li><strong>Snap:</strong> 23.5% VTR, $0.0171 CPV</li>
+                        <li><strong>YouTube:</strong> 46.4% VTR, $0.0080 CPV</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #00247D;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/united-kingdom.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> United Kingdom</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $873,693 (21.6% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>115.0M impressions (6.0% of total)</li>
+                                <li>25.4M views (8.3% of total)</li>
+                                <li>506.5K clicks (5.7% of total)</li>
+                                <li>465.4K sessions (20.3% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 0.3x (6.0% ÷ 21.6%)</li>
+                        <li><strong>View Efficiency:</strong> 0.4x (8.3% ÷ 21.6%)</li>
+                        <li><strong>Click Efficiency:</strong> 0.3x (5.7% ÷ 21.6%)</li>
+                        <li><strong>Session Efficiency:</strong> 0.9x (20.3% ÷ 21.6%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 0.4x</li>
+                                <li>Traffic Phase MES: 0.5x</li>
+                                <li>Overall Standardized MES: 0.4x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Strong META performance (18.2% VTR) and YouTube (39.2% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Excellent META session quality (49.0% CTS rate)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>META:</strong> 49.0% CTS rate, $1.15 CPS</li>
+                        <li><strong>PMAX:</strong> 24.14% CTS rate, $1.45 CPS</li>
+                        <li><strong>YouTube:</strong> 39.2% VTR, $0.0316 CPV</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #FFCC00;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/german.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Germany</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $650,193 (16.1% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>84.7M impressions (4.4% of total)</li>
+                                <li>18.8M views (6.2% of total)</li>
+                                <li>279.7K clicks (3.1% of total)</li>
+                                <li>39.1K sessions (1.7% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 0.3x (4.4% ÷ 16.1%)</li>
+                        <li><strong>View Efficiency:</strong> 0.4x (6.2% ÷ 16.1%)</li>
+                        <li><strong>Click Efficiency:</strong> 0.2x (3.1% ÷ 16.1%)</li>
+                        <li><strong>Session Efficiency:</strong> 0.1x (1.7% ÷ 16.1%)</li>
+                        <li><strong>Quality Factor:</strong> Highest YouTube VTR (59.3%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 0.4x</li>
+                                <li>Traffic Phase MES: 0.3x</li>
+                                <li>Overall Standardized MES: 0.4x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Exceptional YouTube quality (59.3% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Strong PMAX CTR (2.24%)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>YouTube:</strong> 59.3% VTR, $0.0245 CPV</li>
+                        <li><strong>PMAX:</strong> 2.24% CTR, $0.56 CPC</li>
+                        <li><strong>META:</strong> 1.05% CTR, $0.60 CPC</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #002654;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/france.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> France</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $622,282 (15.4% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>139.1M impressions (7.2% of total)</li>
+                                <li>26.5M views (8.7% of total)</li>
+                                <li>497.2K clicks (5.5% of total)</li>
+                                <li>54.2K sessions (2.4% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 0.5x (7.2% ÷ 15.4%)</li>
+                        <li><strong>View Efficiency:</strong> 0.6x (8.7% ÷ 15.4%)</li>
+                        <li><strong>Click Efficiency:</strong> 0.4x (5.5% ÷ 15.4%)</li>
+                        <li><strong>Session Efficiency:</strong> 0.2x (2.4% ÷ 15.4%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 0.5x</li>
+                                <li>Traffic Phase MES: 0.4x</li>
+                                <li>Overall Standardized MES: 0.5x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Strong META (16.6% VTR) and YouTube (35.5% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> High META CTR (1.33%)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>META:</strong> 1.33% CTR, $0.30 CPC</li>
+                        <li><strong>YouTube:</strong> 35.5% VTR, $0.0298 CPV</li>
+                        <li><strong>PMAX:</strong> 2.16% CTR, $0.20 CPC</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #009246;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/italy.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Italy</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $376,479 (9.3% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>176.7M impressions (9.2% of total)</li>
+                                <li>27.5M views (9.0% of total)</li>
+                                <li>854.5K clicks (9.5% of total)</li>
+                                <li>42.8K sessions (1.9% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 1.0x (9.2% ÷ 9.3%)</li>
+                        <li><strong>View Efficiency:</strong> 1.0x (9.0% ÷ 9.3%)</li>
+                        <li><strong>Click Efficiency:</strong> 1.0x (9.5% ÷ 9.3%)</li>
+                        <li><strong>Session Efficiency:</strong> 0.2x (1.9% ÷ 9.3%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 1.0x</li>
+                                <li>Traffic Phase MES: 0.7x</li>
+                                <li>Overall Standardized MES: 0.9x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Strong META (17.7% VTR) and YouTube (47.0% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Excellent PMAX performance (2.58% CTR, 89,045 sessions)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>PMAX:</strong> 2.58% CTR, $0.12 CPC, 15.02% CTS rate</li>
+                        <li><strong>YouTube:</strong> 47.0% VTR, $0.0151 CPV</li>
+                        <li><strong>META:</strong> 1.39% CTR, $0.19 CPC</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #00732F;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/united-arab-emirates.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> UAE</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $435,855 (10.8% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>140.5M impressions (7.3% of total)</li>
+                                <li>23.9M views (7.8% of total)</li>
+                                <li>310.3K clicks (3.5% of total)</li>
+                                <li>93.3K sessions (4.1% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 0.7x (7.3% ÷ 10.8%)</li>
+                        <li><strong>View Efficiency:</strong> 0.7x (7.8% ÷ 10.8%)</li>
+                        <li><strong>Click Efficiency:</strong> 0.3x (3.5% ÷ 10.8%)</li>
+                        <li><strong>Session Efficiency:</strong> 0.4x (4.1% ÷ 10.8%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 0.7x</li>
+                                <li>Traffic Phase MES: 0.4x</li>
+                                <li>Overall Standardized MES: 0.6x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Strong YouTube performance (43.7% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Exceptional PMAX CTR (4.30%, highest across all markets)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>PMAX:</strong> 4.30% CTR (highest across all markets), 92.15% CTS rate</li>
+                        <li><strong>YouTube:</strong> 43.7% VTR, $0.0139 CPV</li>
+                        <li><strong>META:</strong> 50.36% CTS rate, $0.57 CPS</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #007A3D;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/kuwait.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Kuwait</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $98,656 (2.4% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>65.9M impressions (3.4% of total)</li>
+                                <li>5.9M views (1.9% of total)</li>
+                                <li>442.2K clicks (4.9% of total)</li>
+                                <li>139.2K sessions (6.1% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 1.4x (3.4% ÷ 2.4%)</li>
+                        <li><strong>View Efficiency:</strong> 0.8x (1.9% ÷ 2.4%)</li>
+                        <li><strong>Click Efficiency:</strong> 2.0x (4.9% ÷ 2.4%)</li>
+                        <li><strong>Session Efficiency:</strong> 2.5x (6.1% ÷ 2.4%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 1.2x</li>
+                                <li>Traffic Phase MES: 2.0x</li>
+                                <li>Overall Standardized MES: 1.4x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Strong YouTube performance (39.4% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Excellent PMAX efficiency ($0.07 CPC, 38,715 sessions)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>PMAX:</strong> $0.07 CPC, 1.94% CTR, 11.57% CTS rate</li>
+                        <li><strong>YouTube:</strong> 39.4% VTR, $0.0069 CPV</li>
+                        <li><strong>Shahid:</strong> 87.0% VTR, $0.0315 CPV</li>
+                    </ul>
+                </div>
+                
+                <!-- T2 Markets -->
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #8A1538;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/quatar.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Qatar</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $82,733 (2.0% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>55.8M impressions (2.9% of total)</li>
+                                <li>3.8M views (1.2% of total)</li>
+                                <li>343.8K clicks (3.8% of total)</li>
+                                <li>52.2K sessions (2.3% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 1.5x (2.9% ÷ 2.0%)</li>
+                        <li><strong>View Efficiency:</strong> 0.6x (1.2% ÷ 2.0%)</li>
+                        <li><strong>Click Efficiency:</strong> 1.9x (3.8% ÷ 2.0%)</li>
+                        <li><strong>Session Efficiency:</strong> 1.2x (2.3% ÷ 2.0%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 1.1x</li>
+                                <li>Traffic Phase MES: 1.5x</li>
+                                <li>Overall Standardized MES: 1.2x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Good YouTube performance (30.8% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Strong PMAX efficiency (47,092 sessions)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>PMAX:</strong> 21.98% CTS rate, $0.43 CPS</li>
+                        <li><strong>YouTube:</strong> 30.8% VTR, $0.0154 CPV</li>
+                        <li><strong>META:</strong> $0.25 CPC, 4.90% CTS rate</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #CE1126;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/bahrain.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Bahrain</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $75,199 (1.9% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>27.0M impressions (1.4% of total)</li>
+                                <li>2.9M views (1.0% of total)</li>
+                                <li>131.2K clicks (1.5% of total)</li>
+                                <li>64.1K sessions (2.8% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 0.7x (1.4% ÷ 1.9%)</li>
+                        <li><strong>View Efficiency:</strong> 0.5x (1.0% ÷ 1.9%)</li>
+                        <li><strong>Click Efficiency:</strong> 0.8x (1.5% ÷ 1.9%)</li>
+                        <li><strong>Session Efficiency:</strong> 1.5x (2.8% ÷ 1.9%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 0.7x</li>
+                                <li>Traffic Phase MES: 1.0x</li>
+                                <li>Overall Standardized MES: 0.8x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Dominant Snapchat performance (63,534 sessions, 99% of market total)</li>
+                        <li><strong>Traffic Phase:</strong> Limited investment with poor PMAX performance (0.93% CTR)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Snap:</strong> 8.1% VTR, $0.0385 CPV, 63,534 sessions</li>
+                        <li><strong>YouTube:</strong> 37.1% VTR, $0.0038 CPV</li>
+                        <li><strong>META:</strong> 5.74% CTS rate, $4.03 CPS</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #C8102E;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/Oman.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Oman</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $88,717 (2.2% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>54.4M impressions (2.8% of total)</li>
+                                <li>5.3M views (1.7% of total)</li>
+                                <li>363.9K clicks (4.1% of total)</li>
+                                <li>57.0K sessions (2.5% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 1.3x (2.8% ÷ 2.2%)</li>
+                        <li><strong>View Efficiency:</strong> 0.8x (1.7% ÷ 2.2%)</li>
+                        <li><strong>Click Efficiency:</strong> 1.9x (4.1% ÷ 2.2%)</li>
+                        <li><strong>Session Efficiency:</strong> 1.1x (2.5% ÷ 2.2%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 1.1x</li>
+                                <li>Traffic Phase MES: 1.5x</li>
+                                <li>Overall Standardized MES: 1.2x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Good YouTube performance (24.7% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> Exceptional PMAX efficiency ($0.05 CPC, 51,298 sessions)</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>PMAX:</strong> $0.05 CPC, 2.35% CTR, 19.00% CTS rate</li>
+                        <li><strong>YouTube:</strong> 24.7% VTR, $0.0069 CPV</li>
+                        <li><strong>Memob:</strong> 80.0% VTR, 10.47% CTS rate</li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title" style="color: #D90012;"><img src="../../../project/Armenia/Markets/All Markets/Markets-repository/armenia.png" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;"> Armenia</h3>
+                    <h4>Investment & Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Investment:</strong> $11,570 (0.3% of total budget)</li>
+                        <li><strong>Performance Metrics:</strong>
+                            <ul>
+                                <li>1.5M impressions (0.1% of total)</li>
+                                <li>991.3K views (0.3% of total)</li>
+                                <li>2.5K clicks (0.03% of total)</li>
+                                <li>945 sessions (0.04% of total)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Market Efficiency Score (MES) Calculation:</h4>
+                    <ul class="strength">
+                        <li><strong>Impression Efficiency:</strong> 0.3x (0.1% ÷ 0.3%)</li>
+                        <li><strong>View Efficiency:</strong> 1.0x (0.3% ÷ 0.3%)</li>
+                        <li><strong>Click Efficiency:</strong> 0.1x (0.03% ÷ 0.3%)</li>
+                        <li><strong>Session Efficiency:</strong> 0.1x (0.04% ÷ 0.3%)</li>
+                        <li><strong>Quality Factor:</strong> High VK VTR (66.9%)</li>
+                        <li><strong>Standardized MES Calculation:</strong>
+                            <ul>
+                                <li>Awareness Phase MES: 0.7x</li>
+                                <li>Traffic Phase MES: 0.1x</li>
+                                <li>Overall Standardized MES: 0.5x</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Strong VK performance (66.9% VTR)</li>
+                        <li><strong>Traffic Phase:</strong> No traffic phase investment</li>
+                    </ul>
+                    
+                    <h4>Platform Highlights:</h4>
+                    <ul class="recommendation">
+                        <li><strong>VK:</strong> 66.9% VTR, 38.14% CTS rate, $0.0117 CPV</li>
+                    </ul>
+                </div>
+
+            
+        </section>
+        
+        
+        <section class="section">
+            <h2><i class="fas fa-bullseye"></i> Platform-Specific Insights & Recommendations</h2>
+            <p>This section provides detailed insights and recommendations for each platform based on the performance analysis.</p>
+            
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <h3 class="platform-title meta-title"><i class="fab fa-facebook"></i> META</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> 
+                            <ul>
+                                <li>189.2M views (62.8% of total)</li>
+                                <li>$0.0054 CPV (best efficiency)</li>
+                                <li>16.0% VTR (moderate quality)</li>
+                                <li>$0.97 CPM (lowest cost)</li>
+                                <li>Exceptional in India ($0.0012 CPV)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traffic Phase:</strong>
+                            <ul>
+                                <li>1.4M clicks (33.4% of traffic phase)</li>
+                                <li>349K sessions (43.2% of traffic phase)</li>
+                                <li>29.0% CTS rate (highest quality)</li>
+                                <li>$0.26 CPC (moderate efficiency)</li>
+                                <li>Outstanding in UK (49.0% CTS) and India (66.8% CTS)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Primary Role:</strong> Versatile platform effective across both phases</li>
+                        <li><strong>Awareness Strength:</strong> Cost-efficient reach and views at scale</li>
+                        <li><strong>Traffic Strength:</strong> High-quality sessions with strong conversion rates</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Top Markets:</strong> India, UK, Italy, UAE</li>
+                        <li><strong>Underperforming Markets:</strong> Kuwait, Bahrain, Oman</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Maintain as primary platform (35-40% of total budget)</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Awareness: 70% of META budget</li>
+                                <li>Traffic: 30% of META budget</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Increase allocation in India (5.0x MES)</li>
+                                <li>Maintain strong presence in UK and UAE</li>
+                                <li>Optimize creative for session quality</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Improve CTR through enhanced creative testing</li>
+                                <li>Develop market-specific audience strategies</li>
+                                <li>Implement cross-phase audience sequencing</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title snap-title"><i class="fab fa-snapchat"></i> Snap</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> 
+                            <ul>
+                                <li>21.0M views (6.9% of total)</li>
+                                <li>$0.0120 CPV (good efficiency)</li>
+                                <li>14.6% VTR (moderate quality)</li>
+                                <li>0.76% CTR (strong engagement)</li>
+                                <li>23.97% CTS rate (excellent quality)</li>
+                                <li>Exceptional in India and Saudi Arabia</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traffic Phase:</strong> Not utilized</li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Primary Role:</strong> Efficient session generator</li>
+                        <li><strong>Awareness Strength:</strong> Strong balance of efficiency and session quality</li>
+                        <li><strong>Market Specialization:</strong> Exceptional in specific markets</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Top Markets:</strong> India, Saudi Arabia, Bahrain</li>
+                        <li><strong>Underperforming Markets:</strong> Limited market coverage</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Increase to 10-15% of total budget (from 6.4%)</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Awareness: 80% of Snap budget</li>
+                                <li>Traffic: Test with 20% of Snap budget given strong CTS rates</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Maintain strong presence in India and Saudi Arabia</li>
+                                <li>Expand to additional GCC markets based on success model</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Test in Traffic phase given strong session performance</li>
+                                <li>Expand market coverage based on performance patterns</li>
+                                <li>Develop creative formats optimized for session quality</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title tiktok-title"><i class="fab fa-tiktok"></i> TikTok</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> 
+                            <ul>
+                                <li>5.6M views (1.8% of total)</li>
+                                <li>$0.0347 CPV (poor efficiency)</li>
+                                <li>4.2% VTR (lowest quality)</li>
+                                <li>0.13% CTR (poorest engagement)</li>
+                                <li>5.10% CTS rate (poor quality)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traffic Phase:</strong> Not utilized</li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Current Role:</strong> Youth audience reach</li>
+                        <li><strong>Awareness Limitation:</strong> Poor efficiency across all metrics</li>
+                        <li><strong>Market Performance:</strong> Consistent underperformance across markets</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Top Markets:</strong> UK (5.7% VTR), Saudi Arabia (4.3% VTR)</li>
+                        <li><strong>Underperforming Markets:</strong> All markets showed poor performance</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Reduce to 0-3% of total budget (from 4.8%)</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Awareness: 100% of TikTok budget if maintained</li>
+                                <li>Focus exclusively on reach objectives</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Limit to Saudi Arabia if maintained</li>
+                                <li>Consider eliminating from other markets</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Implement A/B testing to identify more effective content formats</li>
+                                <li>Significantly improve creative assets to address low engagement</li>
+                                <li>Consider alternative platforms for youth audience targeting</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title youtube-title"><i class="fab fa-youtube"></i> YouTube</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> 
+                            <ul>
+                                <li>69.6M views (22.8% of total)</li>
+                                <li>$0.0159 CPV (good efficiency)</li>
+                                <li>42.3% VTR (superior quality)</li>
+                                <li>Exceptional in Germany (59.3% VTR)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traffic Phase:</strong> Not utilized</li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Primary Role:</strong> High-quality video views</li>
+                        <li><strong>Awareness Strength:</strong> Superior view quality at scale</li>
+                        <li><strong>Quality-Efficiency Balance:</strong> Good balance of quality and cost</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Top Markets:</strong> Germany, Italy, UAE, Saudi Arabia</li>
+                        <li><strong>Underperforming Markets:</strong> France (35.5% VTR, higher CPV)</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Maintain at 25-30% of total budget</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Awareness: 100% of YouTube budget</li>
+                                <li>Focus on markets with highest VTR</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Prioritize Germany (59.3% VTR) and Italy (47.0% VTR)</li>
+                                <li>Maintain strong presence in UAE (43.7% VTR)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Optimize creative length based on market performance</li>
+                                <li>Test sequential messaging strategies</li>
+                                <li>Implement view-depth audience segmentation</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title shahid-title"><i class="fas fa-tv"></i> Premium Video (Shahid, Sky, Disney+)</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> 
+                            <ul>
+                                <li>9.6M views (3.2% of total)</li>
+                                <li>$0.0373 CPV (premium cost)</li>
+                                <li>87-99% VTR (exceptional quality)</li>
+                                <li>Highest CPM ($27-$54)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traffic Phase:</strong> Not utilized</li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Primary Role:</strong> Premium brand-building</li>
+                        <li><strong>Awareness Strength:</strong> Highest quality views in brand-safe environments</li>
+                        <li><strong>Market Specialization:</strong> Regional specialization (Shahid in GCC, Sky in Europe)</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Top Markets:</strong> 
+                            <ul>
+                                <li>Shahid: UAE, Saudi Arabia, Kuwait</li>
+                                <li>Sky: UK, Germany</li>
+                                <li>Disney+: France</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Optimize to 7-10% of total budget (from 10.6%)
+                            <ul>
+                                <li>Shahid: 2-3%</li>
+                                <li>Sky: 3-5%</li>
+                                <li>Disney+: 0.5-1%</li>
+                            </ul>
+                        </li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Awareness: 100% of Premium Video budget</li>
+                                <li>Focus on brand-building objectives</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Shahid: Focus exclusively on GCC markets</li>
+                                <li>Sky: Prioritize UK and Germany</li>
+                                <li>Disney+: Test expansion beyond France</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Develop premium-specific measurement framework</li>
+                                <li>Implement competitive share-of-voice strategy</li>
+                                <li>Test creative formats optimized for high completion rates</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title wetransfer-title"><i class="fas fa-exchange-alt"></i> WeTransfer</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> 
+                            <ul>
+                                <li>1.4M views (0.5% of total)</li>
+                                <li>$0.1114 CPV (poorest efficiency)</li>
+                                <li>34.2% VTR (good quality)</li>
+                                <li>0.70% CTR (strong engagement)</li>
+                                <li>$38.12 CPM (second highest cost)</li>
+                                <li>$49.92 CPS (poorest session efficiency)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traffic Phase:</strong> Not utilized</li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Current Role:</strong> Premium European awareness</li>
+                        <li><strong>Awareness Limitation:</strong> Extremely high costs for moderate performance</li>
+                        <li><strong>Market Limitation:</strong> Limited to European markets</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Markets:</strong> UK, France, Germany</li>
+                        <li><strong>Performance:</strong> Consistent high costs across all markets</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Reduce to 1-2% of total budget (from 3.8%)</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Awareness: 100% of WeTransfer budget if maintained</li>
+                                <li>Focus on specific creative formats that leverage platform strengths</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Limit to UK if maintained</li>
+                                <li>Consider eliminating from other markets</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Test alternative premium platforms with better efficiency</li>
+                                <li>Negotiate improved rates based on performance data</li>
+                                <li>Consider eliminating unless specific creative formats justify premium</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title vk-title"><i class="fab fa-vk"></i> VK</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> 
+                            <ul>
+                                <li>991K views (0.3% of total)</li>
+                                <li>$0.0117 CPV (good efficiency)</li>
+                                <li>66.9% VTR (excellent quality)</li>
+                                <li>38.1% CTS rate (best quality)</li>
+                                <li>Limited to Armenia</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traffic Phase:</strong> Not utilized</li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Current Role:</strong> Niche CIS market focus</li>
+                        <li><strong>Awareness Strength:</strong> Strong performance in targeted market</li>
+                        <li><strong>Market Limitation:</strong> Limited to Armenia only</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Markets:</strong> Armenia only</li>
+                        <li><strong>Performance:</strong> Strong performance metrics but limited scale</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Maintain at 0.5-1% of total budget</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Awareness: 100% of VK budget</li>
+                                <li>Consider testing in Traffic phase given strong CTS rate</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Maintain for Armenia</li>
+                                <li>Test expansion to other CIS markets if relevant</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Develop market-specific creative strategy</li>
+                                <li>Test expansion to additional CIS markets</li>
+                                <li>Leverage strong CTS rate for traffic objectives</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="platform-card">
+                    <h3 class="platform-title memob-title"><i class="fas fa-mobile-alt"></i> Memob</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Not utilized</li>
+                        <li><strong>Traffic Phase:</strong>
+                            <ul>
+                                <li>48.6K clicks (1.2% of traffic phase)</li>
+                                <li>4.9K sessions (0.6% of traffic phase)</li>
+                                <li>0.89% CTR (good efficiency)</li>
+                                <li>$1.86 CPC (poor efficiency)</li>
+                                <li>10.1% CTS rate (moderate quality)</li>
+                                <li>$18.46 CPS (poor efficiency)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Current Role:</strong> Specialized GCC market focus</li>
+                        <li><strong>Traffic Limitation:</strong> High costs for limited scale</li>
+                        <li><strong>Market Limitation:</strong> Limited to UAE, Saudi Arabia, Oman</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Top Markets:</strong> Saudi Arabia, Oman</li>
+                        <li><strong>Performance:</strong> Consistent high costs across all markets</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Reduce to 1-2% of total budget (from 2.2%)</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Traffic: 100% of Memob budget</li>
+                                <li>Consider testing in Awareness phase in specific GCC markets</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Limit to Saudi Arabia if maintained</li>
+                                <li>Consider eliminating from other markets</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Test alternative platforms for GCC markets</li>
+                                <li>Negotiate improved rates based on performance data</li>
+                                <li>Consider eliminating unless specific targeting capabilities justify premium</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <div class="platform-card">
+                    <h3 class="platform-title pmax-title"><i class="fab fa-google"></i> PMAX</h3>
+                    <h4>Phase Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Awareness Phase:</strong> Not utilized</li>
+                        <li><strong>Traffic Phase:</strong>
+                            <ul>
+                                <li>2.74M clicks (65.4% of traffic phase)</li>
+                                <li>454K sessions (56.2% of traffic phase)</li>
+                                <li>2.09% CTR (highest efficiency)</li>
+                                <li>$0.15 CPC (best efficiency)</li>
+                                <li>16.6% CTS rate (good quality)</li>
+                                <li>Exceptional in UAE (4.30% CTR) and Saudi Arabia ($0.06 CPC)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Strategic Role:</h4>
+                    <ul class="strength">
+                        <li><strong>Primary Role:</strong> Efficient traffic driver</li>
+                        <li><strong>Traffic Strength:</strong> Superior click generation at lowest cost</li>
+                        <li><strong>Market Specialization:</strong> Exceptional performance in GCC markets</li>
+                    </ul>
+                    
+                    <h4>Market-Specific Performance:</h4>
+                    <ul class="strength">
+                        <li><strong>Top Markets:</strong> Saudi Arabia, UAE, Kuwait, Oman, Italy</li>
+                        <li><strong>Underperforming Markets:</strong> Bahrain (0.93% CTR)</li>
+                    </ul>
+                    
+                    <h4>Recommendations:</h4>
+                    <ul class="recommendation">
+                        <li><strong>Budget Allocation:</strong> Increase to 15-20% of total budget (from 10.4%)</li>
+                        <li><strong>Phase Strategy:</strong> 
+                            <ul>
+                                <li>Traffic: 100% of PMAX budget</li>
+                                <li>Consider testing in Awareness phase with video assets</li>
+                            </ul>
+                        </li>
+                        <li><strong>Market Focus:</strong> 
+                            <ul>
+                                <li>Prioritize Saudi Arabia ($0.06 CPC, 109K sessions)</li>
+                                <li>Increase in Kuwait and Oman (exceptional efficiency)</li>
+                                <li>Maintain strong presence in Italy (2.58% CTR)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimization Opportunities:</strong>
+                            <ul>
+                                <li>Implement more granular asset performance tracking</li>
+                                <li>Develop market-specific bidding strategies</li>
+                                <li>Test audience expansion in high-performing markets</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2><i class="fas fa-chess"></i> Conclusion & Strategic Recommendations</h2>
+            
+            <p>The Ramadan campaign utilized multiple platforms with a total investment of $4.04 million, generating 1.93 billion impressions, 305.4 million views, 8.96 million clicks, and 1.28 million sessions. The campaign effectively employed a multi-platform strategy with distinct phases for awareness and traffic generation.</p>
+            
+            <div class="insights">
+                <h3><i class="fas fa-lightbulb"></i> Key Strategic Insights</h3>
+                <ul>
+                    <li><strong>Platform Specialization:</strong> Each platform demonstrated distinct strengths that should inform future media allocation:
+                        <ul>
+                            <li>META: Excellent for cost-efficient reach, views, and versatile campaign objectives</li>
+                            <li>Snap: Superior for generating high-quality traffic and sessions at efficient costs</li>
+                            <li>YouTube: Exceptional for high-quality video views and engagement</li>
+                            <li>TikTok: Underperformed across most metrics, requiring significant optimization</li>
+                        </ul>
+                    </li>
+                    <li><strong>Market-Platform Alignment:</strong> Performance varied significantly by market, suggesting opportunities for market-specific platform strategies:
+                        <ul>
+                            <li>Middle Eastern Markets: Snap performed exceptionally well in Saudi Arabia; YouTube delivered strong view rates in UAE</li>
+                            <li>European Markets: META delivered strong session performance in UK; YouTube achieved exceptional view rates in Germany</li>
+                        </ul>
+                    </li>
+                    <li><strong>Campaign Phasing Strategy:</strong> The two-phase approach (Awareness → Traffic) was effective, but platform utilization could be optimized:
+                        <ul>
+                            <li>Awareness Phase: Effective multi-platform approach with each platform contributing to different objectives</li>
+                            <li>Traffic Phase: Over-reliance on META; opportunity to test Snap given its strong traffic efficiency</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Recommended Budget Allocation for Future Campaigns</h3>
+            <table>
+                <tr class="header-row">
+                    <th>Platform</th>
+                    <th>Current Allocation</th>
+                    <th>Recommended Allocation</th>
+                    <th>Primary Objective</th>
+                    <th>Key Markets</th>
+                </tr>
+                <tr class="platform-meta">
+                    <td>META</td>
+                    <td>34.2%</td>
+                    <td>35-40%</td>
+                    <td>Reach, Views, Traffic</td>
+                    <td>UK, UAE, France, India</td>
+                </tr>
+                <tr class="platform-snap">
+                    <td>Snap</td>
+                    <td>6.4%</td>
+                    <td>10-15%</td>
+                    <td>Traffic, Sessions</td>
+                    <td>Saudi Arabia, Bahrain, India</td>
+                </tr>
+                <tr class="platform-tiktok">
+                    <td>TikTok</td>
+                    <td>4.8%</td>
+                    <td>0-3%</td>
+                    <td>Reach</td>
+                    <td>Saudi Arabia</td>
+                </tr>
+                <tr class="platform-youtube">
+                    <td>YouTube</td>
+                    <td>27.3%</td>
+                    <td>25-30%</td>
+                    <td>Video Views, Engagement</td>
+                    <td>Germany, UAE, UK</td>
+                </tr>
+                <tr>
+                    <td>PMAX</td>
+                    <td>10.4%</td>
+                    <td>15-20%</td>
+                    <td>Traffic, Sessions</td>
+                    <td>Saudi Arabia, Italy, Kuwait, Oman</td>
+                </tr>
+                <tr>
+                    <td>Shahid</td>
+                    <td>2.9%</td>
+                    <td>2-3%</td>
+                    <td>Premium Video Views</td>
+                    <td>UAE, KSA, Kuwait</td>
+                </tr>
+                <tr>
+                    <td>Sky</td>
+                    <td>7.4%</td>
+                    <td>3-5%</td>
+                    <td>Premium Awareness</td>
+                    <td>UK, Germany</td>
+                </tr>
+                <tr>
+                    <td>WeTransfer</td>
+                    <td>3.8%</td>
+                    <td>2-3%</td>
+                    <td>Targeted Awareness</td>
+                    <td>UK, Germany, France</td>
+                </tr>
+                <tr>
+                    <td>Memob</td>
+                    <td>2.2%</td>
+                    <td>2-3%</td>
+                    <td>Mobile Traffic</td>
+                    <td>UAE, KSA, Oman</td>
+                </tr>
+                <tr>
+                    <td>VK</td>
+                    <td>0.3%</td>
+                    <td>0.5-1%</td>
+                    <td>Niche Awareness</td>
+                    <td>Armenia, CIS Markets</td>
+                </tr>
+                <tr>
+                    <td>Disney+</td>
+                    <td>0.3%</td>
+                    <td>0.5-1%</td>
+                    <td>Premium Video Views</td>
+                    <td>France, Expand to Others</td>
+                </tr>
+            </table>
+            
+            <div class="insights" style="margin-top: 25px;">
+                <h3><i class="fas fa-check-circle"></i> Final Recommendations</h3>
+                <ul>
+                    <li><strong>Optimize Platform Mix:</strong> 
+                        <ul>
+                            <li>Increase PMAX's share to 15-20% (from 10.4%) given its exceptional traffic generation efficiency</li>
+                            <li>Adjust Snap's allocation to 10-15% (from 6.4%) based on its strong session performance</li>
+                            <li>Maintain META (35-40%) and YouTube (25-30%) as primary platforms</li>
+                            <li>Reduce TikTok's allocation to 0-3% (from 4.8%) due to consistent underperformance</li>
+                            <li>Reduce Sky's allocation to 3-5% (from 7.4%) while maintaining premium video presence</li>
+                        </ul>
+                    </li>
+                    <li><strong>Enhance Phase Allocation Strategy:</strong> 
+                        <ul>
+                            <li>Shift budget allocation to 70% Awareness / 30% Traffic (from current 78.4% / 21.6%)</li>
+                            <li>This adjustment will improve overall session generation while maintaining brand awareness</li>
+                            <li>Implement clearer platform specialization within each phase</li>
+                        </ul>
+                    </li>
+                    <li><strong>Implement Market Investment Priorities:</strong>
+                        <ul>
+                            <li><strong>Increase Investment:</strong> Saudi Arabia (highest session efficiency), UK (strong overall performance), India (exceptional reach efficiency with 5.0x MES)</li>
+                            <li><strong>Maintain Investment:</strong> UAE, France, Germany</li>
+                            <li><strong>Optimize Investment:</strong> Italy (increase META and PMAX, reduce TikTok), Kuwait (increase YouTube and PMAX)</li>
+                            <li><strong>Evaluate MES:</strong> Bahrain (increase Snapchat), Oman (increase PMAX and Memob), Qatar, Armenia</li>
+                        </ul>
+                    </li>
+                    <li><strong>Enhance Platform-Market Alignment:</strong>
+                        <ul>
+                            <li>Leverage Snap's exceptional performance in Bahrain (99% of market sessions from $66,438 spend)</li>
+                            <li>Capitalize on PMAX's efficiency in Oman (51,298 sessions, 90% of market total) and Italy (89,045 sessions)</li>
+                            <li>Utilize YouTube's strong performance in Germany (59.31% VTR) and Kuwait (39.38% VTR)</li>
+                            <li>Maximize META's efficiency in India (45% of impressions, 46.3% of views)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Expand Phase Testing:</strong> Test Snap in the Traffic phase given its strong performance in generating cost-efficient sessions ($0.94 per session)</li>
+                    <li><strong>Implement Continuous Optimization:</strong> Establish real-time performance monitoring to quickly adjust strategies based on platform-specific CTR and CTS% metrics</li>
+                    <li><strong>Improve Data Quality:</strong>
+                        <ul>
+                            <li>Standardize measurement methodologies across platforms to avoid discrepancies</li>
+                            <li>Implement automated checks to identify potential data anomalies during the campaign</li>
+                            <li>Develop more granular tracking for platforms like PMAX to better understand performance drivers</li>
+                            <li>Create standardized reporting templates for consistent data aggregation across markets</li>
+                            <li>Establish clear data governance protocols to maintain data integrity throughout the campaign</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Research & Insights Unit | Strategic Marketing & Communications | Department of Culture and Tourism – Abu Dhabi</p>
+        </div>
+    </footer>
+    
+    <style>
+        /* Collapsible section styles */
+        .section-header {
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            background-color: rgba(66, 133, 244, 0.1);
+            border-radius: 5px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header.collapsed:after {
+            transform: rotate(-90deg);
+        }
+        
+        .section-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 2000px; /* Large enough to contain content */
+        }
+        
+        .section-content.collapsed {
+            max-height: 0 !important;
+            overflow: hidden !important;
+            display: none !important;
+        }
+        
+        /* Main section collapsible styles */
+        .main-section-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 30px; /* Space for the arrow */
+            transition: color 0.2s ease;
+        }
+        
+        .main-section-header:hover {
+            color: var(--primary-dark);
+        }
+        
+        .main-section-header:after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .main-section-header.collapsed:after {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+        
+        .main-section-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            max-height: 9999px; /* Very large to accommodate all content */
+        }
+        
+        .main-section-content.collapsed {
+            max-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            display: none !important;
+        }
+    </style>
+    
+    <script>
+        // Investment charts data and configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            // Market investment data
+            const marketData = [
+                { market: 'UK', awareness: 709339, traffic: 164354 },
+                { market: 'Germany', awareness: 494380, traffic: 155812 },
+                { market: 'France', awareness: 514967, traffic: 107314 },
+                { market: 'Saudi Arabia', awareness: 324958, traffic: 126745 },
+                { market: 'UAE', awareness: 374684, traffic: 61172 },
+                { market: 'Italy', awareness: 253046, traffic: 123433 },
+                { market: 'India', awareness: 273634, traffic: 4811 },
+                { market: 'Kuwait', awareness: 59987, traffic: 38669 },
+                { market: 'Oman', awareness: 33758, traffic: 54960 },
+                { market: 'Qatar', awareness: 44756, traffic: 37976 },
+                { market: 'Bahrain', awareness: 74435, traffic: 764 },
+                { market: 'Armenia', awareness: 11570, traffic: 0 }
+            ];
+            
+            // Sort markets by total investment (descending)
+            marketData.sort((a, b) => (b.awareness + b.traffic) - (a.awareness + a.traffic));
+            
+            // Chart configuration for market investment
+            const marketCtx = document.getElementById('marketInvestmentChart').getContext('2d');
+            const marketInvestmentChart = new Chart(marketCtx, {
+                type: 'bar',
+                data: {
+                    labels: marketData.map(item => item.market),
+                    datasets: [
+                        {
+                            label: 'Awareness Phase',
+                            data: marketData.map(item => item.awareness),
+                            backgroundColor: '#4285f4',
+                            borderColor: '#1a73e8',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Traffic Phase',
+                            data: marketData.map(item => item.traffic),
+                            backgroundColor: '#34a853',
+                            borderColor: '#1e8e3e',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Investment by Market by Phase',
+                            color: '#e0e0e0',
+                            font: {
+                                size: 18
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.dataset.label || '';
+                                    const value = context.parsed.y;
+                                    return `${label}: $${value.toLocaleString()}`;
+                                },
+                                footer: function(tooltipItems) {
+                                    const idx = tooltipItems[0].dataIndex;
+                                    const market = marketData[idx];
+                                    const total = market.awareness + market.traffic;
+                                    const awarenessPercentage = (market.awareness / total * 100).toFixed(1);
+                                    const trafficPercentage = (market.traffic / total * 100).toFixed(1);
+                                    return [
+                                        `Total: $${total.toLocaleString()}`,
+                                        `Awareness: ${awarenessPercentage}%`,
+                                        `Traffic: ${trafficPercentage}%`
+                                    ];
+                                }
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#e0e0e0'
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#e0e0e0',
+                                callback: function(value) {
+                                    if (value >= 1000000) return '$' + (value / 1000000).toFixed(1) + 'M';
+                                    if (value >= 1000) return '$' + (value / 1000).toFixed(0) + 'K';
+                                    return '$' + value;
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Investment (USD)',
+                                color: '#e0e0e0'
+                            }
+                        }
+                    }
+                }
+            });
+            // Platform investment data for stacked bar chart
+            const platformData = [
+                { platform: 'META', awareness: 1020875, traffic: 365086 },
+                { platform: 'YouTube', awareness: 1106312, traffic: 0 },
+                { platform: 'PMAX', awareness: 0, traffic: 420439 },
+                { platform: 'Sky', awareness: 300731, traffic: 0 },
+                { platform: 'WeTransfer', awareness: 154497, traffic: 0 },
+                { platform: 'Snap', awareness: 251621, traffic: 0 },
+                { platform: 'TikTok', awareness: 192686, traffic: 0 },
+                { platform: 'Shahid', awareness: 118280, traffic: 0 },
+                { platform: 'Memob', awareness: 0, traffic: 90483 },
+                { platform: 'Disney+', awareness: 12943, traffic: 0 },
+                { platform: 'VK', awareness: 11570, traffic: 0 }
+            ];
+            
+            // Sort platforms by total investment (descending)
+            platformData.sort((a, b) => (b.awareness + b.traffic) - (a.awareness + a.traffic));
+            
+            // Chart configuration for platform investment
+            const platformCtx = document.getElementById('platformInvestmentChart').getContext('2d');
+            const platformInvestmentChart = new Chart(platformCtx, {
+                type: 'bar',
+                data: {
+                    labels: platformData.map(item => item.platform),
+                    datasets: [
+                        {
+                            label: 'Awareness Phase',
+                            data: platformData.map(item => item.awareness),
+                            backgroundColor: '#4285f4',
+                            borderColor: '#1a73e8',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Traffic Phase',
+                            data: platformData.map(item => item.traffic),
+                            backgroundColor: '#34a853',
+                            borderColor: '#1e8e3e',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Investment by Platform by Phase',
+                            color: '#e0e0e0',
+                            font: {
+                                size: 18
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.dataset.label || '';
+                                    const value = context.parsed.y;
+                                    return `${label}: $${value.toLocaleString()}`;
+                                },
+                                footer: function(tooltipItems) {
+                                    const idx = tooltipItems[0].dataIndex;
+                                    const platform = platformData[idx];
+                                    const total = platform.awareness + platform.traffic;
+                                    const awarenessPercentage = platform.awareness > 0 ? (platform.awareness / total * 100).toFixed(1) : 0;
+                                    const trafficPercentage = platform.traffic > 0 ? (platform.traffic / total * 100).toFixed(1) : 0;
+                                    
+                                    let footerLines = [`Total: $${total.toLocaleString()}`];
+                                    
+                                    if (platform.awareness > 0) {
+                                        footerLines.push(`Awareness: ${awarenessPercentage}%`);
+                                    }
+                                    
+                                    if (platform.traffic > 0) {
+                                        footerLines.push(`Traffic: ${trafficPercentage}%`);
+                                    }
+                                    
+                                    return footerLines;
+                                }
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#e0e0e0'
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            grid: {
+                                color: '#3d3d3d'
+                            },
+                            ticks: {
+                                color: '#e0e0e0',
+                                callback: function(value) {
+                                    if (value >= 1000000) return '$' + (value / 1000000).toFixed(1) + 'M';
+                                    if (value >= 1000) return '$' + (value / 1000).toFixed(0) + 'K';
+                                    return '$' + value;
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Investment (USD)',
+                                color: '#e0e0e0'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Create a global tooltip container that will be positioned dynamically
+        function createTooltipContainer() {
+            const container = document.createElement('div');
+            container.id = 'tooltip-container';
+            document.body.appendChild(container);
+            return container;
+        }
+        
+        // Function to set up collapsible sections
+        function setupCollapsibleSections() {
+            // Find all h2 elements (main section headers)
+            const mainHeaders = document.querySelectorAll('h2');
+            
+            mainHeaders.forEach(header => {
+                // Add the main-section-header class
+                header.classList.add('main-section-header');
+                
+                // Find the next sibling that should be the content wrapper
+                let content = header.nextElementSibling;
+                
+                // If it's not a main-section-content div, we need to create one
+                if (!content || !content.classList.contains('main-section-content')) {
+                    content = document.createElement('div');
+                    content.classList.add('main-section-content');
+                    
+                    // Move all content after the h2 into the wrapper until the next h2
+                    let nextElement = header.nextElementSibling;
+                    while (nextElement && nextElement.tagName !== 'H2') {
+                        const temp = nextElement.nextElementSibling;
+                        content.appendChild(nextElement);
+                        nextElement = temp;
+                    }
+                    
+                    // Add the wrapper after the header
+                    header.after(content);
+                }
+                
+                // Add click event
+                header.addEventListener('click', function() {
+                    this.classList.toggle('collapsed');
+                    content.classList.toggle('collapsed');
+                });
+            });
+            
+            // Find all h4 elements in platform cards
+            const platformCards = document.querySelectorAll('.platform-card');
+            
+            platformCards.forEach(card => {
+                const headers = card.querySelectorAll('h4');
+                
+                headers.forEach(header => {
+                    // Skip if it's not a direct child of the platform card
+                    if (header.parentElement !== card) return;
+                    
+                    // Add the section-header class
+                    header.classList.add('section-header');
+                    
+                    // Get the content (ul element)
+                    const content = header.nextElementSibling;
+                    if (content) {
+                        content.classList.add('section-content');
+                        
+                        // Add click event
+                        header.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            this.classList.toggle('collapsed');
+                            content.classList.toggle('collapsed');
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Function to show tooltip at mouse position
+        function showTooltip(event, text) {
+            const tooltip = document.getElementById('tooltip-container');
+            if (!tooltip) return;
+            
+            tooltip.innerHTML = text;
+            tooltip.style.visibility = 'visible';
+            tooltip.style.opacity = '1';
+            
+            // Position the tooltip near the mouse but ensure it stays within viewport
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            // Calculate position to avoid going off-screen
+            const tooltipWidth = tooltip.offsetWidth;
+            const tooltipHeight = tooltip.offsetHeight;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            
+            // Default position above the cursor
+            let posX = x - (tooltipWidth / 2);
+            let posY = y - tooltipHeight - 10;
+            
+            // Adjust if tooltip would go off the right edge
+            if (posX + tooltipWidth > windowWidth) {
+                posX = windowWidth - tooltipWidth - 10;
+            }
+            
+            // Adjust if tooltip would go off the left edge
+            if (posX < 10) {
+                posX = 10;
+            }
+            
+            // If tooltip would go off the top, position it below the cursor instead
+            if (posY < 10) {
+                posY = y + 20;
+            }
+            
+            tooltip.style.left = posX + 'px';
+            tooltip.style.top = posY + 'px';
+        }
+        
+        // Function to hide tooltip
+        function hideTooltip() {
+            const tooltip = document.getElementById('tooltip-container');
+            if (!tooltip) return;
+            
+            tooltip.style.visibility = 'hidden';
+            tooltip.style.opacity = '0';
+        }
+        
+        // Function to add tooltip functionality to all cells in the Campaign Average row
+        function setupCampaignAverageTooltips() {
+            // Find all table rows
+            const rows = document.querySelectorAll('tr');
+            let campaignAverageRow = null;
+            
+            // Find the Campaign Average row by checking the text content
+            for (let i = 0; i < rows.length; i++) {
+                const firstCell = rows[i].querySelector('td.metric-name');
+                if (firstCell && firstCell.textContent.includes('Campaign Average')) {
+                    campaignAverageRow = rows[i];
+                    break;
+                }
+            }
+            
+            if (!campaignAverageRow) return;
+            
+            // Add tooltips to each cell in the row
+            const cells = campaignAverageRow.querySelectorAll('td');
+            
+            // First cell - Campaign Average label
+            if (cells[0]) {
+                cells[0].innerHTML = `<span class="tooltip">Campaign Average <i class="fas fa-info-circle info-icon"></i><span class="tooltip-text">Campaign averages are calculated using a weighted methodology that accounts for the relative scale of each platform. Some platforms may be excluded from specific calculations where the metric is not applicable.</span></span>`;
+            }
+            
+            // CPM tooltip
+            if (cells[1]) {
+                cells[1].innerHTML = `<span class="tooltip">${cells[1].textContent}<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Impressions × 1,000<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no impression data</span></span>`;
+            }
+            
+            // CPV tooltip
+            if (cells[2]) {
+                cells[2].innerHTML = `<span class="tooltip">${cells[2].textContent}<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Views<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no view data (e.g., PMAX)</span></span>`;
+            }
+            
+            // CPC tooltip
+            if (cells[3]) {
+                cells[3].innerHTML = `<span class="tooltip">${cells[3].textContent}<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Clicks<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no click data (e.g., Sky, Disney+)</span></span>`;
+            }
+            
+            // CPS tooltip
+            if (cells[4]) {
+                cells[4].innerHTML = `<span class="tooltip">${cells[4].textContent}<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Sessions<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes awareness-only platforms with minimal session generation (Sky, Disney+)</span></span>`;
+            }
+        }
+        
+        // Function to set up collapsible sections
+        function setupCollapsibleSections() {
+            // Find all h2 elements (main section headers)
+            const mainHeaders = document.querySelectorAll('h2');
+            
+            mainHeaders.forEach(header => {
+                // Add the main-section-header class
+                header.classList.add('main-section-header');
+                
+                // Create a wrapper for the content
+                const content = document.createElement('div');
+                content.classList.add('main-section-content');
+                
+                // Move all content after the h2 into the wrapper until the next h2 or end of parent
+                let nextElement = header.nextElementSibling;
+                while (nextElement && nextElement.tagName !== 'H2') {
+                    const temp = nextElement.nextElementSibling;
+                    content.appendChild(nextElement);
+                    nextElement = temp;
+                }
+                
+                // Add the wrapper after the header
+                header.after(content);
+                
+                // Set collapsed by default
+                header.classList.add('collapsed');
+                content.classList.add('collapsed');
+                
+                // Add click event
+                header.addEventListener('click', function() {
+                    this.classList.toggle('collapsed');
+                    content.classList.toggle('collapsed');
+                });
+            });
+            
+            // Find all h4 elements in platform cards
+            const platformCards = document.querySelectorAll('.platform-card');
+            
+            platformCards.forEach(card => {
+                const headers = card.querySelectorAll('h4');
+                
+                headers.forEach(header => {
+                    // Add the section-header class
+                    header.classList.add('section-header');
+                    
+                    // Get the content (ul element)
+                    const content = header.nextElementSibling;
+                    if (content) {
+                        content.classList.add('section-content');
+                        
+                        // Set collapsed by default
+                        header.classList.add('collapsed');
+                        content.classList.add('collapsed');
+                        
+                        // Add click event
+                        header.addEventListener('click', function() {
+                            this.classList.toggle('collapsed');
+                            content.classList.toggle('collapsed');
+                        });
+                    }
+                });
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create the tooltip container
+            createTooltipContainer();
+            
+            // Setup Campaign Average tooltips
+            setupCampaignAverageTooltips();
+            
+            // Setup collapsible sections - all sections collapsed by default
+            setupCollapsibleSections();
+            
+            // Add event listeners to all tooltip elements
+            document.querySelectorAll('.tooltip').forEach(tooltipElement => {
+                const tooltipTextElement = tooltipElement.querySelector('.tooltip-text');
+                if (!tooltipTextElement) return;
+                
+                const tooltipText = tooltipTextElement.innerHTML;
+                
+                // Add hover events
+                tooltipElement.addEventListener('mouseenter', function(e) {
+                    showTooltip(e, tooltipText);
+                });
+                
+                tooltipElement.addEventListener('mousemove', function(e) {
+                    showTooltip(e, tooltipText);
+                });
+                
+                tooltipElement.addEventListener('mouseleave', function() {
+                    hideTooltip();
+                });
+                
+                // Add click events
+                tooltipElement.addEventListener('click', function(e) {
+                    showTooltip(e, tooltipText);
+                    e.stopPropagation(); // Prevent click from propagating
+                });
+            });
+            
+            // Add a click event to the document to hide tooltips when clicking elsewhere
+            document.addEventListener('click', function() {
+                hideTooltip();
+            });
+            
+        });
+        
+        // Performance highlighting for Cost Efficiency Metrics and Engagement Metrics
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all tables
+            const tables = document.querySelectorAll('table');
+            let costEfficiencyTable, engagementMetricsTable, totalCampaignTable;
+            
+            // Find the Cost Efficiency Metrics table and Engagement Metrics table by checking the headers
+            for (let i = 0; i < tables.length; i++) {
+                const headerRow = tables[i].querySelector('tr.header-row');
+                if (headerRow) {
+                    if (headerRow.textContent.includes('CPM') && headerRow.textContent.includes('CPV') && headerRow.textContent.includes('CPC')) {
+                        costEfficiencyTable = tables[i];
+                    } else if (headerRow.textContent.includes('VTR') && headerRow.textContent.includes('CTR') && headerRow.textContent.includes('CTS')) {
+                        engagementMetricsTable = tables[i];
+                    } else if (headerRow.textContent.includes('Total Spend') && headerRow.textContent.includes('Total Impressions')) {
+                        totalCampaignTable = tables[i];
+                    }
+                }
+            }
+            
+            // Extract platform data from the Total Campaign Investment & Delivery table
+            function extractPlatformData() {
+                if (!totalCampaignTable) return [];
+                
+                const platformData = [];
+                const rows = totalCampaignTable.querySelectorAll('tr:not(.header-row)');
+                
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    if (cells.length < 6 || row.classList.contains('total-row')) return;
+                    
+                    const platform = {
+                        name: cells[0].textContent.trim(),
+                        spend: parseFloat(cells[1].textContent.replace('$', '').replace(',', '')),
+                        impressions: parseFloat(cells[2].textContent.replace(',', '')),
+                        views: parseFloat(cells[3].textContent.replace(',', '')),
+                        clicks: parseFloat(cells[4].textContent.replace(',', '')),
+                        sessions: parseFloat(cells[5].textContent.replace(',', ''))
+                    };
+                    
+                    platformData.push(platform);
+                });
+                
+                return platformData;
+            }
+            
+            // Calculate campaign averages using a robust methodology
+            function calculateCampaignAverages(platformData) {
+                // Filter out platforms with N/A values for each metric
+                const validForCPM = platformData.filter(p => p.impressions > 0 && p.spend > 0);
+                const validForCPV = platformData.filter(p => p.views > 0 && p.spend > 0);
+                const validForCPC = platformData.filter(p => p.clicks > 0 && p.spend > 0);
+                
+                // For Cost per Session, apply additional filtering to exclude outliers
+                const validForCPS = platformData.filter(p => {
+                    return p.sessions > 0 && p.spend > 0 && 
+                           !['Sky', 'Disney+'].includes(p.name); // Exclude pure awareness platforms
+                });
+                
+                // Calculate weighted averages
+                const totalSpendCPM = validForCPM.reduce((sum, p) => sum + p.spend, 0);
+                const totalImpressions = validForCPM.reduce((sum, p) => sum + p.impressions, 0);
+                
+                const totalSpendCPV = validForCPV.reduce((sum, p) => sum + p.spend, 0);
+                const totalViews = validForCPV.reduce((sum, p) => sum + p.views, 0);
+                
+                const totalSpendCPC = validForCPC.reduce((sum, p) => sum + p.spend, 0);
+                const totalClicks = validForCPC.reduce((sum, p) => sum + p.clicks, 0);
+                
+                const totalSpendCPS = validForCPS.reduce((sum, p) => sum + p.spend, 0);
+                const totalSessions = validForCPS.reduce((sum, p) => sum + p.sessions, 0);
+                
+                // Calculate metrics - ensure we're using the correct spend for each metric
+                const cpm = totalImpressions > 0 ? (totalSpendCPM / (totalImpressions / 1000)) : 0;
+                const cpv = totalViews > 0 ? (totalSpendCPV / totalViews) : 0;
+                const cpc = totalClicks > 0 ? (totalSpendCPC / totalClicks) : 0;
+                const cps = totalSessions > 0 ? (totalSpendCPS / totalSessions) : 0;
+                
+                // Calculate engagement metrics
+                const vtr = totalImpressions > 0 ? ((totalViews / totalImpressions) * 100) : 0;
+                const ctr = totalImpressions > 0 ? ((totalClicks / totalImpressions) * 100) : 0;
+                const cts = totalClicks > 0 ? ((totalSessions / totalClicks) * 100) : 0;
+                
+                return { 
+                    cpm, cpv, cpc, cps, vtr, ctr, cts,
+                    platformsIncluded: {
+                        cpm: validForCPM.map(p => p.name),
+                        cpv: validForCPV.map(p => p.name),
+                        cpc: validForCPC.map(p => p.name),
+                        cps: validForCPS.map(p => p.name)
+                    }
+                };
+            }
+            
+            // Add tooltips to Campaign Average cells
+            function addTooltipsToCampaignAverages(table, metricType) {
+                if (!table) return;
+                
+                const campaignAverageRow = table.querySelector('tr:last-child');
+                if (!campaignAverageRow) return;
+                
+                const cells = campaignAverageRow.querySelectorAll('td');
+                if (cells.length < 2) return;
+                
+                // Add tooltip to the Campaign Average label
+                const labelCell = cells[0];
+                labelCell.innerHTML = `<span class="tooltip">Campaign Average <i class="fas fa-info-circle info-icon"></i><span class="tooltip-text">Campaign averages are calculated using a weighted methodology that accounts for the relative scale of each platform. Some platforms may be excluded from specific calculations where the metric is not applicable.</span></span>`;
+                
+                if (metricType === 'cost') {
+                    // CPM tooltip
+                    if (cells[1]) {
+                        cells[1].innerHTML = `<span class="tooltip">$2.00<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Impressions × 1,000<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no impression data</span></span>`;
+                    }
+                    
+                    // CPV tooltip
+                    if (cells[2]) {
+                        cells[2].innerHTML = `<span class="tooltip">$0.0131<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Views<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no view data (e.g., PMAX)</span></span>`;
+                    }
+                    
+                    // CPC tooltip
+                    if (cells[3]) {
+                        cells[3].innerHTML = `<span class="tooltip">$0.49<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Clicks<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no click data (e.g., Sky, Disney+)</span></span>`;
+                    }
+                    
+                    // CPS tooltip
+                    if (cells[4]) {
+                        cells[4].innerHTML = `<span class="tooltip">$3.29<span class="tooltip-text">Calculated as: Total Campaign Spend / Total Sessions<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes awareness-only platforms with minimal session generation (Sky, Disney+)</span></span>`;
+                    }
+                } else if (metricType === 'engagement') {
+                    // VTR tooltip
+                    if (cells[1]) {
+                        cells[1].innerHTML = `<span class="tooltip">15.28%<span class="tooltip-text">Calculated as: (Total Views / Total Impressions) × 100<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no view data</span></span>`;
+                    }
+                    
+                    // CTR tooltip
+                    if (cells[2]) {
+                        cells[2].innerHTML = `<span class="tooltip">0.41%<span class="tooltip-text">Calculated as: (Total Clicks / Total Impressions) × 100<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with no click data</span></span>`;
+                    }
+                    
+                    // CTS tooltip
+                    if (cells[3]) {
+                        cells[3].innerHTML = `<span class="tooltip">14.80%<span class="tooltip-text">Calculated as: (Total Sessions / Total Clicks) × 100<br>Platforms included: META, Snap, TikTok, YouTube, etc.<br>Excludes platforms with minimal session generation</span></span>`;
+                    }
+                }
+            }
+            
+            // Extract platform data
+            const platformData = extractPlatformData();
+            if (platformData.length > 0) {
+                // Add tooltips to Campaign Average rows
+                addTooltipsToCampaignAverages(costEfficiencyTable, 'cost');
+                addTooltipsToCampaignAverages(engagementMetricsTable, 'engagement');
+            }
+            
+            // Process Cost Efficiency Metrics table
+            if (costEfficiencyTable) {
+                // Define thresholds for each cost metric (lower is better)
+                const costThresholds = {
+                    cpm: { good: 3, medium: 10 }, // CPM (Cost per 1,000 Impressions)
+                    cpv: { good: 0.01, medium: 0.03 }, // CPV (Cost per View)
+                    cpc: { good: 0.5, medium: 1.5 }, // CPC (Cost per Click)
+                    cps: { good: 5, medium: 15 } // Cost per Session
+                };
+                
+                // Get all rows except header and total row
+                const costRows = costEfficiencyTable.querySelectorAll('tr:not(.header-row):not(:last-child)');
+                
+                costRows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    if (cells.length < 5) return;
+                    
+                    // CPM (index 1)
+                    const cpmText = cells[1].textContent.trim();
+                    if (cpmText !== 'N/A') {
+                        const cpmValue = parseFloat(cpmText.replace('$', ''));
+                        if (!isNaN(cpmValue)) {
+                            if (cpmValue <= costThresholds.cpm.good) {
+                                cells[1].classList.add('performance-good');
+                                cells[1].innerHTML = `▲ ${cpmText}`;
+                            } else if (cpmValue <= costThresholds.cpm.medium) {
+                                cells[1].classList.add('performance-medium');
+                                cells[1].innerHTML = `${cpmText}`;
+                            } else {
+                                cells[1].classList.add('performance-poor');
+                                cells[1].innerHTML = `▼ ${cpmText}`;
+                            }
+                        }
+                    }
+                    
+                    // CPV (index 2)
+                    const cpvText = cells[2].textContent.trim();
+                    if (cpvText !== 'N/A') {
+                        const cpvValue = parseFloat(cpvText.replace('$', ''));
+                        if (!isNaN(cpvValue)) {
+                            if (cpvValue <= costThresholds.cpv.good) {
+                                cells[2].classList.add('performance-good');
+                                cells[2].innerHTML = `▲ ${cpvText}`;
+                            } else if (cpvValue <= costThresholds.cpv.medium) {
+                                cells[2].classList.add('performance-medium');
+                                cells[2].innerHTML = `${cpvText}`;
+                            } else {
+                                cells[2].classList.add('performance-poor');
+                                cells[2].innerHTML = `▼ ${cpvText}`;
+                            }
+                        }
+                    }
+                    
+                    // CPC (index 3)
+                    const cpcText = cells[3].textContent.trim();
+                    if (cpcText !== 'N/A') {
+                        const cpcValue = parseFloat(cpcText.replace('$', ''));
+                        if (!isNaN(cpcValue)) {
+                            if (cpcValue <= costThresholds.cpc.good) {
+                                cells[3].classList.add('performance-good');
+                                cells[3].innerHTML = `▲ ${cpcText}`;
+                            } else if (cpcValue <= costThresholds.cpc.medium) {
+                                cells[3].classList.add('performance-medium');
+                                cells[3].innerHTML = `${cpcText}`;
+                            } else {
+                                cells[3].classList.add('performance-poor');
+                                cells[3].innerHTML = `▼ ${cpcText}`;
+                            }
+                        }
+                    }
+                    
+                    // Cost per Session (index 4)
+                    const cpsText = cells[4].textContent.trim();
+                    if (cpsText !== 'N/A') {
+                        const cpsValue = parseFloat(cpsText.replace('$', '').replace(',', ''));
+                        if (!isNaN(cpsValue)) {
+                            if (cpsValue <= costThresholds.cps.good) {
+                                cells[4].classList.add('performance-good');
+                                cells[4].innerHTML = `▲ ${cpsText}`;
+                            } else if (cpsValue <= costThresholds.cps.medium) {
+                                cells[4].classList.add('performance-medium');
+                                cells[4].innerHTML = `${cpsText}`;
+                            } else {
+                                cells[4].classList.add('performance-poor');
+                                cells[4].innerHTML = `▼ ${cpsText}`;
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Process Engagement Metrics table
+            if (engagementMetricsTable) {
+                // Define thresholds for each engagement metric (higher is better)
+                const engagementThresholds = {
+                    vtr: { good: 40, medium: 15 }, // VTR (View-Through Rate)
+                    ctr: { good: 0.8, medium: 0.3 }, // CTR (Click-Through Rate)
+                    cts: { good: 20, medium: 10 } // CTS (Click-to-Session Rate)
+                };
+                
+                // Get all rows except header and total row
+                const engagementRows = engagementMetricsTable.querySelectorAll('tr:not(.header-row):not(:last-child)');
+                
+                engagementRows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    if (cells.length < 4) return;
+                    
+                    // VTR (index 1)
+                    const vtrText = cells[1].textContent.trim();
+                    if (vtrText !== 'N/A') {
+                        const vtrValue = parseFloat(vtrText.replace('%', ''));
+                        if (!isNaN(vtrValue)) {
+                            if (vtrValue >= engagementThresholds.vtr.good) {
+                                cells[1].classList.add('performance-good');
+                                cells[1].innerHTML = `▲ ${vtrText}`;
+                            } else if (vtrValue >= engagementThresholds.vtr.medium) {
+                                cells[1].classList.add('performance-medium');
+                                cells[1].innerHTML = `${vtrText}`;
+                            } else {
+                                cells[1].classList.add('performance-poor');
+                                cells[1].innerHTML = `▼ ${vtrText}`;
+                            }
+                        }
+                    }
+                    
+                    // CTR (index 2)
+                    const ctrText = cells[2].textContent.trim();
+                    if (ctrText !== 'N/A') {
+                        const ctrValue = parseFloat(ctrText.replace('%', ''));
+                        if (!isNaN(ctrValue)) {
+                            if (ctrValue >= engagementThresholds.ctr.good) {
+                                cells[2].classList.add('performance-good');
+                                cells[2].innerHTML = `▲ ${ctrText}`;
+                            } else if (ctrValue >= engagementThresholds.ctr.medium) {
+                                cells[2].classList.add('performance-medium');
+                                cells[2].innerHTML = `${ctrText}`;
+                            } else {
+                                cells[2].classList.add('performance-poor');
+                                cells[2].innerHTML = `▼ ${ctrText}`;
+                            }
+                        }
+                    }
+                    
+                    // CTS (index 3)
+                    const ctsText = cells[3].textContent.trim();
+                    if (ctsText !== 'N/A') {
+                        const ctsValue = parseFloat(ctsText.replace('%', ''));
+                        if (!isNaN(ctsValue)) {
+                            if (ctsValue >= engagementThresholds.cts.good) {
+                                cells[3].classList.add('performance-good');
+                                cells[3].innerHTML = `▲ ${ctsText}`;
+                            } else if (ctsValue >= engagementThresholds.cts.medium) {
+                                cells[3].classList.add('performance-medium');
+                                cells[3].innerHTML = `${ctsText}`;
+                            } else {
+                                cells[3].classList.add('performance-poor');
+                                cells[3].innerHTML = `▼ ${ctsText}`;
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

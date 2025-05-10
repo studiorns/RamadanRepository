@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Market Analysis 2025 | Department of Culture and Tourism - Abu Dhabi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* SONER Logo Animation */
+        @keyframes sonerScan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes sonerBlip { 0%, 20%, 100% { opacity: 0; } 2%, 15% { opacity: 1; } 3% { transform: scale(1.2); } }
+        
+        /* SONER Logo styles */
+        .soner-logo { 
+            display: flex; 
+            align-items: center; 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 28px; 
+            font-weight: 300; 
+        }
+        .soner-radar { 
+            width: 24px; 
+            height: 24px; 
+            border-radius: 50%; 
+            border: 1px solid white; 
+            margin: 0 3px; 
+            position: relative; 
+            background-color: rgba(255, 255, 255, 0.05); 
+            overflow: hidden; 
+        }
+        .soner-scanner { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            animation: sonerScan 4s linear infinite; 
+            transform-origin: center; 
+        }
+        .soner-scanner::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            width: 50%; 
+            height: 50%; 
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4)); 
+            transform-origin: bottom left; 
+            clip-path: polygon(0 0, 100% 0, 0 100%); 
+        }
+        .soner-scanner::after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            width: 50%; 
+            height: 1px; 
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); 
+            transform-origin: left center; 
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); 
+        }
+        .soner-blip { 
+            position: absolute; 
+            width: 2px; 
+            height: 2px; 
+            background-color: white; 
+            border-radius: 50%; 
+            opacity: 0; 
+            box-shadow: 0 0 4px white; 
+        }
+        .soner-blip:nth-child(1) { 
+            top: 25%; 
+            left: 30%; 
+            animation: sonerBlip 4s 1s infinite; 
+        }
+        .soner-blip:nth-child(2) { 
+            top: 65%; 
+            left: 60%; 
+            animation: sonerBlip 4s 2.5s infinite; 
+        }
+        .soner-tagline { 
+            color: white; 
+            font-size: 8px; 
+            text-transform: uppercase; 
+            font-weight: 500; 
+            letter-spacing: 0.5em; 
+            margin-left: 10px; 
+            opacity: 0.8; 
+        }
+        
+        :root {
+            --primary: #4285f4;
+            --primary-light: #1a2233;
+            --primary-dark: #8ab4f8;
+            --secondary: #34a853;
+            --secondary-light: #1a2a1e;
+            --secondary-dark: #FFFFFF;
+            --accent: #fbbc04;
+            --warning: #fbbc04;
+            --warning-light: #332a1a;
+            --danger: #ea4335;
+            --danger-light: #331f1e;
+            --gray-100: #1e1e1e;
+            --gray-200: #2d2d2d;
+            --gray-300: #3d3d3d;
+            --gray-400: #4d4d4d;
+            --gray-500: #777777;
+            --gray-600: #a0a0a0;
+            --gray-700: #c0c0c0;
+            --gray-800: #e0e0e0;
+            --gray-900: #f0f0f0;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.5);
+            --radius: 8px;
+            --radius-md: 12px;
+            --transition: all 0.3s ease;
+            --bg-color: #000000;
+            --card-bg: #121212;
+            --section-bg: #181818;
+            --sidebar-width: 280px;
+            --content-padding: 15px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--gray-800);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            font-size: 14px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--gray-100);
+            border-right: 1px solid var(--gray-300);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            width: calc(100% - var(--sidebar-width));
+        }
+        
+        .content-wrapper {
+            padding: 30px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a73e8, #174ea6);
+            color: white;
+            padding: 32px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .header h2 {
+            font-size: 1.3rem;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .sidebar-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+        
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: var(--gray-700);
+            border-left: 3px solid transparent;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--gray-200);
+            color: var(--gray-900);
+        }
+        
+        .nav-link.active {
+            border-left-color: var(--primary);
+            background-color: var(--gray-200);
+            color: var(--primary);
+        }
+        
+        .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background-color: var(--section-bg);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--gray-300);
+            transition: var(--transition);
+        }
+        
+        .section:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .data-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-300);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .data-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        
+        .data-card h4 {
+            border-bottom: 1px solid var(--gray-200);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            color: var(--gray-800);
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .data-card h4 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .insight-summary {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 20px 24px;
+            margin-bottom: 28px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            position: relative;
+        }
+        
+        .insight-summary h3 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .insight-summary h3 i {
+            margin-right: 10px;
+        }
+        
+        .insight-summary p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .strategy-summary {
+            background-color: var(--warning-light);
+            border-left: 4px solid var(--warning);
+            padding: 20px 24px;
+            margin-bottom: 28px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            position: relative;
+        }
+        
+        .strategy-summary h3 {
+            color: var(--secondary-dark);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .strategy-summary h3 i {
+            margin-right: 10px;
+        }
+        
+        .executive-summary {
+            background: linear-gradient(135deg, var(--primary-light), var(--warning-light));
+            border-radius: var(--radius-md);
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            border: 1px solid var(--gray-300);
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .summary-title i {
+            margin-right: 10px;
+        }
+        
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .key-metric {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius);
+            padding: 15px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .key-metric:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .key-metric-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 15px 0;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(66, 133, 244, 0.3);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            transition: var(--transition);
+        }
+        
+        .key-metric:hover .key-metric-value {
+            transform: scale(1.05);
+        }
+        
+        .key-metric-label {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+        
+        .footer {
+            background-color: var(--gray-100);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--gray-300);
+            margin-top: 40px;
+            width: 100%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        
+        .footer p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        
+        .data-table th {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--gray-300);
+            color: var(--gray-800);
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .data-table tr:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">Dashboard Navigation</div>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#executive-summary" class="nav-link active">
+                            <i class="fas fa-chart-pie"></i> Executive Summary
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gcc-markets" class="nav-link">
+                            <i class="fas fa-globe-africa"></i> GCC Markets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#european-markets" class="nav-link">
+                            <i class="fas fa-globe-europe"></i> European Markets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cross-market-comparison" class="nav-link">
+                            <i class="fas fa-chart-bar"></i> Cross-Market Comparison
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#strategic-recommendations" class="nav-link">
+                            <i class="fas fa-lightbulb"></i> Strategic Recommendations
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+                        <a href="https://studiorns.github.io/DCTMarketAnalysisRepository/" style="text-decoration: none;">
+                            <div class="soner-logo">
+                                S<div class="soner-radar">
+                                    <div class="soner-scanner"></div>
+                                    <div class="soner-blip"></div>
+                                    <div class="soner-blip"></div>
+                                </div>NER
+                                <span class="soner-tagline">Visual Intelligence</span>
+                            </div>
+                        </a>
+                    </div>
+                    <h1>Ramadan Market Analysis 2025</h1>
+                    <h2>Department of Culture and Tourism - Abu Dhabi</h2>
+                    <p>Comprehensive Market-Level Analysis for Ramadan 2026 Campaign Planning</p>
+                </div>
+            </header>
+            
+            <div class="content-wrapper">
+                <!-- Executive Summary -->
+                <section id="executive-summary" class="executive-summary">
+                    <h2 class="summary-title"><i class="fas fa-chart-pie"></i> Executive Summary</h2>
+                    <p>The Ramadan 2025 Pre-Wave Survey reveals distinct patterns across GCC and European markets, with significant variations in knowledge levels, perceptions, and travel intentions. This analysis provides insights to inform the Ramadan 2026 campaign strategy.</p>
+                    
+                    <div class="key-metrics">
+                    <div class="key-metric">
+                        <div class="key-metric-label">Education Need Index</div>
+                        <div class="key-metric-value">92.5%</div>
+                        <div class="key-metric-label">European travelers need Ramadan education</div>
+                    </div>
+                        <div class="key-metric">
+                            <div class="key-metric-label">Travel Interest</div>
+                            <div class="key-metric-value">84%</div>
+                            <div class="key-metric-label">Average consideration for Abu Dhabi</div>
+                        </div>
+                        <div class="key-metric">
+                            <div class="key-metric-label">Top Market</div>
+                            <div class="key-metric-value">89%</div>
+                            <div class="key-metric-label">France consideration for Abu Dhabi</div>
+                        </div>
+                        <div class="key-metric">
+                            <div class="key-metric-label">Cultural Interest</div>
+                            <div class="key-metric-value">63%</div>
+                            <div class="key-metric-label">Interest in cultural performances</div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- GCC Markets -->
+                <section id="gcc-markets" class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-globe-africa"></i> GCC Markets</h2>
+                    </div>
+                    
+                    <div class="insight-summary">
+                        <h3><i class="fas fa-info-circle"></i> GCC Markets Overview</h3>
+                        <p>GCC markets demonstrate deep understanding of Ramadan (94-100%) with high religious observance. These markets show strong interest in sharing traditions with visitors, particularly Iftar meals, Zakat charity practice, and cultural festivities.</p>
+                    </div>
+                    
+                    <!-- UAE Market Analysis -->
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">UAE Market Analysis</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-brain"></i> Knowledge & Perception</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deep understanding of Ramadan</td>
+                                        <td>95%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emiratis with deep understanding</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expat Arabs with deep understanding</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expat Asians with deep understanding</td>
+                                        <td>93%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expat Western with deep understanding</td>
+                                        <td>90%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-heart"></i> Key Perceptions</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Perception</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ramadan is a time for spiritual reflection</td>
+                                        <td>96%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramadan is a period of increased charitable acts</td>
+                                        <td>92%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramadan is a time for community gatherings</td>
+                                        <td>88%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>People from other religions can appreciate Ramadan traditions</td>
+                                        <td>85%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Strategic Opportunity</h3>
+                        <p>UAE represents a knowledge hub that can be leveraged for authentic content creation and experience design. The high interest in sharing traditions (particularly Iftar meals) presents an opportunity to develop host/guest experiences.</p>
+                    </div>
+                    
+                    <!-- KSA Market Analysis -->
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">KSA Market Analysis</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-brain"></i> Knowledge & Perception</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deep understanding of Ramadan</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Follow Ramadan practices</td>
+                                        <td>100%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-heart"></i> Key Perceptions</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Perception</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ramadan is a time for spiritual reflection</td>
+                                        <td>96%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramadan is a period of increased charitable acts</td>
+                                        <td>94%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramadan is a time for community gatherings</td>
+                                        <td>86%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h4><i class="fas fa-user-friends"></i> Behavioral Insights</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Behavior</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Interest in sharing Zakat charity practice</td>
+                                    <td>94%</td>
+                                </tr>
+                                <tr>
+                                    <td>Interest in sharing cultural festivities</td>
+                                    <td>91%</td>
+                                </tr>
+                                <tr>
+                                    <td>Interest in attending special prayers together</td>
+                                    <td>76%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="strategy-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Strategic Opportunity</h3>
+                        <p>KSA represents a market for authentic religious experiences with emphasis on charitable activities and community aspects. The high religious observance suggests packaging that respects and enhances traditional practices.</p>
+                    </div>
+                    
+                    <!-- Qatar Market Analysis -->
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">Qatar Market Analysis</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-brain"></i> Knowledge & Perception</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deep understanding of Ramadan</td>
+                                        <td>94%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Locals with deep understanding</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expat Arabs with deep understanding</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expat Asians with deep understanding</td>
+                                        <td>71%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-heart"></i> Key Perceptions</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Perception</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Associate Ramadan with fasting and religious observances</td>
+                                        <td>91%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramadan is a period of increased charitable acts</td>
+                                        <td>92%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ramadan is a time for community gatherings</td>
+                                        <td>88%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h4><i class="fas fa-user-friends"></i> Behavioral Insights</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Behavior</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Follow Ramadan practices</td>
+                                    <td>98%</td>
+                                </tr>
+                                <tr>
+                                    <td>Interest in sharing Iftar meals with visitors</td>
+                                    <td>100%</td>
+                                </tr>
+                                <tr>
+                                    <td>Interest in sharing Zakat charity practice</td>
+                                    <td>89%</td>
+                                </tr>
+                                <tr>
+                                    <td>Interest in sharing cultural festivities</td>
+                                    <td>88%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="strategy-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Strategic Opportunity</h3>
+                        <p>Qatar represents a similar market to KSA with high religious observance but with slightly more diversity in perceptions among expat populations. The emphasis on charitable acts presents an opportunity for cause-related marketing.</p>
+                    </div>
+                </section>
+                
+                <!-- European Markets -->
+                <section id="european-markets" class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-globe-europe"></i> European Markets</h2>
+                    </div>
+                    
+                    <div class="insight-summary">
+                        <h3><i class="fas fa-info-circle"></i> European Markets Overview</h3>
+                        <p>European markets show significant knowledge gaps about Ramadan (49-60% have limited/no knowledge) but maintain positive associations with its spiritual and cultural aspects. Despite these gaps, there is strong interest in cultural experiences and high consideration for Abu Dhabi as a destination during Ramadan.</p>
+                    </div>
+                    
+                    <!-- France Market Analysis -->
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">France Market Analysis</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-brain"></i> Knowledge & Perception</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deep understanding of Ramadan</td>
+                                        <td>12%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basic knowledge of Ramadan</td>
+                                        <td>28%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Limited or no knowledge of Ramadan</td>
+                                        <td>59%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-plane"></i> Travel Interest</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Consideration for Abu Dhabi during Ramadan</td>
+                                        <td>89%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest in cultural traditions of Ramadan</td>
+                                        <td>55%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Previous travel to a Muslim country during Ramadan</td>
+                                        <td>35%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h4><i class="fas fa-ban"></i> Barriers to Travel</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Barrier</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sites/Attractions being closed during the day</td>
+                                    <td>38%</td>
+                                </tr>
+                                <tr>
+                                    <td>Not being able to drink during the day</td>
+                                    <td>36%</td>
+                                </tr>
+                                <tr>
+                                    <td>Cultural differences/uncertainty</td>
+                                    <td>29%</td>
+                                </tr>
+                                <tr>
+                                    <td>Restaurants being closed during the day</td>
+                                    <td>24%</td>
+                                </tr>
+                                <tr>
+                                    <td>Legal penalties concerns</td>
+                                    <td>20%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="strategy-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Strategic Opportunity</h3>
+                        <p>France shows the highest previous travel experience to Muslim countries during Ramadan among European markets, suggesting a more experienced traveler base. The high interest in visual elements like lantern displays presents an opportunity for visually-driven content.</p>
+                    </div>
+                    
+                    <!-- Italy Market Analysis -->
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">Italy Market Analysis</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-brain"></i> Knowledge & Perception</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deep understanding of Ramadan</td>
+                                        <td>9%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basic knowledge of Ramadan</td>
+                                        <td>42%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Limited or no knowledge of Ramadan</td>
+                                        <td>49%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Key Misconceptions</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Misconception</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Women are discouraged from public events during Ramadan</td>
+                                        <td>39%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Men are the only ones allowed to work during Ramadan</td>
+                                        <td>39%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Correctly identify Iftar as the sunset meal</td>
+                                        <td>20%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-plane"></i> Travel Interest</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Consideration for Abu Dhabi during Ramadan</td>
+                                        <td>88%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest in cultural traditions of Ramadan</td>
+                                        <td>57%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Previous travel to a Muslim country during Ramadan</td>
+                                        <td>16%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-star"></i> Experience Preferences</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Experience</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Traditional Ramadan food and beverages</td>
+                                        <td>53%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cultural performances or events</td>
+                                        <td>49%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Visiting local markets (Ramadan bazaars)</td>
+                                        <td>47%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h4><i class="fas fa-ban"></i> Barriers to Travel</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Barrier</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Not being able to drink during the day</td>
+                                    <td>39%</td>
+                                </tr>
+                                <tr>
+                                    <td>Cultural differences/uncertainty</td>
+                                    <td>28%</td>
+                                </tr>
+                                <tr>
+                                    <td>Tourists need to be modestly dressed at all times</td>
+                                    <td>22%</td>
+                                </tr>
+                                <tr>
+                                    <td>Not being allowed to consume alcohol at all</td>
+                                    <td>15%</td>
+                                </tr>
+                                <tr>
+                                    <td>Legal penalties concerns</td>
+                                    <td>14%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="strategy-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Strategic Opportunity</h3>
+                        <p>Italy shows high interest despite knowledge gaps, making it an ideal target for educational content focused on food and cultural experiences. The relatively low concern about cultural differences (compared to other European markets) suggests an openness to authentic experiences.</p>
+                    </div>
+                    
+                    <!-- UK Market Analysis -->
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">UK Market Analysis</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-brain"></i> Knowledge & Perception</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deep understanding of Ramadan</td>
+                                        <td>5%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basic knowledge of Ramadan</td>
+                                        <td>35%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Limited or no knowledge of Ramadan</td>
+                                        <td>60%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Key Misconceptions</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Misconception</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Women are discouraged from public events during Ramadan</td>
+                                        <td>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Women must stay home during Ramadan</td>
+                                        <td>40%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Correctly identify Iftar as the sunset meal</td>
+                                        <td>39%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-plane"></i> Travel Interest</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Consideration for Abu Dhabi during Ramadan</td>
+                                        <td>84%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest in cultural traditions of Ramadan</td>
+                                        <td>56%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Previous travel to a Muslim country during Ramadan</td>
+                                        <td>18%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-star"></i> Experience Preferences</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Experience</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lantern displays (Ramadan decorations)</td>
+                                        <td>58%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cultural performances or events</td>
+                                        <td>57%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Traditional Ramadan food and beverages</td>
+                                        <td>51%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h4><i class="fas fa-ban"></i> Barriers to Travel</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Barrier</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Feeling uneasy about eating in front of locals</td>
+                                    <td>56%</td>
+                                </tr>
+                                <tr>
+                                    <td>Cultural differences/uncertainty</td>
+                                    <td>51%</td>
+                                </tr>
+                                <tr>
+                                    <td>Sites/Attractions being closed during the day</td>
+                                    <td>49%</td>
+                                </tr>
+                                <tr>
+                                    <td>Restaurants being closed during the day</td>
+                                    <td>44%</td>
+                                </tr>
+                                <tr>
+                                    <td>Tourists need to be modestly dressed at all times</td>
+                                    <td>44%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="strategy-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Strategic Opportunity</h3>
+                        <p>UK shows the highest cultural sensitivity concerns among all markets, suggesting a need for reassurance and etiquette guidance. The high interest in visual elements (lantern displays) and cultural performances presents an opportunity for immersive but respectful experiences.</p>
+                    </div>
+                    
+                    <!-- Germany Market Analysis -->
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">Germany Market Analysis</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-brain"></i> Knowledge & Perception</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deep understanding of Ramadan</td>
+                                        <td>4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Basic knowledge of Ramadan</td>
+                                        <td>44%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Limited or no knowledge of Ramadan</td>
+                                        <td>52%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Key Misconceptions</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Misconception</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Women are discouraged from public events during Ramadan</td>
+                                        <td>39%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Women must stay home during Ramadan</td>
+                                        <td>36%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Correctly identify Iftar as the sunset meal</td>
+                                        <td>27%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-plane"></i> Travel Interest</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Consideration for Abu Dhabi during Ramadan</td>
+                                        <td>76%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest in cultural traditions of Ramadan</td>
+                                        <td>42%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Previous travel to a Muslim country during Ramadan</td>
+                                        <td>27%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-star"></i> Experience Preferences</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Experience</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Cultural performances or events</td>
+                                        <td>43%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Traditional Ramadan food and beverages</td>
+                                        <td>42%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Visiting local markets (Ramadan bazaars)</td>
+                                        <td>41%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h4><i class="fas fa-ban"></i> Barriers to Travel</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Barrier</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Restaurants being closed during the day</td>
+                                    <td>38%</td>
+                                </tr>
+                                <tr>
+                                    <td>Not being able to drink during the day</td>
+                                    <td>35%</td>
+                                </tr>
+                                <tr>
+                                    <td>Feeling uneasy about eating in front of locals</td>
+                                    <td>34%</td>
+                                </tr>
+                                <tr>
+                                    <td>Cultural differences/uncertainty</td>
+                                    <td>31%</td>
+                                </tr>
+                                <tr>
+                                    <td>Legal penalties concerns</td>
+                                    <td>31%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="strategy-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Strategic Opportunity</h3>
+                        <p>Germany shows the lowest interest among European markets but still represents significant potential. The balanced interest across different experiences suggests a need for diverse offerings rather than focusing on a single aspect of Ramadan.</p>
+                    </div>
+                </section>
+                
+                <!-- Cross-Market Comparison -->
+                <section id="cross-market-comparison" class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-chart-bar"></i> Cross-Market Comparison</h2>
+                    </div>
+                    
+                    <div class="insight-summary">
+                        <h3><i class="fas fa-info-circle"></i> Key Comparative Insights</h3>
+                        <p>Comparing markets reveals distinct patterns in knowledge, interest, and barriers that can inform targeted marketing strategies for each region.</p>
+                    </div>
+                    
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">Knowledge & Understanding of Ramadan</h3>
+                    
+                    <div class="data-card">
+                        <h4><i class="fas fa-brain"></i> Knowledge Comparison</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Market</th>
+                                    <th>Deep Understanding</th>
+                                    <th>Basic Knowledge</th>
+                                    <th>Limited/No Knowledge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>UAE</td>
+                                    <td>95%</td>
+                                    <td>4%</td>
+                                    <td>1%</td>
+                                </tr>
+                                <tr>
+                                    <td>KSA</td>
+                                    <td>100%</td>
+                                    <td>0%</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>Qatar</td>
+                                    <td>94%</td>
+                                    <td>5%</td>
+                                    <td>1%</td>
+                                </tr>
+                                <tr>
+                                    <td>Italy</td>
+                                    <td>9%</td>
+                                    <td>42%</td>
+                                    <td>49%</td>
+                                </tr>
+                                <tr>
+                                    <td>France</td>
+                                    <td>12%</td>
+                                    <td>28%</td>
+                                    <td>59%</td>
+                                </tr>
+                                <tr>
+                                    <td>UK</td>
+                                    <td>5%</td>
+                                    <td>35%</td>
+                                    <td>60%</td>
+                                </tr>
+                                <tr>
+                                    <td>Germany</td>
+                                    <td>4%</td>
+                                    <td>44%</td>
+                                    <td>52%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Strategic Recommendations -->
+                <section id="strategic-recommendations" class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-lightbulb"></i> Strategic Recommendations</h2>
+                    </div>
+                    
+                    <div class="insight-summary">
+                        <h3><i class="fas fa-info-circle"></i> Recommendation Overview</h3>
+                        <p>Based on the validated analysis, we recommend a market-specific approach that addresses the unique characteristics, knowledge levels, and interests of each target market.</p>
+                    </div>
+                    
+                    <h3 style="color: var(--primary-dark); margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">Market Prioritization</h3>
+                    
+                    <div class="grid-2">
+                        <div class="data-card">
+                            <h4><i class="fas fa-trophy"></i> Primary Markets</h4>
+                            <ol style="margin-left: 20px;">
+                                <li style="margin-bottom: 15px;">
+                                    <strong style="color: var(--primary-dark);">France</strong>
+                                    <ul style="margin-top: 5px;">
+                                        <li>Highest consideration for Abu Dhabi (89%)</li>
+                                        <li>Highest previous travel experience (35%)</li>
+                                        <li>Strong interest in visual and cultural elements</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong style="color: var(--primary-dark);">Italy</strong>
+                                    <ul style="margin-top: 5px;">
+                                        <li>Strong consideration for Abu Dhabi (88%)</li>
+                                        <li>Highest interest in food experiences (53%)</li>
+                                        <li>Lower cultural sensitivity concerns</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                        
+                        <div class="data-card">
+                            <h4><i class="fas fa-calendar-alt"></i> Campaign Timing Strategy</h4>
+                            <div style="margin-bottom: 20px;">
+                                <strong style="color: var(--primary-dark);">International Markets</strong>
+                                <p style="margin-top: 5px;"><strong>Launch Timing:</strong> Q4 2025 (October-November)</p>
+                                <ul style="margin-top: 5px;">
+                                    <li>Provides 4-5 months lead time before Ramadan</li>
+                                    <li>Avoids peak Christmas/NY media congestion</li>
+                                    <li>Targets the planning phase for international travelers</li>
+                                    <li>Allows time for education and misconception-busting</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <strong style="color: var(--primary-dark);">GCC Markets</strong>
+                                <p style="margin-top: 5px;"><strong>Launch Timing:</strong> January 2026</p>
+                                <ul style="margin-top: 5px;">
+                                    <li>Aligns with shorter booking windows</li>
+                                    <li>Focuses on immediate conversion rather than awareness-building</li>
+                                    <li>Leverages existing knowledge of Ramadan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Footer -->
+                <div class="footer">
+                    <p>© 2025 Research &amp; Insights Unit | Strategic Marketing &amp; Communications | Department of Culture and Tourism – Abu Dhabi</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Active navigation link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Mobile navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+            
+            function handleScreenChange(e) {
+                if (e.matches) {
+                    // Mobile view
+                    const sidebar = document.querySelector('.sidebar');
+                    sidebar.style.transform = 'translateX(-100%)';
+                    
+                    // Create mobile toggle button if it doesn't exist
+                    if (!document.getElementById('mobileToggle')) {
+                        const mobileToggle = document.createElement('button');
+                        mobileToggle.id = 'mobileToggle';
+                        mobileToggle.className = 'mobile-toggle';
+                        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.appendChild(mobileToggle);
+                        
+                        mobileToggle.addEventListener('click', function() {
+                            if (sidebar.style.transform === 'translateX(0px)') {
+                                sidebar.style.transform = 'translateX(-100%)';
+                            } else {
+                                sidebar.style.transform = 'translateX(0)';
+                            }
+                        });
+                    }
+                } else {
+                    // Desktop view
+                    const sidebar = document.querySelector('.sidebar');
+                    sidebar.style.transform = 'translateX(0)';
+                    
+                    // Remove mobile toggle if it exists
+                    const mobileToggle = document.getElementById('mobileToggle');
+                    if (mobileToggle) {
+                        mobileToggle.remove();
+                    }
+                }
+            }
+            
+            // Initial check
+            handleScreenChange(mediaQuery);
+            
+            // Add listener for changes
+            mediaQuery.addListener(handleScreenChange);
+        });
+    </script>
+</body>
+</html>
