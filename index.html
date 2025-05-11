@@ -87,6 +87,11 @@
             margin-top: 20px;
         }
         
+        /* Specific 2x2 grid for Paid Media section */
+        #paid-media .card-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
         .card {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -148,6 +153,11 @@
             margin: 30px 0;
         }
         
+        /* Brand metrics styling */
+        .metric-card-brand .metric-value {
+            color: var(--secondary); /* Green color for brand metrics */
+        }
+        
         .metric-card {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -188,7 +198,7 @@
         }
         
         @media screen and (max-width: 768px) {
-            .card-grid {
+            .card-grid, #paid-media .card-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -417,6 +427,15 @@
                     </div>
                     <a href="traffic_phase_analysis_final.html" class="card-link">View Report</a>
                 </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="card-title">Media & Brand Impact Analysis</div>
+                    <div class="card-description">
+                        Integrated analysis of media performance metrics and brand health metrics across 12 markets. Examines correlations between media efficiency and brand impact, with market-specific insights and a Brand Impact Score methodology to guide investment optimization for future campaigns.
+                    </div>
+                    <a href="media_brand_impact_analysis.html" class="card-link">View Report</a>
+                </div>
             </div>
         </section>
         
@@ -477,6 +496,24 @@
                 <div class="metric-card">
                     <div class="metric-value">AED1.4M</div>
                     <div class="metric-label">AVE</div>
+                </div>
+                
+                <!-- Brand Health Metrics -->
+                <div class="metric-card metric-card-brand">
+                    <div class="metric-value">41.1%</div>
+                    <div class="metric-label">Ad Recall</div>
+                </div>
+                <div class="metric-card metric-card-brand">
+                    <div class="metric-value">44.2%</div>
+                    <div class="metric-label">Brand Association</div>
+                </div>
+                <div class="metric-card metric-card-brand">
+                    <div class="metric-value">82.2%</div>
+                    <div class="metric-label">Ad Appeal</div>
+                </div>
+                <div class="metric-card metric-card-brand">
+                    <div class="metric-value">85.7%</div>
+                    <div class="metric-label">Attracts Attention</div>
                 </div>
             </div>
         </section>
