@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Efficiency & Brand Impact Analysis | Department of Culture and Tourism - Abu Dhabi</title>
+    <title>Brand Impact Report | Department of Culture and Tourism - Abu Dhabi</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -363,9 +363,30 @@
         }
         
         @media screen and (max-width: 768px) {
-            .metric-grid { grid-template-columns: 1fr; }
+            /* Ensure all metric grids collapse to single column on mobile */
+            .metric-grid, 
+            #brand-health .metric-grid, 
+            section .metric-grid { 
+                grid-template-columns: 1fr !important; /* Use !important to override any other styles */
+            }
+            
+            /* Other mobile optimizations */
             .correlation-grid, .insights-grid { grid-template-columns: 1fr; }
             .chart-container { height: 300px; }
+            
+            /* Improve spacing and readability on mobile */
+            .metric-card {
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            
+            .metric-value {
+                font-size: 2.2rem; /* Slightly smaller for better fit */
+            }
+            
+            .metric-label {
+                font-size: 0.95rem; /* Slightly larger for better readability */
+            }
         }
     </style>
 </head>
@@ -384,7 +405,7 @@
                     </div>
                 </a>
             </div>
-            <h1>Media Efficiency & Brand Impact Analysis</h1>
+            <h1>Brand Impact Report</h1>
             <p>Integrated Analysis of Media Performance and Brand Health Metrics for Ramadan Campaign 2025</p>
         </div>
     </header>
@@ -647,7 +668,7 @@
             
             <div class="insights-grid">
                 <div class="insight-card">
-                    <div class="insight-icon"><i class="fas fa-money-bill-trend-up"></i></div>
+                    <div class="insight-icon"><i class="fas fa-exchange-alt"></i></div>
                     <h4>Strategic Investment Reallocation</h4>
                     <p><strong>High-Growth Markets:</strong> Increase investment in India (+40%) and Armenia (+300%) based on exceptional efficiency metrics and strong brand impact.</p>
                     <p><strong>Optimization Markets:</strong> Reduce investment in European markets (UK -30%, France/Germany -50%) while improving creative relevance.</p>

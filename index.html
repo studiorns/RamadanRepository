@@ -87,9 +87,10 @@
             margin-top: 20px;
         }
         
-        /* Specific 2x2 grid for Paid Media section */
-        #paid-media .card-grid {
-            grid-template-columns: repeat(2, 1fr);
+        /* 3x1 grid for Paid Media and Brand Health sections */
+        #paid-media .card-grid,
+        #brand-health .card-grid {
+            grid-template-columns: repeat(3, 1fr);
         }
         
         .card {
@@ -198,12 +199,34 @@
         }
         
         @media screen and (max-width: 768px) {
-            .card-grid, #paid-media .card-grid {
-                grid-template-columns: 1fr;
+            /* Ensure all card grids collapse to single column on mobile */
+            .card-grid, 
+            #paid-media .card-grid, 
+            #brand-health .card-grid {
+                grid-template-columns: 1fr !important; /* Use !important to override any other styles */
             }
             
             .key-metrics {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Improve spacing and readability on mobile */
+            .card {
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            
+            .metric-card {
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            
+            .metric-value {
+                font-size: 2.2rem; /* Slightly smaller for better fit */
+            }
+            
+            .metric-label {
+                font-size: 0.95rem; /* Slightly larger for better readability */
             }
         }
         
@@ -374,15 +397,6 @@
             This repository provides access to comprehensive analyses and reports related to the Ramadan 2025 campaign. It examines performance across different markets, platforms, and key metrics to identify optimization opportunities for future campaigns. This is an ongoing research project, and additional sources and recommendations will be added over time.
         </div>
         
-        <div class="nav-container">
-            <div class="nav-title"><i class="fas fa-compass"></i> Quick Navigation</div>
-            <div class="nav-links">
-                <a href="#campaign-performance" class="nav-link">Campaign Performance</a>
-                <a href="#paid-media" class="nav-link">Paid Media Performance</a>
-                <a href="#brand-health" class="nav-link">Brand Health & Market Research</a>
-                <a href="#key-metrics" class="nav-link">Key Metrics</a>
-            </div>
-        </div>
         
         <section id="campaign-performance" class="section">
             <h2><i class="fas fa-chart-pie"></i> Campaign Performance</h2>
@@ -428,20 +442,21 @@
                     <a href="traffic_phase_analysis_final.html" class="card-link">View Report</a>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
-                    <div class="card-title">Media & Brand Impact Analysis</div>
-                    <div class="card-description">
-                        Integrated analysis of media performance metrics and brand health metrics across 12 markets. Examines correlations between media efficiency and brand impact, with market-specific insights and a Brand Impact Score methodology to guide investment optimization for future campaigns.
-                    </div>
-                    <a href="media_brand_impact_analysis.html" class="card-link">View Report</a>
-                </div>
             </div>
         </section>
         
         <section id="brand-health" class="section">
             <h2><i class="fas fa-heartbeat"></i> Brand Health & Market Research</h2>
             <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="card-title">Brand Impact Report</div>
+                    <div class="card-description">
+                        Integrated analysis of media performance metrics and brand health metrics across 12 markets. Examines correlations between media efficiency and brand impact, with market-specific insights and a Brand Impact Score methodology to guide investment optimization for future campaigns.
+                    </div>
+                    <a href="media_brand_impact_analysis.html" class="card-link">View Report</a>
+                </div>
+                
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-stethoscope"></i></div>
                     <div class="card-title">Brand Health Study</div>
