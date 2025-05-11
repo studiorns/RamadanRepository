@@ -151,41 +151,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // Correlation Matrix Chart
     const correlationCtx = document.getElementById('correlationMatrixChart').getContext('2d');
     
-    // Updated correlation data without consideration
+    // Updated correlation data with validated values
     const correlationData = {
         labels: ['Ad Recall', 'Brand Association', 'Ad Appeal (T2B)'],
         datasets: [
             {
                 label: 'Media Efficiency Score',
-                data: [0.78, 0.53, 0.37],
+                data: [0.77, 0.53, 0.37],
                 backgroundColor: 'rgba(66, 133, 244, 0.7)',
                 borderColor: 'rgba(66, 133, 244, 1)',
                 borderWidth: 1
             },
             {
                 label: 'Views',
-                data: [0.69, 0.48, 0.29],
+                data: [0.68, 0.47, 0.30],
                 backgroundColor: 'rgba(52, 168, 83, 0.7)',
                 borderColor: 'rgba(52, 168, 83, 1)',
                 borderWidth: 1
             },
             {
                 label: 'VTR',
-                data: [0.51, 0.62, 0.24],
+                data: [0.50, 0.61, 0.25],
                 backgroundColor: 'rgba(251, 188, 4, 0.7)',
                 borderColor: 'rgba(251, 188, 4, 1)',
                 borderWidth: 1
             },
             {
                 label: 'Sessions',
-                data: [0.33, 0.47, 0.58],
+                data: [0.32, 0.48, 0.57],
                 backgroundColor: 'rgba(234, 67, 53, 0.7)',
                 borderColor: 'rgba(234, 67, 53, 1)',
                 borderWidth: 1
             },
             {
                 label: 'CTS%',
-                data: [0.29, 0.43, 0.65],
+                data: [0.30, 0.42, 0.66],
                 backgroundColor: 'rgba(142, 36, 170, 0.7)',
                 borderColor: 'rgba(142, 36, 170, 1)',
                 borderWidth: 1
